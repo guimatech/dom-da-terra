@@ -1,0 +1,96 @@
+header {
+    box-shadow: rgb(0 0 0 / 10%) 0px 2px 4px 0px;
+}
+
+footer {
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	width: auto;
+	height: auto;
+	text-align: right;
+}
+
+.expand-button {
+	position: fixed;
+	right: 1rem;
+	top: 4.5rem;
+	width: auto;
+	height: auto;
+	text-align: right;
+	cursor: pointer;
+	padding: 1rem 1rem .75rem 1rem;
+	border-radius: 0.5rem;
+	color: #F7F6FB;
+	background-color: #003153;
+}
+
+#clock {
+    margin: 1rem;
+}
+
+body {
+  color: #555;
+  font-size: 1.1em;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+em {
+  font-size: 0.9em;
+}
+
+.container {
+  margin: 40px auto;
+  max-width: 700px;
+}
+
+.element {
+  width: 100%;
+}
+
+.element p {
+  visibility: hidden;
+  text-align: center;
+  color: white;
+  font-size: 3em;
+}
+
+.element:-webkit-full-screen {
+  background-color: #e4708a;
+  width: 100vw;
+  height: 100vh;
+}
+
+.element:-webkit-full-screen p {
+  visibility: visible;
+}
+
+.element:-moz-full-screen {
+  background-color: #e4708a;
+  width: 100vw;
+  height: 100vh;
+}
+
+.element:-moz-full-screen p {
+  visibility: visible;
+}
+
+.element:-ms-fullscreen {
+  background-color: #e4708a;
+  width: 100vw;
+  height: 100vh;
+}
+
+.element:-ms-fullscreen p {
+  visibility: visible;
+}
+
+.element:fullscreen {
+  background-color: #e4708a;
+  width: 100vw;
+  height: 100vh;
+}
+
+.element:fullscreen p {
+  visibility: visible;
+}

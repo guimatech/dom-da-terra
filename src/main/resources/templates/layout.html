@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+    <title>Dom da terra</title>
+    <meta charset="UTF-8" />
+    <link th:rel="stylesheet" th:href="@{/css/global/bootstrap.min.css}" />
+    <link th:rel="stylesheet" th:href="@{/css/global/boxicons-2.1.4/css/boxicons.min.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/sidebar.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/global.css}" />
+</head>
+
+<body id="body-pd" onload="startTime()">
+    <header class="header" id="header">
+        <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
+        <span>Dashboard</span>
+        <div class="header_img">
+            <img th:src="@{/images/avatar.jpg}" alt="" />
+        </div>
+
+        <a class="expand-button" onclick="var el = document.getElementById('element'); el.webkitRequestFullscreen();">
+            <i class="bx bx-expand-alt nav_icon"></i>
+        </a>
+    </header>
+
+    <div class="l-navbar" id="nav-bar">
+        <nav class="nav">
+            <a th:href="@{/dashboard}" alt="SBL Dom da Terra" class="nav_logo"><i class='bx nav_logo-icon'>
+                <img id="logo" class="logo-min" th:src="@{/images/logo-min.png}" alt="SBL Dom da Terra">
+            </i>
+            </a>
+            <div>
+                <div class="nav_list">
+                    <a th:href="@{/dashboard}" alt="Dashboard" class="nav_link "> <i class='bx bxs-dashboard nav_icon'></i>
+                        <span class="nav_name">Dashboard</span>
+                    </a>
+                    <a th:href="@{/kanban}" alt="Funil de Atividades" class="nav_link "> <i class='bx bx-filter-alt nav_icon'></i>
+                        <span class="nav_name ">Funil de Atividades</span>
+                    </a>
+                    <a th:href="@{/register}" alt="Cadastros" class=" nav_link "> <i class='bx bx-message-square-detail nav_icon'></i>
+                        <span class="nav_name ">Cadastros</span>
+                    </a>
+                    <a th:href="@{/report}" class="nav_link "> <i class='bx bx-bar-chart-alt-2 nav_icon'></i>
+                        <span class="nav_name ">Relatórios</span>
+                    </a>
+                    <a th:href="@{/about}" alt="Ajuda" class="nav_link "> <i class='bx bx-help-circle nav_icon'></i>
+                        <span class="nav_name ">Ajuda</span>
+                    </a>
+                </div>
+            </div>
+            <a th:href="@{/logout}" class="nav_link btn-logout"> <i class='bx bx-log-out nav_icon'></i>
+                <span class="nav_name ">Sair</span>
+            </a>
+        </nav>
+    </div>
+
+    <div layout:fragment="content" class="height-100 bg-light element" id="element"></div>
+
+    <footer>
+        <span id="clock"></span>
+    </footer>
+
+    <script type="text/javascript" th:src="@{/js/libs/bootstrap.bundle.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/libs/jquery.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/libs/jquery.mask.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/libs/howler.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/sidebar.js} "></script>
+    <script>
+        $(document).ready(function() {
+            $('#time-talk').mask('00:00:00');
+        });
+    </script>
+    <script>
+        var el = document.getElementById('element');
+
+        el.webkitRequestFullscreen();
+        el.mozRequestFullScreen();
+        el.msRequestFullscreen();
+        el.requestFullscreen();
+    </script>
+    <script>
+        jQuery(document).ready(function($) {
+            $(".clickable-row").click(function() {
+                window.location = $(this).data("href");
+            });
+        });
+    </script>
+</body>
+
+</html>
