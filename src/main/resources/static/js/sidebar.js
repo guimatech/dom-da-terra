@@ -53,7 +53,7 @@ $(function() {
     $(".nav_list a").each(function() {
         if (url == (this.href)) {
             $(this).closest("a").addClass("active");
-            $(this).closest("a").parent().parent().addClass("active");
+//            $(this).closest("a").parent().parent().addClass("active");
         }
     });
 });
