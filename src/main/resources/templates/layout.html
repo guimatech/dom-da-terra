@@ -29,24 +29,25 @@
                 <img id="logo" class="logo-min" th:src="@{/images/logo-min.png}" alt="SBL Dom da Terra">
             </i>
             </a>
-            <div>
-                <div class="nav_list">
-                    <a th:href="@{/dashboard}" alt="Dashboard" class="nav_link "> <i class='bx bxs-dashboard nav_icon'></i>
-                        <span class="nav_name">Dashboard</span>
-                    </a>
-                    <a th:href="@{/kanban}" alt="Funil de Atividades" class="nav_link "> <i class='bx bx-filter-alt nav_icon'></i>
-                        <span class="nav_name ">Funil de Atividades</span>
-                    </a>
-                    <a th:href="@{/register}" alt="Cadastros" class=" nav_link "> <i class='bx bx-message-square-detail nav_icon'></i>
-                        <span class="nav_name ">Cadastros</span>
-                    </a>
-                    <a th:href="@{/report}" class="nav_link "> <i class='bx bx-bar-chart-alt-2 nav_icon'></i>
-                        <span class="nav_name ">Relatórios</span>
-                    </a>
-                    <a th:href="@{/about}" alt="Ajuda" class="nav_link "> <i class='bx bx-help-circle nav_icon'></i>
-                        <span class="nav_name ">Ajuda</span>
-                    </a>
-                </div>
+            <div class="nav_list">
+                <a th:href="@{/dashboard}" alt="Dashboard" class="nav_link "> <i class='bx bxs-dashboard nav_icon'></i>
+                    <span class="nav_name">Dashboard</span>
+                </a>
+                <a th:href="@{/kanban}" alt="Funil de atividades" class="nav_link "> <i class='bx bx-filter-alt nav_icon'></i>
+                    <span class="nav_name ">Funil de atividades</span>
+                </a>
+                <a th:href="@{/billings}" alt="Robô de cobranças" class=" nav_link "> <i class='bx bx-bell nav_icon'></i>
+                    <span class="nav_name ">Robô de cobranças</span>
+                </a>
+                <a th:href="@{/register}" alt="Cadastros" class=" nav_link "> <i class='bx bx-message-square-detail nav_icon'></i>
+                    <span class="nav_name ">Cadastros</span>
+                </a>
+                <a th:href="@{/report}" class="nav_link "> <i class='bx bx-bar-chart-alt-2 nav_icon'></i>
+                    <span class="nav_name ">Relatórios</span>
+                </a>
+                <a th:href="@{/about}" alt="Ajuda" class="nav_link "> <i class='bx bx-help-circle nav_icon'></i>
+                    <span class="nav_name ">Ajuda</span>
+                </a>
             </div>
             <a th:href="@{/logout}" class="nav_link btn-logout"> <i class='bx bx-log-out nav_icon'></i>
                 <span class="nav_name ">Sair</span>
