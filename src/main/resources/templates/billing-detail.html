@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{layout}">
+
+<body>
+<div layout:fragment="content" th:classappend="'px-3'">
+  <div>
+    <div class="d-flex bd-highlight mt-2">
+      <button class="btn btn-outline-secondary px-3 bd-highlight" style="font-size: 1.3rem;"
+              type="button" th:onclick="'location.href=\'' + @{/billings} + '\';'">
+        <i class="bx bx-arrow-back"></i>
+      </button>
+      <h2 class="ml-2 mt-2 bd-highlight">Cadastro de Cobrança</h2>
+    </div>
+
+    <div class="alert alert-success mt-2" role="alert" th:if="${message != null}">
+      <span th:text="${message}"></span>
+    </div><br />
+
+    <form method="post"
+          th:object="${billing}"
+          th:action="@{/billings/save}">
+      <fieldset class="row g-3">
+        <input type="hidden" th:field="*{id}" />
+
+        <div class="col-md-2">
+          <label class="form-label" for="operation">Nº da Operação: </label><br />
+          <input class="form-control"
+                 type="text"
+                 id="operation"
+                 name="operation"
+                 placeholder="Número da Operação..."
+                 th:field="*{operation}"
+                 th:classappend="${#fields.hasErrors('operation')} ? 'is-invalid' : ''" /><br />
+          <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('operation')}">
+            <span th:errors="*{operation}"></span>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <label class="form-label" for="expiration">Data de Vencimento: </label><br />
+          <input class="form-control"
+                 type="text"
+                 id="expiration"
+                 name="expiration"
+                 placeholder="Data de Vencimento..."
+                 th:field="*{expiration}"
+                 th:classappend="${#fields.hasErrors('expiration')} ? 'is-invalid' : ''" /><br />
+          <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('expiration')}">
+            <span th:errors="*{expiration}"></span>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <label class="form-label" for="customer">Cliente: </label><br />
+          <input class="form-control"
+                 type="text"
+                 id="customer"
+                 name="customer"
+                 placeholder="Cliente..."
+                 th:field="*{customer}"
+                 th:classappend="${#fields.hasErrors('customer')} ? 'is-invalid' : ''" /><br />
+          <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('customer')}">
+            <span th:errors="*{customer}"></span>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <label class="form-label" for="financialInstitution">Instituição Financeira: </label><br />
+          <input class="form-control"
+                 type="text"
+                 id="financialInstitution"
+                 name="financialInstitution"
+                 placeholder="Instituição Financeira..."
+                 th:field="*{financialInstitution}"
+                 th:classappend="${#fields.hasErrors('financialInstitution')} ? 'is-invalid' : ''" /><br />
+          <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('financialInstitution')}">
+            <span th:errors="*{financialInstitution}"></span>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <label class="form-label" for="banknoteType">Tipo de Cédula: </label><br />
+          <input class="form-control"
+                 type="text"
+                 id="banknoteType"
+                 name="banknoteType"
+                 placeholder="Tipo de Cédula..."
+                 th:field="*{banknoteType}"
+                 th:classappend="${#fields.hasErrors('banknoteType')} ? 'is-invalid' : ''" /><br />
+          <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('banknoteType')}">
+            <span th:errors="*{banknoteType}"></span>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <label class="form-label" for="amountDue">Valor Devido Em (R$): </label><br />
+          <input class="form-control currency"
+                 type="text"
+                 id="amountDue"
+                 name="amountDue"
+                 placeholder="Valor Devido Em (R$)..."
+                 th:field="*{amountDue}"
+                 th:classappend="${#fields.hasErrors('amountDue')} ? 'is-invalid' : ''" /><br />
+          <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('amountDue')}">
+            <span th:errors="*{amountDue}"></span>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <label class="form-label" for="interestProjection">Projeção de Juros: </label><br />
+          <input class="form-control currency"
+                 type="text"
+                 id="interestProjection"
+                 name="interestProjection"
+                 placeholder="Projeção de Juros..."
+                 th:field="*{interestProjection}"
+                 th:classappend="${#fields.hasErrors('interestProjection')} ? 'is-invalid' : ''" /><br />
+          <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('interestProjection')}">
+            <span th:errors="*{interestProjection}"></span>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <label class="form-label" for="interestValue">Valor do Juros: </label><br />
+          <input class="form-control currency"
+                 type="text"
+                 id="interestValue"
+                 name="interestValue"
+                 placeholder="Valor do Juros..."
+                 th:field="*{interestValue}"
+                 th:classappend="${#fields.hasErrors('interestValue')} ? 'is-invalid' : ''" /><br />
+          <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('interestValue')}">
+            <span th:errors="*{interestValue}"></span>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <label class="form-label" for="approximateTotalAmount">Valor Total Aproximado: </label><br />
+          <input class="form-control currency"
+                 type="text"
+                 id="approximateTotalAmount"
+                 name="approximateTotalAmount"
+                 placeholder="Valor Total Aproximado..."
+                 th:field="*{approximateTotalAmount}"
+                 th:classappend="${#fields.hasErrors('approximateTotalAmount')} ? 'is-invalid' : ''" /><br />
+          <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('approximateTotalAmount')}">
+            <span th:errors="*{approximateTotalAmount}"></span>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <label class="form-label" for="installment">Parcela: </label><br />
+          <input class="form-control"
+                 type="text"
+                 id="installment"
+                 name="installment"
+                 placeholder="Parcela..."
+                 th:field="*{installment}"
+                 th:classappend="${#fields.hasErrors('installment')} ? 'is-invalid' : ''" /><br />
+          <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('installment')}">
+            <span th:errors="*{installment}"></span>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <label class="form-label" for="statusPayment">Status do Pagamento: </label><br />
+          <input class="form-control"
+                 type="text"
+                 id="statusPayment"
+                 name="statusPayment"
+                 placeholder="Status do Pagamento..."
+                 th:field="*{statusPayment}"
+                 th:classappend="${#fields.hasErrors('statusPayment')} ? 'is-invalid' : ''" /><br />
+          <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('statusPayment')}">
+            <span th:errors="*{statusPayment}"></span>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <label class="form-label" for="email">Email: </label><br />
+          <input class="form-control"
+                 type="email"
+                 id="email"
+                 name="email"
+                 placeholder="Email..."
+                 th:field="*{email}"
+                 th:classappend="${#fields.hasErrors('email')} ? 'email' : ''" /><br />
+          <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('email')}">
+            <span th:errors="*{email}"></span>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <label class="form-label" for="phone">Telefone: </label><br />
+          <input class="form-control"
+                 type="text"
+                 id="phone"
+                 name="phone"
+                 placeholder="Telefone..."
+                 th:field="*{phone}"
+                 th:classappend="${#fields.hasErrors('phone')} ? 'phone' : ''" onkeydown="return isNumberKey(event);" /><br />
+          <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('phone')}">
+            <span th:errors="*{phone}"></span>
+          </div>
+        </div>
+
+        <div class="col-12 d-flex justify-content-between">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="checkActive"
+                   th:field="*{active}" th:checked="*{active}" th:value="*{active}" >
+            <label class="form-check-label" for="checkActive">
+              Ativo
+            </label>
+            <div class="text-danger">
+              Você deve marcar para cobrança acontecer.
+            </div>
+          </div>
+          <button class="btn btn-primary px-5" type="submit" th:text="${!editMode} ? 'Cadastrar' : 'Alterar'"></button>
+        </div>
+      </fieldset>
+    </form>
+    <br />
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Dom da Terra</title>
+    <meta charset="UTF-8" />
+    <link th:rel="stylesheet" th:href="@{/css/global/bootstrap.min.css}" />
+    <link th:rel="stylesheet" th:href="@{/css/global/boxicons-2.1.4/css/boxicons.min.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/login.css}" />
+</head>
+<body>
+<div class="container">
+    <div class="d-flex justify-content-end h-100">
+        <div class="card">
+            <div class="card-header">
+                <h3>Sign In</h3>
+            </div>
+            <div class="card-body">
+                <form method="post" th:action="@{/login}">
+                    <div class="input-group form-group form-outline mb-4">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text justify-content-center"><i class="bx bx-user"></i></span>
+                        </div>
+                        <input type="text" class="form-control" name="username" placeholder="Usuário...">
+
+                    </div>
+                    <div class="input-group form-group form-outline mb-4">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text justify-content-center"><i class="bx bx-key"></i></span>
+                        </div>
+                        <input type="password" class="form-control" name="password" placeholder="Senha...">
+                    </div>
+                    <div class="form-group row mb-4">
+                        <div class="col d-flex justify-content-end">
+                            <input type="submit" value="Entrar" class="btn float-right login_btn">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="alert alert-danger" role="alert" th:if="${message != null}">
+                <strong>Erro:</strong>
+                <span th:text="${message}"></span>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

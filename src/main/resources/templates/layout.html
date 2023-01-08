@@ -65,11 +65,7 @@
     <script type="text/javascript" th:src="@{/js/libs/jquery.mask.min.js}"></script>
     <script type="text/javascript" th:src="@{/js/libs/howler.min.js}"></script>
     <script type="text/javascript" th:src="@{/js/sidebar.js} "></script>
-    <script>
-        $(document).ready(function() {
-            $('#time-talk').mask('00:00:00');
-        });
-    </script>
+    <script type="text/javascript" th:src="@{/js/script.js}"></script>
     <script>
         var el = document.getElementById('element');
 
@@ -83,6 +79,19 @@
             $(".clickable-row").click(function() {
                 window.location = $(this).data("href");
             });
+        });
+    </script>
+    <script>
+        $('#file').on('change',function(){
+            var fileName = $(this).val();
+            $(this).next('.custom-file-label').html(fileName);
+        });
+    </script>
+    <script>
+        $(document).ready(function(){
+            $('#expiration').mask('00/00/0000');
+            $('.currency').mask('#.##0,00');
+            $('#phone').mask('(00) 0 0000-0000');
         });
     </script>
 </body>
