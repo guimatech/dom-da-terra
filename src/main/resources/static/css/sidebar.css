@@ -2,8 +2,8 @@
 :root {
     --header-height: 3rem;
     --nav-width: 68px;
-    --first-color: #003153;
-    --first-color-light: #AFA5D9;
+    --first-color: #005339;
+    --first-color-light: #a5d9ca;
     --white-color: #F7F6FB;
     --body-font: 'Nunito', sans-serif;
     --normal-font-size: 1rem;
@@ -121,6 +121,40 @@ a {
     font-size: 1.25rem
 }
 
+.accordion-menu {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 1rem 1.25rem;
+    text-align: left;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    border-radius: 0;
+    overflow-anchor: none;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out,border-radius .15s ease;
+}
+
+.collapse-menu {
+    margin-top: -2.3rem;
+}
+
+.accordion-arrow {
+    cursor: pointer;
+    transition: transform 333ms ease-out, color 333ms;
+    margin-left: auto;
+    text-align: center;
+    line-height: 1;
+}
+.accordion-menu.open .accordion-arrow {
+    -ms-transform: rotate(-180deg);
+    transform: rotate(-180deg);
+}
+
 .show-menu {
     left: 0
 }
@@ -181,7 +215,7 @@ a {
         padding: 1rem 1rem 0 0
     }
     .show-menu {
-        width: calc(var(--nav-width) + 156px)
+        width: calc(var(--nav-width) + 166px)
     }
     .body-pd {
         padding-left: calc(var(--nav-width) + 188px)

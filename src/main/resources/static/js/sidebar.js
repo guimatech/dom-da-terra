@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
     function colorLink(){
         if(linkColor){
-            linkColor.forEach(l=> l.classList.remove('active'))
+            linkColor.forEach(l => l.classList.remove('active'))
             this.classList.add('active')
         }
     }
@@ -53,7 +53,16 @@ $(function() {
     $(".nav_list a").each(function() {
         if (url == (this.href)) {
             $(this).closest("a").addClass("active");
-//            $(this).closest("a").parent().parent().addClass("active");
         }
     });
+
+    $('.sub_nav_link').each(function(){
+        if ($(this).hasClass("active"))
+            $(this).parent().parent().children().children().addClass("active");
+    })
+
+    $('.accordion-menu').click( function(){
+        $(this).toggleClass('open');
+        $(this).addClass("active");
+    })
 });
