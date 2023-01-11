@@ -1,4 +1,4 @@
-package io.github.guimatech.domdaterra.billingrobot.infra.config;
+package io.github.guimatech.domdaterra.infra.config;
 
 import com.amazonaws.auth.AWSStaticCredentialsProvider;
 import com.amazonaws.auth.BasicAWSCredentials;

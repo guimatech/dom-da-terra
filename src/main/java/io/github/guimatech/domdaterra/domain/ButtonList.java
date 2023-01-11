@@ -1,4 +1,4 @@
-package io.github.guimatech.domdaterra.billingrobot.domain;
+package io.github.guimatech.domdaterra.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

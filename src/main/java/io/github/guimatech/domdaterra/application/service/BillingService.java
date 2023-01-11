@@ -1,7 +1,7 @@
-package io.github.guimatech.domdaterra.billingrobot.application.service;
+package io.github.guimatech.domdaterra.application.service;
 
-import io.github.guimatech.domdaterra.billingrobot.domain.Billing;
-import io.github.guimatech.domdaterra.billingrobot.infra.out.db.repository.BillingRepository;
+import io.github.guimatech.domdaterra.domain.Billing;
+import io.github.guimatech.domdaterra.infra.out.db.repository.BillingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
