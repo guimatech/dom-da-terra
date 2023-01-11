@@ -1,6 +1,6 @@
 package io.github.guimatech.domdaterra.infra.in.web.mapper;
 
-import io.github.guimatech.domdaterra.domain.Billing;
+import io.github.guimatech.domdaterra.billingrobot.domain.Billing;
 import io.github.guimatech.domdaterra.infra.in.web.dto.BillingDTO;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;

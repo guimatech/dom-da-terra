@@ -1,10 +1,10 @@
-package io.github.guimatech.domdaterra.application.service;
+package io.github.guimatech.domdaterra.billingrobot.application.service;
 
 import com.amazonaws.services.sns.AmazonSNS;
 import com.amazonaws.services.sns.model.MessageAttributeValue;
 import com.amazonaws.services.sns.model.PublishRequest;
 import com.amazonaws.services.sns.model.PublishResult;
-import io.github.guimatech.domdaterra.application.exception.AwsSnsClientException;
+import io.github.guimatech.domdaterra.billingrobot.application.exception.AwsSnsClientException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

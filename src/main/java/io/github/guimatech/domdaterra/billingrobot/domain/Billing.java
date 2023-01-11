@@ -1,4 +1,4 @@
-package io.github.guimatech.domdaterra.domain;
+package io.github.guimatech.domdaterra.billingrobot.domain;
 
 import com.opencsv.bean.CsvBindByName;
 import com.opencsv.bean.CsvDate;

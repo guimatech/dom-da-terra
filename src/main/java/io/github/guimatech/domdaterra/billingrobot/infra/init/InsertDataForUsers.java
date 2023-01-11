@@ -1,4 +1,4 @@
-package io.github.guimatech.domdaterra.infra.init;
+package io.github.guimatech.domdaterra.billingrobot.infra.init;
 
 import io.github.guimatech.domdaterra.domain.User;
 import io.github.guimatech.domdaterra.infra.out.db.repository.UserRepository;

@@ -2,8 +2,8 @@ package io.github.guimatech.domdaterra.infra.in.web;
 
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
-import io.github.guimatech.domdaterra.application.service.BillingService;
-import io.github.guimatech.domdaterra.domain.Billing;
+import io.github.guimatech.domdaterra.billingrobot.application.service.BillingService;
+import io.github.guimatech.domdaterra.billingrobot.domain.Billing;
 import io.github.guimatech.domdaterra.infra.in.web.dto.BillingDTO;
 import io.github.guimatech.domdaterra.infra.in.web.mapper.BillingMapper;
 import org.apache.commons.io.input.BOMInputStream;

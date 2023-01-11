@@ -1,6 +1,6 @@
-package io.github.guimatech.domdaterra.application.service;
+package io.github.guimatech.domdaterra.billingrobot.application.service;
 
-import io.github.guimatech.domdaterra.domain.Billing;
+import io.github.guimatech.domdaterra.billingrobot.domain.Billing;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

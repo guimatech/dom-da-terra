@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br"
+	  xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layout}" xmlns:layout="http://www.w3.org/1999/xhtml">
+
+	<body>
+		<div layout:fragment="content">
+			<div class="d-flex justify-content-between px-4 pt-3">
+				<h2>Quadro de avisos</h2>
+				<button type="button" style="color: #f9fafb;" class="btn btn-info add-new mx-5" th:onclick="'location.href=\'' + @{/notice-logs/new} + '\';'">
+					<i class="bx bx-plus"></i> Criar Registro
+				</button>
+			</div>
+			<hr />
+			<table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+				<thead>
+				<tr>
+					<th class="col">Id</th>
+					<th class="col">Descrição</th>
+					<th class="col">Período de notificação</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr th:if="${notiveLogPage.content.empty}">
+					<td colspan="2"> Sem cobranças disponíveis </td>
+				</tr>
+				<tr th:each="notiveLog, iStat : ${notiveLogPage.content}">
+					<td th:text="${notiveLog.id}" />
+					<td th:text="${notiveLog.description}" />
+					<td th:text="${notiveLog.period}" />
+					<td class="d-flex justify-content-around" style="cursor: pointer;">
+						<a class="edit text-warning" title="Edit" data-toggle="tooltip" th:href="@{/notiveLogs/edit/{id}(id=${notiveLog.id})}">
+							<i class="bx bxs-pencil"></i>
+						</a>
+						<a class="delete text-danger" title="Delete" data-toggle="tooltip" th:href="@{/notiveLogs/delete/{id}(id=${notiveLog.id})}">
+							<i class="bx bxs-trash-alt"></i>
+						</a>
+					</td>
+				</tr>
+				</tbody>
+			</table>
+			<nav aria-label="Page navigation" class="paging">
+				<ul class="pagination justify-content-end" th:if="${notiveLogPage.totalPages > 0}">
+					<li class="page-item" th:classappend="${!notiveLogPage.hasPrevious() ? 'disabled' : ''}">
+						<a class="page-link" th:href="@{/notiveLogs(size=${notiveLogPage.size}, page=${notiveLogPage.number})}"
+						   tabindex="-1">Anterior</a>
+					</li>
+					<li class="page-item"
+						th:if="${notiveLogPage.totalPages > 0}"
+						th:each="pageNumber : ${pageNumbers}"
+						th:classappend="${pageNumber==notiveLogPage.number + 1} ? active">
+						<a class="page-link"
+						   th:href="@{/notiveLogs(size=${notiveLogPage.size}, page=${pageNumber})}"
+						   th:text=${pageNumber}></a>
+					</li>
+					<li class="page-item" th:classappend="${!notiveLogPage.hasNext() ? 'disabled' : ''}">
+						<a class="page-link"
+						   th:href="@{/notiveLogs(size=${notiveLogPage.size}, page=${notiveLogPage.number + 2})}">Próximo</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</body>
+</html>
