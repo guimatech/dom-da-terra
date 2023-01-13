@@ -13,7 +13,7 @@
 <body id="body-pd" onload="startTime()">
     <header class="header" id="header">
         <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
-        <span>Dashboard</span>
+        <span th:text="${NOTICE_LOG}"></span>
         <div class="header_img">
             <img th:src="@{/images/avatar.jpg}" alt="" />
         </div>

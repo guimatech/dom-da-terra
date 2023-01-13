@@ -13,7 +13,6 @@ public class LoggedUser implements UserDetails {
     private final User user;
     private Collection<? extends GrantedAuthority> roles;
 
-
     public LoggedUser(User user) {
         this.user = user;
         this.roles = List.of(new SimpleGrantedAuthority("ROLE_USER"));

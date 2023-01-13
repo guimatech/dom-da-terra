@@ -23,7 +23,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.IntStream;
 
-import static io.github.guimatech.domdaterra.shared.util.Constant.setGlobalVariables;
 import static org.springframework.beans.support.PagedListHolder.DEFAULT_PAGE_SIZE;
 
 @Controller
@@ -80,8 +79,6 @@ public class NoticeLogController {
     }
 
     private String save(NoticeLogRequest noticeLogRequest, Errors errors, Model model) {
-        setGlobalVariables(model);
-
         if (!errors.hasErrors()) {
             try {
                 var noticeLog = NoticeLogMapper.INSTANCE.RequestToDomain(noticeLogRequest);
@@ -96,7 +93,6 @@ public class NoticeLogController {
 
     @GetMapping("/delete/{id}")
     public String deleteMeetingAgenda(Model model, @PathVariable Long id) {
-        setGlobalVariables(model);
         service.deleteById(id);
 
         return REDIRECT_NOTICE_LOGS;

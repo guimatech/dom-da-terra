@@ -18,7 +18,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/images/**", "/css/**", "/webjars/bootstrap/4.0.0-2/css/**", "/public", "/sbpay").permitAll()
+                .antMatchers("/images/**", "/css/**", "/public", "/sbpay").permitAll()
                 .antMatchers("/billings/**").hasRole("USER")
                 .anyRequest().authenticated()
                 .and()
