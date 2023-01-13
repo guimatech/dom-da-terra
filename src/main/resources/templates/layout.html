@@ -50,7 +50,7 @@
                         </button>
                     </div>
                     <div id="collapseRegisterMenus" class="collapse-menu accordion-collapse collapse show" aria-labelledby="headingRegister" data-bs-parent="#accordionRegister">
-                        <a th:href="@{/register}" alt="Cadastros" class=" nav_link sub_nav_link "> <i class='bx bx-message-square-detail nav_icon ms-2'></i>
+                        <a th:href="@{/notice-logs}" alt="Cadastros" class=" nav_link sub_nav_link "> <i class='bx bx-message-square-detail nav_icon ms-2'></i>
                             <span class="nav_name ">Quadro de avisos</span>
                         </a>
                     </div>
@@ -107,6 +107,39 @@
             $('.currency').mask('#.##0,00');
             $('#phone').mask('(00) 0 0000-0000');
         });
+    </script>
+    <script>
+        startDateField = document.getElementById("startDate");
+        endDateField = document.getElementById("endDate");
+
+        startDateField.min = new Date().toISOString().split("T")[0];
+        endDateField.min = new Date().toISOString().split("T")[0];
+
+        startDateField.onchange = function () {
+            endDateField.min = this.value;
+            if (endDateField.value < this.value) {
+                endDateField.value = this.value
+            }
+        }
+    </script>
+    <script>
+        (function () {
+          'use strict'
+
+          var forms = document.querySelectorAll('.needs-validation')
+
+          Array.prototype.slice.call(forms)
+            .forEach(function (form) {
+              form.addEventListener('submit', function (event) {
+                if (!form.checkValidity()) {
+                  event.preventDefault()
+                  event.stopPropagation()
+                }
+
+                form.classList.add('was-validated')
+              }, false)
+            })
+        })()
     </script>
 </body>
 

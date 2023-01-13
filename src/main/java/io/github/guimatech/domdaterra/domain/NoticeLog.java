@@ -1,7 +1,6 @@
 package io.github.guimatech.domdaterra.domain;
 
-import com.opencsv.bean.CsvBindByName;
-import com.opencsv.bean.CsvDate;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,9 +13,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Objects;
 
 @Data
 @Table
@@ -30,13 +30,16 @@ public class NoticeLog implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @NotEmpty(message = "A descrição não pode ser vázia")
     private String description;
+    private LocalDate startDatePeriod;
+    private LocalDate endDatePeriod;
 
-    @NotNull(message = "O início do período não pode ser vázio")
-    private LocalDate startPeriod;
+    @JsonIgnore
+    public String getPeriod() {
+        if (Objects.isNull(this.startDatePeriod) || Objects.isNull(this.endDatePeriod))
+            return "";
 
-    @NotNull(message = "O final do período não pode ser vázio")
-    private LocalDate endPeriod;
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        return String.format("De %s até %s", formatter.format(this.startDatePeriod), formatter.format(this.endDatePeriod));
+    }
 }

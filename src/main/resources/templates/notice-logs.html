@@ -7,11 +7,77 @@
 		<div layout:fragment="content">
 			<div class="d-flex justify-content-between px-4 pt-3">
 				<h2>Quadro de avisos</h2>
-				<button type="button" style="color: #f9fafb;" class="btn btn-info add-new mx-5" th:onclick="'location.href=\'' + @{/notice-logs/new} + '\';'">
+				<button type="button" style="color: #f9fafb;" class="btn btn-info add-new mx-5"
+						data-bs-toggle="modal" data-bs-target="#newNoticeLogModal">
 					<i class="bx bx-plus"></i> Criar Registro
 				</button>
 			</div>
+
+			<!-- Modal New -->
+			<div class="modal fade" id="newNoticeLogModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="newNoticeLogModalLabel">Cadastro de Avisos</h5>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						</div>
+						<form method="post" th:object="${noticeLogRequest}" th:action="@{/notice-logs/save/new}"
+							  class="needs-validation" novalidate>
+							<fieldset>
+								<input type="hidden" th:field="*{id}" />
+								<div class="modal-body pt-0">
+									<div class="alert alert-success mt-2" role="alert" th:if="${message != null}">
+										<span th:text="${message}"></span>
+									</div><br />
+									<div class="form-floating mb-3">
+										<input type="text" class="form-control" id="description" name="description"
+											   placeholder="Lorem Ipsum é um texto modelo da..."
+											   th:field="*{description}"
+											   th:classappend="${#fields.hasErrors('description')} ? 'is-invalid' : ''"
+											   required>
+										<label for="description">Descrição</label>
+										<div class="invalid-feedback" th:if="${#fields.hasErrors('description')}">
+											<span th:errors="*{description}"></span>
+										</div>
+										<div class="valid-feedback">
+											Correto!
+										</div>
+									</div>
+									<div class="row">
+										<div class="form-floating col">
+											<input type="date" class="form-control" id="startDate" placeholder="dd/mm/aaaa"
+												   th:field="*{startDatePeriod}"
+												   th:classappend="${#fields.hasErrors('startDatePeriod')} ? 'is-invalid' : ''"
+												   required>
+											<label for="startDate">Data de início</label>
+											<div class="invalid-feedback" th:if="${#fields.hasErrors('startDatePeriod')}">
+												<span th:errors="*{startDatePeriod}"></span>
+											</div>
+										</div>
+										<div class="form-floating col">
+											<input type="date" class="form-control" id="endDate" placeholder="dd/mm/aaaa"
+												   th:field="*{endDatePeriod}"
+												   th:classappend="${#fields.hasErrors('endDatePeriod')} ? 'is-invalid' : ''"
+												   required>
+											<label for="endDate">Data de fim</label>
+											<div class="invalid-feedback" th:if="${#fields.hasErrors('endDatePeriod')}">
+												<span th:errors="*{endDatePeriod}"></span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+									<button type="submit" class="btn btn-primary">Salvar</button>
+								</div>
+							</fieldset>
+						</form>
+					</div>
+				</div>
+			</div>
+
 			<hr />
+
 			<table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
 				<thead>
 				<tr>
@@ -21,18 +87,18 @@
 				</tr>
 				</thead>
 				<tbody>
-				<tr th:if="${notiveLogPage.content.empty}">
-					<td colspan="2"> Sem cobranças disponíveis </td>
+				<tr th:if="${noticeLogsPage.content.empty}">
+					<td colspan="2"> Sem avisos cadastrados </td>
 				</tr>
-				<tr th:each="notiveLog, iStat : ${notiveLogPage.content}">
-					<td th:text="${notiveLog.id}" />
-					<td th:text="${notiveLog.description}" />
-					<td th:text="${notiveLog.period}" />
+				<tr th:each="noticeLog, iStat : ${noticeLogsPage.content}">
+					<td th:text="${noticeLog.id}" />
+					<td th:text="${noticeLog.description}" />
+					<td th:text="${noticeLog.getPeriod()}" />
 					<td class="d-flex justify-content-around" style="cursor: pointer;">
-						<a class="edit text-warning" title="Edit" data-toggle="tooltip" th:href="@{/notiveLogs/edit/{id}(id=${notiveLog.id})}">
+						<a class="edit text-warning" title="Edit" data-toggle="tooltip" th:href="@{/notice-logs/edit/{id}(id=${noticeLog.id})}">
 							<i class="bx bxs-pencil"></i>
 						</a>
-						<a class="delete text-danger" title="Delete" data-toggle="tooltip" th:href="@{/notiveLogs/delete/{id}(id=${notiveLog.id})}">
+						<a class="delete text-danger" title="Delete" data-toggle="tooltip" th:href="@{/notice-logs/delete/{id}(id=${noticeLog.id})}">
 							<i class="bx bxs-trash-alt"></i>
 						</a>
 					</td>
@@ -40,22 +106,22 @@
 				</tbody>
 			</table>
 			<nav aria-label="Page navigation" class="paging">
-				<ul class="pagination justify-content-end" th:if="${notiveLogPage.totalPages > 0}">
-					<li class="page-item" th:classappend="${!notiveLogPage.hasPrevious() ? 'disabled' : ''}">
-						<a class="page-link" th:href="@{/notiveLogs(size=${notiveLogPage.size}, page=${notiveLogPage.number})}"
+				<ul class="pagination justify-content-end" th:if="${noticeLogsPage.totalPages > 0}">
+					<li class="page-item" th:classappend="${!noticeLogsPage.hasPrevious() ? 'disabled' : ''}">
+						<a class="page-link" th:href="@{/notice-logs(size=${noticeLogsPage.size}, page=${noticeLogsPage.number})}"
 						   tabindex="-1">Anterior</a>
 					</li>
 					<li class="page-item"
-						th:if="${notiveLogPage.totalPages > 0}"
+						th:if="${noticeLogsPage.totalPages > 0}"
 						th:each="pageNumber : ${pageNumbers}"
-						th:classappend="${pageNumber==notiveLogPage.number + 1} ? active">
+						th:classappend="${pageNumber==noticeLogsPage.number + 1} ? active">
 						<a class="page-link"
-						   th:href="@{/notiveLogs(size=${notiveLogPage.size}, page=${pageNumber})}"
+						   th:href="@{/notice-logs(size=${noticeLogsPage.size}, page=${pageNumber})}"
 						   th:text=${pageNumber}></a>
 					</li>
-					<li class="page-item" th:classappend="${!notiveLogPage.hasNext() ? 'disabled' : ''}">
+					<li class="page-item" th:classappend="${!noticeLogsPage.hasNext() ? 'disabled' : ''}">
 						<a class="page-link"
-						   th:href="@{/notiveLogs(size=${notiveLogPage.size}, page=${notiveLogPage.number + 2})}">Próximo</a>
+						   th:href="@{/notice-logs(size=${noticeLogsPage.size}, page=${noticeLogsPage.number + 2})}">Próximo</a>
 					</li>
 				</ul>
 			</nav>
