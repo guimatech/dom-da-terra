@@ -20,4 +20,8 @@ public class NoticeLogService {
     public void save(NoticeLog noticeLog) {
         repository.save(noticeLog);
     }
+
+    public void deleteById(Long id) {
+        repository.deleteById(id);
+    }
 }

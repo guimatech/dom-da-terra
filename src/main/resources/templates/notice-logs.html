@@ -26,18 +26,12 @@
 							<fieldset>
 								<input type="hidden" th:field="*{id}" />
 								<div class="modal-body pt-0">
-									<div class="alert alert-success mt-2" role="alert" th:if="${message != null}">
-										<span th:text="${message}"></span>
-									</div><br />
 									<div class="form-floating mb-3">
 										<input type="text" class="form-control" id="description" name="description"
-											   placeholder="Lorem Ipsum é um texto modelo da..."
-											   th:field="*{description}"
-											   th:classappend="${#fields.hasErrors('description')} ? 'is-invalid' : ''"
-											   required>
+											   th:field="*{description}" required>
 										<label for="description">Descrição</label>
-										<div class="invalid-feedback" th:if="${#fields.hasErrors('description')}">
-											<span th:errors="*{description}"></span>
+										<div class="invalid-feedback">
+											Por favor, preencha a descrição do aviso.
 										</div>
 										<div class="valid-feedback">
 											Correto!
@@ -46,22 +40,24 @@
 									<div class="row">
 										<div class="form-floating col">
 											<input type="date" class="form-control" id="startDate" placeholder="dd/mm/aaaa"
-												   th:field="*{startDatePeriod}"
-												   th:classappend="${#fields.hasErrors('startDatePeriod')} ? 'is-invalid' : ''"
-												   required>
+												   th:field="*{startDatePeriod}" required>
 											<label for="startDate">Data de início</label>
-											<div class="invalid-feedback" th:if="${#fields.hasErrors('startDatePeriod')}">
-												<span th:errors="*{startDatePeriod}"></span>
+											<div class="invalid-feedback">
+												Por favor, preencha a data de início do aviso.
+											</div>
+											<div class="valid-feedback">
+												Correto!
 											</div>
 										</div>
 										<div class="form-floating col">
 											<input type="date" class="form-control" id="endDate" placeholder="dd/mm/aaaa"
-												   th:field="*{endDatePeriod}"
-												   th:classappend="${#fields.hasErrors('endDatePeriod')} ? 'is-invalid' : ''"
-												   required>
+												   th:field="*{endDatePeriod}" required>
 											<label for="endDate">Data de fim</label>
-											<div class="invalid-feedback" th:if="${#fields.hasErrors('endDatePeriod')}">
-												<span th:errors="*{endDatePeriod}"></span>
+											<div class="invalid-feedback">
+												Por favor, preencha a data de fim do aviso.
+											</div>
+											<div class="valid-feedback">
+												Correto!
 											</div>
 										</div>
 									</div>
@@ -95,13 +91,73 @@
 					<td th:text="${noticeLog.description}" />
 					<td th:text="${noticeLog.getPeriod()}" />
 					<td class="d-flex justify-content-around" style="cursor: pointer;">
-						<a class="edit text-warning" title="Edit" data-toggle="tooltip" th:href="@{/notice-logs/edit/{id}(id=${noticeLog.id})}">
+						<a class="edit text-warning" title="Edit" data-toggle="tooltip"
+						   data-bs-toggle="modal" data-bs-target="#editNoticeLogModal">
 							<i class="bx bxs-pencil"></i>
 						</a>
 						<a class="delete text-danger" title="Delete" data-toggle="tooltip" th:href="@{/notice-logs/delete/{id}(id=${noticeLog.id})}">
 							<i class="bx bxs-trash-alt"></i>
 						</a>
 					</td>
+					<!-- Modal New -->
+					<div class="modal fade" id="editNoticeLogModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title" id="editNoticeLogModalLabel">Edição de Avisos</h5>
+									<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+								</div>
+								<form method="post" th:object="${noticeLogRequest}" th:action="@{/notice-logs/save/new}"
+									  class="needs-validation" novalidate>
+									<fieldset>
+										<input type="hidden" th:field="*{id}" />
+										<div class="modal-body">
+											<div class="form-floating mb-3">
+												<input type="text" class="form-control" id="description" name="description"
+													   th:field="*{description}" required>
+												</input>
+												<label for="description">Descrição</label>
+												<div class="invalid-feedback">
+													Por favor, preencha a descrição do aviso.
+												</div>
+												<div class="valid-feedback">
+													Correto!
+												</div>
+											</div>
+											<div class="row">
+												<div class="form-floating col">
+													<input type="date" class="form-control" id="startDateEdit" placeholder="dd/mm/aaaa"
+														   th:field="*{startDatePeriod}" required>
+													<label for="startDateEdit">Data de início</label>
+													<div class="invalid-feedback">
+														Por favor, preencha a data de início do aviso.
+													</div>
+													<div class="valid-feedback">
+														Correto!
+													</div>
+												</div>
+												<div class="form-floating col">
+													<input type="date" class="form-control" id="endDateEdit" placeholder="dd/mm/aaaa"
+														   th:field="*{endDatePeriod}" required>
+													<label for="endDateEdit">Data de fim</label>
+													<div class="invalid-feedback">
+														Por favor, preencha a data de fim do aviso.
+													</div>
+													<div class="valid-feedback">
+														Correto!
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+											<button type="submit" class="btn btn-primary">Salvar</button>
+										</div>
+									</fieldset>
+								</form>
+							</div>
+						</div>
+					</div>
 				</tr>
 				</tbody>
 			</table>

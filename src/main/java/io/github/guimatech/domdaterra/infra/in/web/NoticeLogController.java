@@ -34,6 +34,8 @@ public class NoticeLogController {
 
     private static final String NOTICE_LOGS = "notice-logs";
 
+    private static final String REDIRECT_NOTICE_LOGS = "redirect:/" + NOTICE_LOGS;
+
     @Autowired
     private NoticeLogService service;
 
@@ -84,14 +86,19 @@ public class NoticeLogController {
             try {
                 var noticeLog = NoticeLogMapper.INSTANCE.RequestToDomain(noticeLogRequest);
                 service.save(noticeLog);
-                model.addAttribute(MESSAGE, "Aviso gravado com sucesso!");
             } catch (ValidationException e) {
                 errors.rejectValue("description", null, e.getMessage());
             }
         }
 
-        ControllerHelper.setEditMode(model, true);
+        return REDIRECT_NOTICE_LOGS;
+    }
 
-        return "redirect:/" + NOTICE_LOGS;
+    @GetMapping("/delete/{id}")
+    public String deleteMeetingAgenda(Model model, @PathVariable Long id) {
+        setGlobalVariables(model);
+        service.deleteById(id);
+
+        return REDIRECT_NOTICE_LOGS;
     }
 }

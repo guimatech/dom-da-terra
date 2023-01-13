@@ -112,13 +112,26 @@
         startDateField = document.getElementById("startDate");
         endDateField = document.getElementById("endDate");
 
+        startDateEditField = document.getElementById("startDateEdit");
+        endDateEditField = document.getElementById("endDateEdit");
+
         startDateField.min = new Date().toISOString().split("T")[0];
         endDateField.min = new Date().toISOString().split("T")[0];
+
+        startDateEditField.min = new Date().toISOString().split("T")[0];
+        endDateEditField.min = new Date().toISOString().split("T")[0];
 
         startDateField.onchange = function () {
             endDateField.min = this.value;
             if (endDateField.value < this.value) {
                 endDateField.value = this.value
+            }
+        }
+
+        startDateEditField.onchange = function () {
+            endDateEditField.min = this.value;
+            if (endDateEditField.value < this.value) {
+                endDateEditField.value = this.value
             }
         }
     </script>
