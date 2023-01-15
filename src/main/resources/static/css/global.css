@@ -94,3 +94,8 @@ em {
 .element:fullscreen p {
   visibility: visible;
 }
+
+.svg_warning {
+    width: 100%;
+    height: calc(var(--header-height) + 1rem);
+}

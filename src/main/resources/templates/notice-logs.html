@@ -107,7 +107,7 @@
 									<h5 class="modal-title" id="editNoticeLogModalLabel">Edição de Avisos</h5>
 									<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 								</div>
-								<form method="post" th:object="${noticeLogRequest}" th:action="@{/notice-logs/save/new}"
+								<form method="post" th:object="${noticeLogRequest}" th:action="@{/notice-logs/save/edit/{id}(id=${noticeLog.id})}"
 									  class="needs-validation" novalidate>
 									<fieldset>
 										<input type="hidden" th:field="*{id}" />
