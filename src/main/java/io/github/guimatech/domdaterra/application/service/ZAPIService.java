@@ -1,8 +1,8 @@
 package io.github.guimatech.domdaterra.application.service;
 
-import io.github.guimatech.domdaterra.domain.Button;
-import io.github.guimatech.domdaterra.domain.ButtonList;
-import io.github.guimatech.domdaterra.domain.WhatsAppMessage;
+import io.github.guimatech.domdaterra.domain.billing.Button;
+import io.github.guimatech.domdaterra.domain.billing.ButtonList;
+import io.github.guimatech.domdaterra.domain.billing.WhatsAppMessage;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;

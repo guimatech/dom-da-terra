@@ -1,6 +1,6 @@
 package io.github.guimatech.domdaterra.infra.out.db.repository;
 
-import io.github.guimatech.domdaterra.domain.Billing;
+import io.github.guimatech.domdaterra.domain.billing.Billing;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;

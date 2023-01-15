@@ -1,6 +1,6 @@
 package io.github.guimatech.domdaterra.application.service;
 
-import io.github.guimatech.domdaterra.domain.Billing;
+import io.github.guimatech.domdaterra.domain.billing.Billing;
 import io.github.guimatech.domdaterra.infra.out.db.repository.BillingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

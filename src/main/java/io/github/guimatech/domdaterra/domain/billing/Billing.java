@@ -1,12 +1,9 @@
-package io.github.guimatech.domdaterra.domain;
+package io.github.guimatech.domdaterra.domain.billing;
 
 import com.opencsv.bean.CsvBindByName;
 import com.opencsv.bean.CsvDate;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -23,9 +20,6 @@ import java.time.LocalDate;
 @Data
 @Table
 @Entity
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Billing implements Serializable {
 

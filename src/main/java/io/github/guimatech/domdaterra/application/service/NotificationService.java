@@ -1,6 +1,6 @@
 package io.github.guimatech.domdaterra.application.service;
 
-import io.github.guimatech.domdaterra.domain.Billing;
+import io.github.guimatech.domdaterra.domain.billing.Billing;
 
 public interface NotificationService {
 
