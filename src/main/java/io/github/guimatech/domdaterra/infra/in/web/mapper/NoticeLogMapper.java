@@ -17,7 +17,7 @@ public interface NoticeLogMapper {
 
     @Mapping(source = "request.startDatePeriod", target = "startDatePeriod", qualifiedByName = "stringToDate")
     @Mapping(source = "request.endDatePeriod", target = "endDatePeriod", qualifiedByName = "stringToDate")
-    NoticeLog RequestToDomain(NoticeLogRequest request);
+    NoticeLog requestToDomain(NoticeLogRequest request);
 
     @Named("stringToDate")
     static LocalDate stringToDate(String value) {

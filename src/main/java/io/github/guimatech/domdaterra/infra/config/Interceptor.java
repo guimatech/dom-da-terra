@@ -33,7 +33,7 @@ public class Interceptor implements HandlerInterceptor {
     }
 
     void setGlobalVariables(Map<String, Object> model) {
-        GlobalVariables.NOTICE_LOGS = noticeLogService.findAllByCurrentDate();
-        model.put("NOTICE_LOGS", GlobalVariables.NOTICE_LOGS);
+        GlobalVariables.getNoticeLogs = noticeLogService.findAllByCurrentDate();
+        model.put("NOTICE_LOGS", GlobalVariables.getNoticeLogs);
     }
 }

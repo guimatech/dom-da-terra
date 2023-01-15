@@ -17,7 +17,7 @@ import java.time.LocalDate;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @SuppressWarnings("serial")
 @MappedSuperclass
-public class PersistentObject implements Serializable {
+public abstract class PersistentObject implements Serializable {
     @EqualsAndHashCode.Include
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -10,5 +10,5 @@ import java.util.List;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class GlobalVariables {
 
-    public static List<NoticeLog> NOTICE_LOGS = new ArrayList<>();
+    public static List<NoticeLog> getNoticeLogs = new ArrayList<>();
 }

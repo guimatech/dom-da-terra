@@ -4,7 +4,7 @@ import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
 import io.github.guimatech.domdaterra.application.service.BillingService;
 import io.github.guimatech.domdaterra.domain.billing.Billing;
-import io.github.guimatech.domdaterra.infra.in.web.dto.BillingDTO;
+import io.github.guimatech.domdaterra.infra.in.web.dto.BillingRequest;
 import io.github.guimatech.domdaterra.infra.in.web.mapper.BillingMapper;
 import org.apache.commons.io.input.BOMInputStream;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +40,7 @@ public class BillingController {
     private static final String MESSAGE = "message";
     private static final String BILLINGS = "billings";
     private static final int DEFAULT_PAGE_SIZE = 6;
+    public static final String BILLING_DETAIL = "billing-detail";
 
     @Autowired
     private BillingService service;
@@ -94,7 +95,7 @@ public class BillingController {
         model.addAttribute("billing", new Billing());
         ControllerHelper.setEditMode(model, true);
 
-        return "billing-detail";
+        return BILLING_DETAIL;
     }
 
     @GetMapping("/edit/{id}")
@@ -103,7 +104,7 @@ public class BillingController {
         model.addAttribute("billing", billing);
         ControllerHelper.setEditMode(model, true);
 
-        return "billing-detail";
+        return BILLING_DETAIL;
     }
 
     @GetMapping("/delete/{id}")
@@ -114,22 +115,22 @@ public class BillingController {
     }
 
     @PostMapping("/save")
-    public String saveBilling(@ModelAttribute("billing") @Valid BillingDTO billingDTO,
+    public String saveBilling(@ModelAttribute("billing") @Valid BillingRequest billingRequest,
                               Errors errors,
                               Model model) {
 
         if (!errors.hasErrors()) {
             try {
-                var billing = BillingMapper.INSTANCE.DTOToDomain(billingDTO);
+                var billing = BillingMapper.INSTANCE.requestToDomain(billingRequest);
                 service.save(billing);
                 model.addAttribute(MESSAGE, "Cobrança gravada com sucesso!");
             } catch (ValidationException e) {
-                errors.rejectValue("email", null, e.getMessage());
+                errors.rejectValue("email", "001", e.getMessage());
             }
         }
 
         ControllerHelper.setEditMode(model, true);
 
-        return "billing-detail";
+        return BILLING_DETAIL;
     }
 }

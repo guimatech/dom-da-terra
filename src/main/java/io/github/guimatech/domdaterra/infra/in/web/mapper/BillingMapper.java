@@ -1,7 +1,7 @@
 package io.github.guimatech.domdaterra.infra.in.web.mapper;
 
 import io.github.guimatech.domdaterra.domain.billing.Billing;
-import io.github.guimatech.domdaterra.infra.in.web.dto.BillingDTO;
+import io.github.guimatech.domdaterra.infra.in.web.dto.BillingRequest;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Named;
@@ -19,7 +19,7 @@ public interface BillingMapper {
     @Mapping(source = "interestValue", target = "interestValue", qualifiedByName = "moneyBRLToDouble")
     @Mapping(source = "approximateTotalAmount", target = "approximateTotalAmount", qualifiedByName = "moneyBRLToDouble")
     @Mapping(source = "phone", target = "phone", qualifiedByName = "numberOnly")
-    Billing DTOToDomain(BillingDTO billingDTO);
+    Billing requestToDomain(BillingRequest billingRequest);
 
     @Named("moneyBRLToDouble")
     static Double moneyToDouble(String value) {

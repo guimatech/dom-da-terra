@@ -8,7 +8,7 @@ import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 @Data
-public class BillingDTO {
+public class BillingRequest {
 
     private Long id;
 

@@ -29,8 +29,6 @@ import static org.springframework.beans.support.PagedListHolder.DEFAULT_PAGE_SIZ
 @RequestMapping(path = "/notice-logs")
 public class NoticeLogController {
 
-    private static final String MESSAGE = "message";
-
     private static final String NOTICE_LOGS = "notice-logs";
 
     private static final String REDIRECT_NOTICE_LOGS = "redirect:/" + NOTICE_LOGS;
@@ -63,28 +61,26 @@ public class NoticeLogController {
     @PostMapping("/save/new")
     public String saveNewNoticeLog(
             @ModelAttribute("noticeLogRequest") @Valid NoticeLogRequest noticeLogRequest,
-            Errors errors,
-            Model model) {
-        return save(noticeLogRequest, errors, model);
+            Errors errors) {
+        return save(noticeLogRequest, errors);
     }
 
     @PostMapping("/save/edit/{id}")
     public String saveEditNoticeLog(
             @PathVariable Long id,
             @ModelAttribute("noticeLogRequest") @Valid NoticeLogRequest noticeLogRequest,
-            Errors errors,
-            Model model) {
+            Errors errors) {
         noticeLogRequest.setId(id);
-        return save(noticeLogRequest, errors, model);
+        return save(noticeLogRequest, errors);
     }
 
-    private String save(NoticeLogRequest noticeLogRequest, Errors errors, Model model) {
+    private String save(NoticeLogRequest noticeLogRequest, Errors errors) {
         if (!errors.hasErrors()) {
             try {
-                var noticeLog = NoticeLogMapper.INSTANCE.RequestToDomain(noticeLogRequest);
+                var noticeLog = NoticeLogMapper.INSTANCE.requestToDomain(noticeLogRequest);
                 service.save(noticeLog);
             } catch (ValidationException e) {
-                errors.rejectValue("description", null, e.getMessage());
+                errors.rejectValue("description", "002", e.getMessage());
             }
         }
 

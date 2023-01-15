@@ -1,8 +1,5 @@
 package io.github.guimatech.domdaterra.infra.security;
 
-import io.github.guimatech.domdaterra.infra.out.db.repository.NoticeLogRepository;
-import io.github.guimatech.domdaterra.shared.util.GlobalVariables;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
