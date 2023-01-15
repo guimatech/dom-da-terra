@@ -35,7 +35,7 @@ public class Task extends PersistentObject {
 
     private TaskType taskType;
 
-    @ManyToOne
+    @ManyToMany
     private Category category;
 
     @OneToOne

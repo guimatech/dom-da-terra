@@ -15,7 +15,7 @@ import javax.validation.constraints.Size;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true, callSuper = true)
 @Table
 @Entity
-public class Collaborator extends PersistentObject {
+public class Collaborator extends User {
 
     @NotBlank(message = "O nome do colaborador não pode ser vázio")
     @Size(max = 60, message = "O nome do colaborador está muito grande")
