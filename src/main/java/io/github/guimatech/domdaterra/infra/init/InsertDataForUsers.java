@@ -28,18 +28,22 @@ public class InsertDataForUsers {
         userRepository.saveAll(
                 List.of(
                         User.builder()
+                                .name("Francimar")
                                 .username("francimar")
                                 .password(StringUtil.encrypt("22nwtt2q"))
                                 .build(),
                         User.builder()
+                                .name("Thainarah")
                                 .username("thainarah")
                                 .password(StringUtil.encrypt("xjh21h08"))
                                 .build(),
                         User.builder()
+                                .name("Nubia")
                                 .username("nubia")
                                 .password(StringUtil.encrypt("imygwdp1"))
                                 .build(),
                         User.builder()
+                                .name("Suelio")
                                 .username("suelio")
                                 .password(StringUtil.encrypt("wv7u1ilr"))
                                 .build()

@@ -4,10 +4,12 @@
 <head>
     <title>Dom da terra</title>
     <meta charset="UTF-8" />
-    <link th:rel="stylesheet" th:href="@{/css/global/bootstrap.min.css}" />
-    <link th:rel="stylesheet" th:href="@{/css/global/boxicons-2.1.4/css/boxicons.min.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/global/bootstrap.min.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/global/boxicons-2.1.4/css/boxicons.min.css}" />
     <link rel="stylesheet" type="text/css" th:href="@{/css/sidebar.css}" />
     <link rel="stylesheet" type="text/css" th:href="@{/css/global.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/global/Chart.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/global/font-awesome.min.css}" />
 </head>
 
 <body id="body-pd" onload="startTime()">
@@ -108,8 +110,10 @@
     <script type="text/javascript" th:src="@{/js/libs/jquery.min.js}"></script>
     <script type="text/javascript" th:src="@{/js/libs/jquery.mask.min.js}"></script>
     <script type="text/javascript" th:src="@{/js/libs/howler.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/libs/Chart.min.js}"></script>
     <script type="text/javascript" th:src="@{/js/sidebar.js} "></script>
     <script type="text/javascript" th:src="@{/js/script.js}"></script>
+    <script type="text/javascript" th:src="@{/js/pie-chart.js}"></script>
     <script>
         var el = document.getElementById('element');
 
@@ -187,6 +191,45 @@
     <script>
         var myCarousel = document.querySelector('#myCarousel')
         var carousel = new bootstrap.Carousel(myCarousel)
+    </script>
+    <script>
+        var ctxPieChartInternTask = document.getElementById("pieChartInternTask");
+        var pieChartInternTask = new Chart(ctxPieChartInternTask, {
+            type: 'pie',
+            options: {
+                legend: {
+                    position: 'left',
+                    labels: {
+                        boxWidth: 10,
+                        fontStyle: 'italic',
+                        fontColor: '#aaa',
+                        usePointStyle: true,
+                    }
+                },
+            },
+            data: {
+                labels: [
+                    "First",
+                    "Second",
+                    "Third"
+                ],
+                datasets: [
+                    {
+                        data: [300, 50, 100],
+                        borderWidth: 7,
+                        backgroundColor: [
+                            '#46d8d5',
+                            "#182390",
+                            "#f5e132",
+                        ],
+                        hoverBackgroundColor: [
+                            '#46d8d5',
+                            "#182390",
+                            "#f5e132",
+                        ]
+                    }]
+                }
+            });
     </script>
 </body>
 

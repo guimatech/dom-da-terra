@@ -29,7 +29,7 @@ public class Customer extends PersistentObject {
 
     @OneToOne
     @NotNull(message = "O Colaborador reponsável não pode ser nulo")
-    private Collaborator collaborator;
+    private User collaborator;
 
     @OneToMany
     private List<Project> projects;

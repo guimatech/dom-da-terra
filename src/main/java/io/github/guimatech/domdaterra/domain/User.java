@@ -25,6 +25,11 @@ import java.util.List;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true, callSuper = true)
 public class User extends PersistentObject {
 
+    @NotBlank(message = "O nome do usuário não pode ser vázio")
+    @Size(max = 60, message = "O nome do usuário está muito grande")
+    @Column(nullable = false)
+    private String name;
+
     @NotBlank(message = "O e-mail não pode ser vázio")
     @Size(max = 60, message = "O nome do usuário é muito grande")
     @Column(nullable = false)
