@@ -9,6 +9,22 @@ public class DashboardController {
 
     @GetMapping("/dashboard")
     public String dashboard(Model model) {
+        var internalTasksOnTime = 1;
+        var internalTasksOutOfTime = 22;
+        var stagnantInternalTasks = 3;
+
+        var externalTasksOnTime = 0;
+        var externalTasksOutOfTime = 8;
+        var stagnantExternalTasks = 2;
+
+        model.addAttribute("internalTasksOnTime", internalTasksOnTime);
+        model.addAttribute("internalTasksOutOfTime", internalTasksOutOfTime);
+        model.addAttribute("stagnantInternalTasks", stagnantInternalTasks);
+
+        model.addAttribute("externalTasksOnTime", externalTasksOnTime);
+        model.addAttribute("externalTasksOutOfTime", externalTasksOutOfTime);
+        model.addAttribute("stagnantExternalTasks", stagnantExternalTasks);
+
         return "dashboard";
     }
 }

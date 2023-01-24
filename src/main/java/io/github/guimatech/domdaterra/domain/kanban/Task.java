@@ -2,6 +2,7 @@ package io.github.guimatech.domdaterra.domain.kanban;
 
 import io.github.guimatech.domdaterra.domain.PersistentObject;
 import io.github.guimatech.domdaterra.domain.User;
+import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;

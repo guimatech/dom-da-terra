@@ -5,18 +5,38 @@
 
 	<body>
 		<div layout:fragment="content">
-			<div class="col-5 mb-4">
-				<div class="card border-0 shadow-sm rounded">
-					<div class="card-body p-4">
-						<div class="row align-items-center">
-							<div class="row">
-								<h3 class="fw-bold">Atividades Internas</h3>
+			<div class="row">
+				<div class="col-6 mb-4">
+					<div class="card border-0 shadow-sm rounded">
+						<div class="card-body p-4">
+							<div class="row align-items-center">
+								<div class="row">
+									<h3 class="fw-bold">Atividades Internas</h3>
+								</div>
+
+								<div class="col" style="min-height: 10rem">
+
+									<canvas id="pieChartInternTask"></canvas>
+
+								</div>
 							</div>
+						</div>
+					</div>
+				</div>
 
-							<div class="col" style="min-height: 10rem">
+				<div class="col-6 mb-4">
+					<div class="card border-0 shadow-sm rounded">
+						<div class="card-body p-4">
+							<div class="row align-items-center">
+								<div class="row">
+									<h3 class="fw-bold">Atividades Externas</h3>
+								</div>
 
-								<canvas id="pieChartInternTask"></canvas>
+								<div class="col" style="min-height: 10rem">
 
+									<canvas id="pieChartExternalTask"></canvas>
+
+								</div>
 							</div>
 						</div>
 					</div>

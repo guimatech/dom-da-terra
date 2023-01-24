@@ -113,7 +113,6 @@
     <script type="text/javascript" th:src="@{/js/libs/Chart.min.js}"></script>
     <script type="text/javascript" th:src="@{/js/sidebar.js} "></script>
     <script type="text/javascript" th:src="@{/js/script.js}"></script>
-    <script type="text/javascript" th:src="@{/js/pie-chart.js}"></script>
     <script>
         var el = document.getElementById('element');
 
@@ -209,23 +208,62 @@
             },
             data: {
                 labels: [
-                    "First",
-                    "Second",
-                    "Third"
+                    "No prazo",
+                    "Fora do prazo",
+                    "Estagnadas"
                 ],
                 datasets: [
                     {
-                        data: [300, 50, 100],
+                        data: [ [[${internalTasksOnTime}]], [[${internalTasksOutOfTime}]], [[${stagnantInternalTasks}]] ],
                         borderWidth: 7,
                         backgroundColor: [
-                            '#46d8d5',
-                            "#182390",
-                            "#f5e132",
+                            '#00D100',
+                            '#FFDF01',
+                            '#D10000',
                         ],
                         hoverBackgroundColor: [
-                            '#46d8d5',
-                            "#182390",
-                            "#f5e132",
+                            '#00D100',
+                            '#FFDF01',
+                            '#D10000',
+                        ]
+                    }]
+                }
+            });
+    </script>
+    <script>
+        var ctxPieChartExternalTask = document.getElementById("pieChartExternalTask");
+        var pieChartExternalTask = new Chart(ctxPieChartExternalTask, {
+            type: 'pie',
+            options: {
+                legend: {
+                    position: 'left',
+                    labels: {
+                        boxWidth: 10,
+                        fontStyle: 'italic',
+                        fontColor: '#aaa',
+                        usePointStyle: true,
+                    }
+                },
+            },
+            data: {
+                labels: [
+                    "No prazo",
+                    "Fora do prazo",
+                    "Estagnadas"
+                ],
+                datasets: [
+                    {
+                        data: [ [[${externalTasksOnTime}]], [[${externalTasksOutOfTime}]], [[${stagnantExternalTasks}]] ],
+                        borderWidth: 7,
+                        backgroundColor: [
+                            '#00D100',
+                            '#FFDF01',
+                            '#D10000',
+                        ],
+                        hoverBackgroundColor: [
+                            '#00D100',
+                            '#FFDF01',
+                            '#D10000',
                         ]
                     }]
                 }
