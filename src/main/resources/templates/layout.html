@@ -47,7 +47,9 @@
         </div>
 
         <div class="header_img">
-            <img th:src="@{/images/avatar.jpg}" alt="" />
+            <a th:href="@{/profile}" alt="Perfil">
+                <img th:src="@{/images/avatar.jpg}" alt="Perfil" />
+            </a>
         </div>
 
         <a class="expand-button" onclick="var el = document.getElementById('element'); el.webkitRequestFullscreen();">
