@@ -17,6 +17,9 @@ public class DashboardController {
         var externalTasksOutOfTime = 8;
         var stagnantExternalTasks = 2;
 
+        var tasksDone = 221;
+        var tasksInProgress = 36;
+
         model.addAttribute("internalTasksOnTime", internalTasksOnTime);
         model.addAttribute("internalTasksOutOfTime", internalTasksOutOfTime);
         model.addAttribute("stagnantInternalTasks", stagnantInternalTasks);
@@ -24,6 +27,9 @@ public class DashboardController {
         model.addAttribute("externalTasksOnTime", externalTasksOnTime);
         model.addAttribute("externalTasksOutOfTime", externalTasksOutOfTime);
         model.addAttribute("stagnantExternalTasks", stagnantExternalTasks);
+
+        model.addAttribute("tasksDone", tasksDone);
+        model.addAttribute("tasksInProgress", tasksInProgress);
 
         return "dashboard";
     }

@@ -203,7 +203,7 @@
                         fontStyle: 'italic',
                         fontColor: '#aaa',
                         usePointStyle: true,
-                        fontSize: 16,
+                        fontSize: 14,
                     }
                 },
             },
@@ -218,14 +218,14 @@
                         data: [ [[${internalTasksOnTime}]], [[${internalTasksOutOfTime}]], [[${stagnantInternalTasks}]] ],
                         borderWidth: 10,
                         backgroundColor: [
-                            '#00D100',
-                            '#FFDF01',
-                            '#D10000',
+                            '#4bc0c0',
+                            '#ffcd56',
+                            '#ff6384',
                         ],
                         hoverBackgroundColor: [
-                            '#00D100',
-                            '#FFDF01',
-                            '#D10000',
+                            '#4bc0c0',
+                            '#ffcd56',
+                            '#ff6384',
                         ]
                     }]
                 }
@@ -243,7 +243,7 @@
                         fontStyle: 'italic',
                         fontColor: '#aaa',
                         usePointStyle: true,
-                        fontSize: 16,
+                        fontSize: 14,
                     }
                 },
             },
@@ -258,14 +258,51 @@
                         data: [ [[${externalTasksOnTime}]], [[${externalTasksOutOfTime}]], [[${stagnantExternalTasks}]] ],
                         borderWidth: 10,
                         backgroundColor: [
-                            '#00D100',
-                            '#FFDF01',
-                            '#D10000',
+                            '#4bc0c0',
+                            '#ffcd56',
+                            '#ff6384',
                         ],
                         hoverBackgroundColor: [
-                            '#00D100',
-                            '#FFDF01',
-                            '#D10000',
+                            '#4bc0c0',
+                            '#ffcd56',
+                            '#ff6384',
+                        ]
+                    }]
+                }
+            });
+    </script>
+    <script>
+        var ctxPieChartGeneralTasks = document.getElementById("pieChartGeneralTasks");
+        var pieChartExternalTask = new Chart(ctxPieChartGeneralTasks, {
+            type: 'pie',
+            options: {
+                legend: {
+                    position: 'left',
+                    labels: {
+                        boxWidth: 14,
+                        fontStyle: 'italic',
+                        fontColor: '#aaa',
+                        usePointStyle: true,
+                        fontSize: 14,
+                    }
+                },
+            },
+            data: {
+                labels: [
+                    "Concluídas",
+                    "Em aberto",
+                ],
+                datasets: [
+                    {
+                        data: [ [[${tasksDone}]], [[${tasksInProgress}]] ],
+                        borderWidth: 10,
+                        backgroundColor: [
+                            '#4bc0c0',
+                            '#ffcd56',
+                        ],
+                        hoverBackgroundColor: [
+                            '#4bc0c0',
+                            '#ffcd56',
                         ]
                     }]
                 }
