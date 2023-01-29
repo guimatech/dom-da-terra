@@ -223,9 +223,9 @@
                             '#ff6384',
                         ],
                         hoverBackgroundColor: [
-                            '#4bc0c0',
-                            '#ffcd56',
-                            '#ff6384',
+                            '#00e2e2',
+                            '#ffc53b',
+                            '#ff486f',
                         ]
                     }]
                 }
@@ -263,9 +263,9 @@
                             '#ff6384',
                         ],
                         hoverBackgroundColor: [
-                            '#4bc0c0',
-                            '#ffcd56',
-                            '#ff6384',
+                            '#00e2e2',
+                            '#ffc53b',
+                            '#ff486f',
                         ]
                     }]
                 }
@@ -301,8 +301,55 @@
                             '#ffcd56',
                         ],
                         hoverBackgroundColor: [
-                            '#4bc0c0',
-                            '#ffcd56',
+                            '#00e2e2',
+                            '#ffc53b',
+                        ]
+                    }]
+                }
+            });
+    </script>
+    <script>
+        var ctxPieChartPendingTasks = document.getElementById("pieChartPendingTasks");
+        var pieChartExternalTask = new Chart(ctxPieChartPendingTasks, {
+            type: 'horizontalBar',
+            options: {
+                legend: {
+                    display: false,
+                },
+            },
+            data: {
+                labels: [
+                    "Atividades sem data de entrega",
+                    "Atividades sem data de previsão",
+                    "Atividades sem Responsável",
+                    "Atividades sem status da atividade",
+                    "Atividades sem descrição",
+                    "Atividades sem Nº de ID",
+                ],
+                datasets: [
+                    {
+                        data: [ [[${tasksWithoutDueDate}]], [[${tasksWithoutPreviewDate}]],
+                                [[${tasksWithoutResponsible}]], [[${tasksWithoutStatus}]],
+                                [[${tasksWithoutDescription}]], [[${tasksWithoutNID}]] ],
+                        label: "Quantidade",
+                        barThickness: 32,
+                        borderWidth: 1,
+                        fill: false,
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(255, 159, 64, 0.2)',
+                            'rgba(255, 205, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
+                        ],
+                        hoverBackgroundColor: [
+                            'rgb(255, 99, 132)',
+                            'rgb(255, 159, 64)',
+                            'rgb(255, 205, 86)',
+                            'rgb(75, 192, 192)',
+                            'rgb(54, 162, 235)',
+                            'rgb(153, 102, 255)',
                         ]
                     }]
                 }

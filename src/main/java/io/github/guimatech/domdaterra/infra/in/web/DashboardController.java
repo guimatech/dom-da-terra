@@ -9,6 +9,29 @@ public class DashboardController {
 
     @GetMapping("/dashboard")
     public String dashboard(Model model) {
+        definePieCharts(model);
+        defineHorizontalBarChart(model);
+
+        return "dashboard";
+    }
+
+    private void defineHorizontalBarChart(Model model) {
+        var tasksWithoutDueDate = 3;
+        var tasksWithoutPreviewDate = 4;
+        var tasksWithoutResponsible = 144;
+        var tasksWithoutStatus = 148;
+        var tasksWithoutDescription = 9;
+        var tasksWithoutNID = 2;
+
+        model.addAttribute("tasksWithoutDueDate", tasksWithoutDueDate);
+        model.addAttribute("tasksWithoutPreviewDate", tasksWithoutPreviewDate);
+        model.addAttribute("tasksWithoutResponsible", tasksWithoutResponsible);
+        model.addAttribute("tasksWithoutStatus", tasksWithoutStatus);
+        model.addAttribute("tasksWithoutDescription", tasksWithoutDescription);
+        model.addAttribute("tasksWithoutNID", tasksWithoutNID);
+    }
+
+    private void definePieCharts(Model model) {
         var internalTasksOnTime = 1;
         var internalTasksOutOfTime = 22;
         var stagnantInternalTasks = 3;
@@ -30,7 +53,5 @@ public class DashboardController {
 
         model.addAttribute("tasksDone", tasksDone);
         model.addAttribute("tasksInProgress", tasksInProgress);
-
-        return "dashboard";
     }
 }
