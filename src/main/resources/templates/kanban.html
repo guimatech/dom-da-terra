@@ -2,11 +2,39 @@
 <html lang="pt-br"
 	  xmlns="http://www.w3.org/1999/xhtml"
 	  xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layout}" xmlns:layout="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" th:href="@{/css/kanban.css}" />
+	</head>
 
 	<body>
 		<div layout:fragment="content">
 			<div class="container">
-				<h1>Funil de atividades</h1>
+				<div class="container-fluid">
+					<h1>Funil de atividades</h1>
+					<div class="row">
+						<div class="col-md-4" id="to-do" ondrop="drop(event)" ondragover="allowDrop(event)">
+							<h2>A fazer</h2>
+							<div class="kanban-card" id="task1" draggable="true" ondragstart="drag(event)">
+								<div class="priority low">Baixa</div>
+								<div class="date">18 Jul 2018</div>
+								<div class="title">Tarefa 1</div>
+								<div class="avatar" style="background-image: url(https://example.com/avatar1.jpg)"></div>
+							</div>
+							<div class="kanban-card" id="task2" draggable="true" ondragstart="drag(event)">
+								<div class="priority medium">Média</div>
+								<div class="date">19 Jul 2018</div>
+								<div class="title">Tarefa 2</div>
+								<div class="avatar" style="background-image: url(https://example.com/avatar2.jpg)"></div>
+							</div>
+						</div>
+						<div class="col-md-4" id="in-progress" ondrop="drop(event)" ondragover="allowDrop(event)">
+							<h2>Em progresso</h2>
+						</div>
+						<div class="col-md-4" id="done" ondrop="drop(event)" ondragover="allowDrop(event)">
+							<h2>Concluído</h2>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</body>
