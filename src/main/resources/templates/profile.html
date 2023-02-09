@@ -10,7 +10,7 @@
 <body>
 	<div layout:fragment="content">
 		<div class="container">
-			<div class="d-flex flex-column align-items-center text-center p-3 pt-5">
+			<div class="d-flex flex-column align-items-center text-center p-2">
 				<img class="rounded-circle mt-3" width="150px" th:src="@{/images/avatar.jpg}">
 				<span class="font-weight-bold user-name">Edogaru</span>
 				<span class="text-black-50">@slee24 • Membro desde 28 de outubro de 2019</span>
@@ -77,7 +77,40 @@
 					 id="nav-user-group"
 					 role="tabpanel"
 					 aria-labelledby="nav-user-group-tab">
-					...
+					<div class="row w-100 p-4 d-flex justify-content-around">
+						<div class="col-md-3">
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" id="checkEixo1">
+								<label class="form-check-label" for="checkEixo1">
+									Eixo 1
+								</label>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" id="checkEixo2">
+								<label class="form-check-label" for="checkEixo2">
+									Eixo 2
+								</label>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" id="checkEixo3">
+								<label class="form-check-label" for="checkEixo3">
+									Eixo 3
+								</label>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" id="checkEixo4">
+								<label class="form-check-label" for="checkEixo4">
+									Eixo 4
+								</label>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
