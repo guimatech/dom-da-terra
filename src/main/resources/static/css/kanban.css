@@ -44,13 +44,27 @@
     margin-top: 1.5rem;
 }
 
-.avatar {
+.subtitle-card {
+    color: #6c757d;
+    font-size: .875rem;
+}
+
+.avatar-box {
     position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 50px;
-    height: 50px;
-    border-radius: 25px;
-    background-position: center;
-    background-size: cover;
+    bottom: .75rem;
+}
+
+.avatar-xs {
+    height: 1.75rem;
+    width: 1.75rem;
+}
+
+.avatar-name {
+    font-size: .875rem;
+}
+
+.dropdown-box {
+    position: absolute;
+    bottom: .75rem;
+    right: .75rem;
 }
