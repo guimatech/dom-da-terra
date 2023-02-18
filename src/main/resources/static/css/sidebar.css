@@ -67,7 +67,7 @@ a {
     position: fixed;
     top: 0;
     left: -30%;
-    width: var(--nav-width);
+    width: calc(var(--nav-width) + .2rem);
     height: 100vh;
     background-color: var(--first-color);
     padding: .5rem 1rem 0 0;
@@ -109,7 +109,6 @@ a {
 .nav_link {
     position: relative;
     color: var(--first-color-light);
-    margin-bottom: 1.5rem;
     transition: .3s
 }
 
@@ -140,7 +139,7 @@ a {
 }
 
 .collapse-menu {
-    margin-top: -2.3rem;
+    margin-top: -.5rem;
 }
 
 .accordion-arrow {
