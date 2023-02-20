@@ -1,8 +1,8 @@
 package io.github.guimatech.domdaterra.domain.kanban;
 
+import io.github.guimatech.domdaterra.domain.Customer;
 import io.github.guimatech.domdaterra.domain.PersistentObject;
 import io.github.guimatech.domdaterra.domain.User;
-import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -29,15 +29,14 @@ public class Task extends PersistentObject {
     @Column(nullable = false)
     private String resume;
 
-    @NotBlank(message = "O descrição do bloco não pode ser vázio")
-    @Size(max = 280, message = "O descrição do bloco está muito grande")
+    @NotBlank(message = "O descrição da atividade não pode ser vázio")
+    @Size(max = 280, message = "O descrição da atividade está muito grande")
     @Column(nullable = false)
     private String description;
 
     private TaskType taskType;
 
-    @OneToMany
-    private List<Category> categories;
+    private Priority priority;
 
     @OneToOne
     private User responsible;
@@ -45,6 +44,20 @@ public class Task extends PersistentObject {
     @OneToOne
     private User reporter;
 
+    @OneToOne
+    private Project project;
+
+    @OneToOne
+    private Customer customer;
+
+    private TaskStatus status;
+
+    @OneToMany
+    private List<Category> categories;
+
     @ManyToMany
     private List<User> observers;
+
+    @OneToMany
+    private List<Comment> comments;
 }

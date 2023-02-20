@@ -1,6 +1,5 @@
 package io.github.guimatech.domdaterra.domain;
 
-import io.github.guimatech.domdaterra.domain.kanban.Comment;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -10,7 +9,6 @@ import lombok.NoArgsConstructor;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
@@ -40,9 +38,9 @@ public class User extends PersistentObject {
     @Column(nullable = false)
     private String password;
 
+    @Column
+    private String photo;
+
     @ManyToMany
     private List<UserGroup> userGroups;
-
-    @OneToMany
-    private List<Comment> comments;
 }
