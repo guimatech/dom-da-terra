@@ -1,6 +1,6 @@
 package io.github.guimatech.domdaterra.infra.in.web;
 
-import io.github.guimatech.domdaterra.application.service.NoticeLogService;
+import io.github.guimatech.domdaterra.application.service.billing.NoticeLogService;
 import io.github.guimatech.domdaterra.domain.NoticeLog;
 import io.github.guimatech.domdaterra.infra.in.web.dto.NoticeLogRequest;
 import io.github.guimatech.domdaterra.infra.in.web.mapper.NoticeLogMapper;

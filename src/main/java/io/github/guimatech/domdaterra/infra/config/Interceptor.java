@@ -1,6 +1,6 @@
 package io.github.guimatech.domdaterra.infra.config;
 
-import io.github.guimatech.domdaterra.application.service.NoticeLogService;
+import io.github.guimatech.domdaterra.application.service.billing.NoticeLogService;
 import io.github.guimatech.domdaterra.shared.util.GlobalVariables;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package io.github.guimatech.domdaterra.application.service;
+package io.github.guimatech.domdaterra.application.service.billing;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

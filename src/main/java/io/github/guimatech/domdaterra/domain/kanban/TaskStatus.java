@@ -6,8 +6,10 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum TaskStatus {
-    IN_PROGRESS("Em andamento"),
-    STAGNANT("Estagnado");
+    TO_DO("A fazer"),
+    DOING("Em progresso"),
+    DONE("Concluído"),
+    FILED("Arquivado");
 
     private final String description;
 }

@@ -1,7 +1,7 @@
 package io.github.guimatech.domdaterra.infra.schedule;
 
-import io.github.guimatech.domdaterra.application.service.BillingService;
-import io.github.guimatech.domdaterra.application.service.NotificationManager;
+import io.github.guimatech.domdaterra.application.service.billing.BillingService;
+import io.github.guimatech.domdaterra.application.service.billing.NotificationManager;
 import io.github.guimatech.domdaterra.domain.billing.Billing;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.EnableScheduling;

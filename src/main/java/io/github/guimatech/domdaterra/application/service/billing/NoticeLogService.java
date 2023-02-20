@@ -1,4 +1,4 @@
-package io.github.guimatech.domdaterra.application.service;
+package io.github.guimatech.domdaterra.application.service.billing;
 
 import io.github.guimatech.domdaterra.domain.NoticeLog;
 import io.github.guimatech.domdaterra.infra.out.db.repository.NoticeLogRepository;

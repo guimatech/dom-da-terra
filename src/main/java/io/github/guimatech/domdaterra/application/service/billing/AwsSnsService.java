@@ -1,4 +1,4 @@
-package io.github.guimatech.domdaterra.application.service;
+package io.github.guimatech.domdaterra.application.service.billing;
 
 import com.amazonaws.services.sns.AmazonSNS;
 import com.amazonaws.services.sns.model.MessageAttributeValue;
