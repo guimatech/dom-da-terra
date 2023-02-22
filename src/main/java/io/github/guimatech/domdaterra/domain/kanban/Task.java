@@ -15,6 +15,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.time.LocalDate;
 import java.util.List;
 
 @Getter
@@ -37,6 +38,8 @@ public class Task extends PersistentObject {
     private TaskType taskType;
 
     private Priority priority;
+
+    private LocalDate deadline;
 
     @OneToOne
     private User responsible;

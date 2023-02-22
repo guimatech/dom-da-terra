@@ -88,6 +88,9 @@
                         <a th:href="@{/notice-logs}" alt="Cadastros" class=" nav_link sub_nav_link "> <i class='bx bx-message-square-detail nav_icon ms-2'></i>
                             <span class="nav_name ">Quadro de avisos</span>
                         </a>
+                        <a th:href="@{/tasks}" alt="Atividades" class=" nav_link sub_nav_link "> <i class='bx bx-table nav_icon ms-2'></i>
+                            <span class="nav_name ">Atividades</span>
+                        </a>
                     </div>
                 </div>
                 <a th:href="@{/report}" class="nav_link "> <i class='bx bx-bar-chart-alt-2 nav_icon'></i>
@@ -389,6 +392,11 @@
                 }]
                 }
             });
+    </script>
+    <script>
+        $(function () {
+          $('[data-toggle="tooltip"]').tooltip()
+        })
     </script>
 </body>
 

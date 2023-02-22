@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br"
+	  xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layout}" xmlns:layout="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" th:href="@{/css/kanban.css}" />
+	</head>
+
+	<body>
+		<div layout:fragment="content">
+			<div class="container-fluid h-75">
+				<h4 class="page-title">Funil de atividades
+					<a href="#" data-bs-toggle="modal" data-bs-target="#add-new-task-modal" class="btn btn-success btn-sm ms-3">Adicionar tarefa</a>
+
+					<div class="btn-group ms-2" role="group" aria-label="Basic radio toggle button group">
+						<input type="radio" class="btn-check d-inline-block" name="btnradio" id="btnBoard"
+							   autocomplete="off" alt="Quadro" tabindex="0" data-toggle="tooltip" title="Quadro"
+							   th:onclick="'location.href=\'' + @{/kanban} + '\';'" />
+						<label class="btn btn-outline-success" for="btnBoard"><i class='bx bxs-objects-vertical-top'></i></label>
+
+						<input type="radio" class="btn-check d-inline-block" name="btnradio" id="btnTable"
+							   autocomplete="off" alt="Tabela" tabindex="0" data-toggle="tooltip" title="Tabela"
+							   th:onclick="'location.href=\'' + @{/tasks} + '\';'" checked />
+						<label class="btn btn-outline-success" for="btnTable"><i class='bx bx-table'></i></label>
+					</div>
+				</h4>
+				<table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+					<thead>
+					<tr>
+						<th class="col">Id</th>
+						<th class="col">Bloco</th>
+						<th class="col">Projeto</th>
+						<th class="col">Cliente</th>
+						<th class="col">Cadastro</th>
+						<th class="col">Prazo</th>
+						<th class="col">Status</th>
+						<th class="col">Descrição</th>
+						<th class="col">Responsável</th>
+						<th class="col">Colaboradores</th>
+						<th class="col">Ações</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr th:if="${taskPage.content.empty}">
+						<td colspan="2"> Sem atividades disponíveis </td>
+					</tr>
+					<tr th:each="task, iStat : ${taskPage.content}" th:classappend="${task.active} ? '' : 'table-danger'">
+						<td th:text="${task.id}" />
+						<td th:text="${task.categories}" />
+						<td th:text="${task.project.name}" />
+						<td th:text="${task.customer.name}" />
+						<td th:text="${task.creationDate}" />
+						<td th:text="${task.deadline}" />
+						<td th:text="${task.status}" />
+						<td th:text="${task.description}" />
+						<td th:text="${task.responsible}" />
+						<td th:text="${task.observers}" />
+						<td class="d-flex justify-content-around" style="cursor: pointer;">
+							<a class="edit text-warning" title="Edit" data-toggle="tooltip" th:href="@{/tasks/edit/{id}(id=${task.id})}">
+								<i class="bx bxs-pencil"></i>
+							</a>
+							<a class="delete text-danger" title="Delete" data-toggle="tooltip" th:href="@{/tasks/delete/{id}(id=${task.id})}">
+								<i class="bx bxs-trash-alt"></i>
+							</a>
+						</td>
+					</tr>
+					</tbody>
+				</table>
+				<nav aria-label="Page navigation" class="paging">
+					<ul class="pagination justify-content-end" th:if="${taskPage.totalPages > 0}">
+						<li class="page-item" th:classappend="${!taskPage.hasPrevious() ? 'disabled' : ''}">
+							<a class="page-link" th:href="@{/tasks(size=${taskPage.size}, page=${taskPage.number})}"
+							   tabindex="-1">Anterior</a>
+						</li>
+						<li class="page-item"
+							th:if="${taskPage.totalPages > 0}"
+							th:each="pageNumber : ${pageNumbers}"
+							th:classappend="${pageNumber==taskPage.number + 1} ? active">
+							<a class="page-link"
+							   th:href="@{/tasks(size=${taskPage.size}, page=${pageNumber})}"
+							   th:text=${pageNumber}></a>
+						</li>
+						<li class="page-item" th:classappend="${!taskPage.hasNext() ? 'disabled' : ''}">
+							<a class="page-link"
+							   th:href="@{/tasks(size=${taskPage.size}, page=${taskPage.number + 2})}">Próximo</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</body>
+</html>

@@ -10,7 +10,20 @@
 		<div layout:fragment="content">
 			<div class="container-fluid h-75">
 				<h4 class="page-title">Funil de atividades
-					<a href="#" data-bs-toggle="modal" data-bs-target="#add-new-task-modal" class="btn btn-success btn-sm ms-3">Adicionar tarefa</a></h4>
+					<a href="#" data-bs-toggle="modal" data-bs-target="#add-new-task-modal" class="btn btn-success btn-sm ms-3">Adicionar tarefa</a>
+
+					<div class="btn-group ms-2" role="group" aria-label="Basic radio toggle button group">
+						<input type="radio" class="btn-check d-inline-block" name="btnradio" id="btnBoard"
+							   autocomplete="off" alt="Quadro" tabindex="0" data-toggle="tooltip" title="Quadro"
+							   th:onclick="'location.href=\'' + @{/kanban} + '\';'" checked />
+						<label class="btn btn-outline-success" for="btnBoard"><i class='bx bxs-objects-vertical-top'></i></label>
+
+						<input type="radio" class="btn-check d-inline-block" name="btnradio" id="btnTable"
+							   autocomplete="off" alt="Tabela" tabindex="0" data-toggle="tooltip" title="Tabela"
+							   th:onclick="'location.href=\'' + @{/tasks} + '\';'" />
+						<label class="btn btn-outline-success" for="btnTable"><i class='bx bx-table'></i></label>
+					</div>
+				</h4>
 				<div class="row h-100">
 					<div class="col-md-4" id="to-do" ondrop="drop(event)" ondragover="allowDrop(event)">
 						<h2>A fazer</h2>
