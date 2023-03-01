@@ -17,19 +17,22 @@
     <header class="header" id="header">
         <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
 
-        <div id="carouselExampleDark" class="carousel carousel-dark slide h-100 w-100" data-bs-ride="carousel">
+        <div id="carouselNoticeLogs" class="carousel carousel-dark slide h-100 w-100" data-bs-ride="carousel">
             <div class="carousel-indicators m-0">
-                <button type="button" data-bs-target="#carouselExampleDark" aria-current="true"
-                        th:data-slide-to="${noticeLog.id}"
+                <button type="button" data-bs-target="#carouselNoticeLogs" aria-current="true"
+                        th:data-bs-slide-to="${iStat.index}"
                         th:aria-label="${noticeLog.description}"
                         th:each="noticeLog, iStat : ${NOTICE_LOGS}"
                         th:classappend="${iStat.index == 0} ? 'active' : ''"></button>
+
             </div>
             <div class="carousel-inner h-100">
-                <div class="carousel-item" data-bs-interval="5000" th:each="noticeLog, iStat : ${NOTICE_LOGS}"
+                <div class="carousel-item" data-bs-interval="5000"
+                     th:each="noticeLog, iStat : ${NOTICE_LOGS}"
                      th:classappend="${iStat.index == 0} ? 'active' : ''">
                     <svg class="svg_warning"
-                         xmlns="http://www.w3.org/2000/svg" role="img" th:aria-label="${noticeLog.description}"
+                         xmlns="http://www.w3.org/2000/svg" role="img"
+                         th:aria-label="${noticeLog.description}"
                          preserveAspectRatio="xMidYMid slice" focusable="false">
                     </svg>
                     <div class="carousel-caption d-none d-md-block p-0">
@@ -37,11 +40,11 @@
                     </div>
                 </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselNoticeLogs" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" style="height: 1rem" aria-hidden="true"></span>
                 <span class="visually-hidden">Anterior</span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselNoticeLogs" data-bs-slide="next">
                 <span class="carousel-control-next-icon" style="height: 1rem" aria-hidden="true"></span>
                 <span class="visually-hidden">Próximo</span>
             </button>
@@ -117,13 +120,11 @@
     <script type="text/javascript" th:src="@{/js/libs/jquery.mask.min.js}"></script>
     <script type="text/javascript" th:src="@{/js/libs/howler.min.js}"></script>
     <script type="text/javascript" th:src="@{/js/libs/Chart.min.js}"></script>
-    <script type="text/javascript" th:src="@{/js/kanban.js} "></script>
     <script type="text/javascript" th:src="@{/js/sidebar.js} "></script>
     <script type="text/javascript" th:src="@{/js/script.js}"></script>
     <script type="text/javascript" th:src="@{js/vendor.min.js}"></script>
     <script type="text/javascript" th:src="@{vendor/dragula/dragula.min.js}"></script>
     <script type="text/javascript" th:src="@{js/ui/component.dragula.js}"></script>
-    <script type="text/javascript" th:src="@{js/app.min.js}"></script>
 
     <script>
         var el = document.getElementById('element');
@@ -132,13 +133,6 @@
         el.mozRequestFullScreen();
         el.msRequestFullscreen();
         el.requestFullscreen();
-    </script>
-    <script>
-        jQuery(document).ready(function($) {
-            $(".clickable-row").click(function() {
-                window.location = $(this).data("href");
-            });
-        });
     </script>
     <script>
         $('#file').on('change',function(){
