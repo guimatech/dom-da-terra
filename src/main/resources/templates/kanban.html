@@ -36,7 +36,7 @@
 					<div class="col-12">
 						<div class="board">
 							<div class="tasks" data-plugin="dragula" data-containers="[&quot;task-list-one&quot;, &quot;task-list-two&quot;, &quot;task-list-three&quot;, &quot;task-list-four&quot;]">
-								<h5 class="mt-0 task-header">A fazer (3)</h5>
+								<h5 class="mt-0 task-header">A FAZER (3)</h5>
 
 								<div id="task-list-one" class="task-list-items">
 
@@ -53,12 +53,49 @@
 											</h5>
 
 											<div class="subtitle-card d-flex justify-content-start">
-												<div class="project"><i class='bx bx-briefcase'></i> Projeto 1</div>
+												<div class="project"><i class='bx bx-briefcase'></i> iOS</div>
 												<div class="comments mx-3"><i class='bx bx-chat' ></i> <b>74</b> Comentários</div>
 											</div>
 											<div class="avatar-box">
 												<img th:src="@{/images/avatar.jpg}" alt="user-img" class="avatar-xs rounded-circle me-1">
 												<span class="align-middle avatar-name">Robert Carlile</span>
+											</div>
+
+											<div class="dropdown dropdown-box">
+												<a href="#" class="dropdown-toggle text-muted arrow-none" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+													<i class="bx bx-dots-vertical-rounded font-18"></i>
+												</a>
+												<div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
+													<!-- item-->
+													<a href="javascript:void(0);" class="dropdown-item"><i class="bx bx-pencil me-1"></i>Editar</a>
+													<!-- item-->
+													<a href="javascript:void(0);" class="dropdown-item"><i class="bx bx-trash-alt me-1"></i>Deletar</a>
+													<!-- item-->
+													<a href="javascript:void(0);" class="dropdown-item"><i class="bx bx-user-plus me-1"></i>Adicionar pessoa</a>
+												</div>
+											</div>
+										</div> <!-- end card-body -->
+									</div>
+
+									<!-- Task Item -->
+									<div class="card mb-0 kanban-card">
+										<div class="card-body p-3">
+											<small class="float-end text-muted">18 Jul 2018</small>
+											<span class="badge bg-secondary text-light">Média</span>
+
+											<h5 class="mt-2 mb-2">
+												<a href="#" data-bs-toggle="modal" data-bs-target="#task-detail-modal" class="text-body">
+													Topnav layout design
+												</a>
+											</h5>
+
+											<div class="subtitle-card d-flex justify-content-start">
+												<div class="project"><i class='bx bx-briefcase'></i> Hyper</div>
+												<div class="comments mx-3"><i class='bx bx-chat' ></i> <b>28</b> Comentários</div>
+											</div>
+											<div class="avatar-box">
+												<img th:src="@{/images/avatar.jpg}" alt="user-img" class="avatar-xs rounded-circle me-1">
+												<span class="align-middle avatar-name">Coder Themes</span>
 											</div>
 
 											<div class="dropdown dropdown-box">
@@ -76,92 +113,42 @@
 											</div>
 										</div> <!-- end card-body -->
 									</div>
-
-									<div class="card mb-0">
-									<div class="card-body p-3">
-										<small class="float-end text-muted">18 Jul 2018</small>
-										<span class="badge bg-secondary text-light">Medium</span>
-
-										<h5 class="mt-2 mb-2">
-											<a href="#" data-bs-toggle="modal" data-bs-target="#task-detail-modal" class="text-body">Topnav layout design</a>
-										</h5>
-
-										<p class="mb-0">
-                                                        <span class="pe-2 text-nowrap mb-2 d-inline-block">
-                                                            <i class="mdi mdi-briefcase-outline text-muted"></i>
-                                                            Hyper
-                                                        </span>
-											<span class="text-nowrap mb-2 d-inline-block">
-                                                            <i class="mdi mdi-comment-multiple-outline text-muted"></i>
-                                                            <b>28</b> Comments
-                                                        </span>
-										</p>
-
-										<div class="dropdown float-end">
-											<a href="#" class="dropdown-toggle text-muted arrow-none" data-bs-toggle="dropdown" aria-expanded="false">
-												<i class="mdi mdi-dots-vertical font-18"></i>
-											</a>
-											<div class="dropdown-menu dropdown-menu-end">
-												<!-- item-->
-												<a href="javascript:void(0);" class="dropdown-item"><i class="mdi mdi-pencil me-1"></i>Edit</a>
-												<!-- item-->
-												<a href="javascript:void(0);" class="dropdown-item"><i class="mdi mdi-delete me-1"></i>Delete</a>
-												<!-- item-->
-												<a href="javascript:void(0);" class="dropdown-item"><i class="mdi mdi-plus-circle-outline me-1"></i>Add People</a>
-												<!-- item-->
-												<a href="javascript:void(0);" class="dropdown-item"><i class="mdi mdi-exit-to-app me-1"></i>Leave</a>
-											</div>
-										</div>
-
-										<p class="mb-0">
-											<img src="assets/images/users/avatar-1.jpg" alt="user-img" class="avatar-xs rounded-circle me-1">
-											<span class="align-middle">Coder Themes</span>
-										</p>
-									</div> <!-- end card-body -->
-								</div>
 									<!-- Task Item End -->
 
 									<!-- Task Item -->
-									<div class="card mb-0">
+									<div class="card mb-0 kanban-card">
 										<div class="card-body p-3">
 											<small class="float-end text-muted">11 Jul 2018</small>
-											<span class="badge bg-success">Low</span>
+											<span class="badge bg-success">Baixa</span>
 
 											<h5 class="mt-2 mb-2">
-												<a href="#" data-bs-toggle="modal" data-bs-target="#task-detail-modal" class="text-body">Invite user to a project</a>
+												<a href="#" data-bs-toggle="modal" data-bs-target="#task-detail-modal" class="text-body">
+													Invite user to a project
+												</a>
 											</h5>
 
-											<p class="mb-0">
-                                                        <span class="pe-2 text-nowrap mb-2 d-inline-block">
-                                                            <i class="mdi mdi-briefcase-outline text-muted"></i>
-                                                            CRM
-                                                        </span>
-												<span class="text-nowrap mb-2 d-inline-block">
-                                                            <i class="mdi mdi-comment-multiple-outline text-muted"></i>
-                                                            <b>68</b> Comments
-                                                        </span>
-											</p>
+											<div class="subtitle-card d-flex justify-content-start">
+												<div class="project"><i class='bx bx-briefcase'></i> CRM</div>
+												<div class="comments mx-3"><i class='bx bx-chat' ></i> <b>68</b> Comentários</div>
+											</div>
+											<div class="avatar-box">
+												<img th:src="@{/images/avatar.jpg}" alt="user-img" class="avatar-xs rounded-circle me-1">
+												<span class="align-middle avatar-name">Lucas Hardy</span>
+											</div>
 
-											<div class="dropdown float-end">
+											<div class="dropdown dropdown-box">
 												<a href="#" class="dropdown-toggle text-muted arrow-none" data-bs-toggle="dropdown" aria-expanded="false">
-													<i class="mdi mdi-dots-vertical font-18"></i>
+													<i class="bx bx-dots-vertical-rounded font-18"></i>
 												</a>
 												<div class="dropdown-menu dropdown-menu-end">
 													<!-- item-->
-													<a href="javascript:void(0);" class="dropdown-item"><i class="mdi mdi-pencil me-1"></i>Edit</a>
+													<a href="javascript:void(0);" class="dropdown-item"><i class="bx bx-pencil me-1"></i>Editar</a>
 													<!-- item-->
-													<a href="javascript:void(0);" class="dropdown-item"><i class="mdi mdi-delete me-1"></i>Delete</a>
+													<a href="javascript:void(0);" class="dropdown-item"><i class="bx bx-trash-alt me-1"></i>Deletar</a>
 													<!-- item-->
-													<a href="javascript:void(0);" class="dropdown-item"><i class="mdi mdi-plus-circle-outline me-1"></i>Add People</a>
-													<!-- item-->
-													<a href="javascript:void(0);" class="dropdown-item"><i class="mdi mdi-exit-to-app me-1"></i>Leave</a>
+													<a href="javascript:void(0);" class="dropdown-item"><i class="bx bx-user-plus me-1"></i>Adicionar pessoa</a>
 												</div>
 											</div>
-
-											<p class="mb-0">
-												<img src="assets/images/users/avatar-3.jpg" alt="user-img" class="avatar-xs rounded-circle me-1">
-												<span class="align-middle">Lucas Hardy</span>
-											</p>
 										</div> <!-- end card-body -->
 									</div>
 									<!-- Task Item End -->
@@ -169,97 +156,84 @@
 								</div> <!-- end company-list-1-->
 							</div>
 
+
 							<div class="tasks">
-								<h5 class="mt-0 task-header text-uppercase">In Progress (2)</h5>
+								<h5 class="mt-0 task-header text-uppercase">EM ANDAMENTO (2)</h5>
 
 								<div id="task-list-two" class="task-list-items">
 
 									<!-- Task Item -->
-									<div class="card mb-0">
+									<div class="card mb-0 kanban-card">
 										<div class="card-body p-3">
 											<small class="float-end text-muted">22 Jun 2018</small>
-											<span class="badge bg-secondary text-light">Medium</span>
+											<span class="badge bg-secondary text-light">Média</span>
 
 											<h5 class="mt-2 mb-2">
-												<a href="#" data-bs-toggle="modal" data-bs-target="#task-detail-modal" class="text-body">Write a release note</a>
+												<a href="#" data-bs-toggle="modal" data-bs-target="#task-detail-modal" class="text-body">
+													Write a release note
+												</a>
 											</h5>
 
-											<p class="mb-0">
-                                                        <span class="pe-2 text-nowrap mb-2 d-inline-block">
-                                                            <i class="mdi mdi-briefcase-outline text-muted"></i>
-                                                            Hyper
-                                                        </span>
-												<span class="text-nowrap mb-2 d-inline-block">
-                                                            <i class="mdi mdi-comment-multiple-outline text-muted"></i>
-                                                            <b>17</b> Comments
-                                                        </span>
-											</p>
+											<div class="subtitle-card d-flex justify-content-start">
+												<div class="project"><i class='bx bx-briefcase'></i> Hyper</div>
+												<div class="comments mx-3"><i class='bx bx-chat' ></i> <b>17</b> Comentários</div>
+											</div>
+											<div class="avatar-box">
+												<img th:src="@{/images/avatar.jpg}" alt="user-img" class="avatar-xs rounded-circle me-1">
+												<span class="align-middle avatar-name">Sean White</span>
+											</div>
 
-											<div class="dropdown float-end">
+											<div class="dropdown dropdown-box">
 												<a href="#" class="dropdown-toggle text-muted arrow-none" data-bs-toggle="dropdown" aria-expanded="false">
-													<i class="mdi mdi-dots-vertical font-18"></i>
+													<i class="bx bx-dots-vertical-rounded font-18"></i>
 												</a>
 												<div class="dropdown-menu dropdown-menu-end">
 													<!-- item-->
-													<a href="javascript:void(0);" class="dropdown-item"><i class="mdi mdi-pencil me-1"></i>Edit</a>
+													<a href="javascript:void(0);" class="dropdown-item"><i class="bx bx-pencil me-1"></i>Editar</a>
 													<!-- item-->
-													<a href="javascript:void(0);" class="dropdown-item"><i class="mdi mdi-delete me-1"></i>Delete</a>
+													<a href="javascript:void(0);" class="dropdown-item"><i class="bx bx-trash-alt me-1"></i>Deletar</a>
 													<!-- item-->
-													<a href="javascript:void(0);" class="dropdown-item"><i class="mdi mdi-plus-circle-outline me-1"></i>Add People</a>
-													<!-- item-->
-													<a href="javascript:void(0);" class="dropdown-item"><i class="mdi mdi-exit-to-app me-1"></i>Leave</a>
+													<a href="javascript:void(0);" class="dropdown-item"><i class="bx bx-user-plus me-1"></i>Adicionar pessoa</a>
 												</div>
 											</div>
-
-											<p class="mb-0">
-												<img src="assets/images/users/avatar-5.jpg" alt="user-img" class="avatar-xs rounded-circle me-1">
-												<span class="align-middle">Sean White</span>
-											</p>
 										</div> <!-- end card-body -->
 									</div>
 									<!-- Task Item End -->
 
 									<!-- Task Item -->
-									<div class="card mb-0">
+									<div class="card mb-0 kanban-card">
 										<div class="card-body p-3">
-											<small class="float-end text-muted">19 Jun 2018</small>
-											<span class="badge bg-success">Low</span>
+											<small class="float-end text-muted">19 Jul 2018</small>
+											<span class="badge bg-success">Baixa</span>
 
 											<h5 class="mt-2 mb-2">
-												<a href="#" data-bs-toggle="modal" data-bs-target="#task-detail-modal" class="text-body">Enable analytics tracking</a>
+												<a href="#" data-bs-toggle="modal" data-bs-target="#task-detail-modal" class="text-body">
+													Enable analytics tracking
+												</a>
 											</h5>
 
-											<p class="mb-0">
-                                                        <span class="pe-2 text-nowrap mb-2 d-inline-block">
-                                                            <i class="mdi mdi-briefcase-outline text-muted"></i>
-                                                            CRM
-                                                        </span>
-												<span class="text-nowrap mb-2 d-inline-block">
-                                                            <i class="mdi mdi-comment-multiple-outline text-muted"></i>
-                                                            <b>48</b> Comments
-                                                        </span>
-											</p>
+											<div class="subtitle-card d-flex justify-content-start">
+												<div class="project"><i class='bx bx-briefcase'></i> CRM</div>
+												<div class="comments mx-3"><i class='bx bx-chat' ></i> <b>48</b> Comentários</div>
+											</div>
+											<div class="avatar-box">
+												<img th:src="@{/images/avatar.jpg}" alt="user-img" class="avatar-xs rounded-circle me-1">
+												<span class="align-middle avatar-name">Louis Allen</span>
+											</div>
 
-											<div class="dropdown float-end">
+											<div class="dropdown dropdown-box">
 												<a href="#" class="dropdown-toggle text-muted arrow-none" data-bs-toggle="dropdown" aria-expanded="false">
-													<i class="mdi mdi-dots-vertical font-18"></i>
+													<i class="bx bx-dots-vertical-rounded font-18"></i>
 												</a>
 												<div class="dropdown-menu dropdown-menu-end">
 													<!-- item-->
-													<a href="javascript:void(0);" class="dropdown-item"><i class="mdi mdi-pencil me-1"></i>Edit</a>
+													<a href="javascript:void(0);" class="dropdown-item"><i class="bx bx-pencil me-1"></i>Editar</a>
 													<!-- item-->
-													<a href="javascript:void(0);" class="dropdown-item"><i class="mdi mdi-delete me-1"></i>Delete</a>
+													<a href="javascript:void(0);" class="dropdown-item"><i class="bx bx-trash-alt me-1"></i>Deletar</a>
 													<!-- item-->
-													<a href="javascript:void(0);" class="dropdown-item"><i class="mdi mdi-plus-circle-outline me-1"></i>Add People</a>
-													<!-- item-->
-													<a href="javascript:void(0);" class="dropdown-item"><i class="mdi mdi-exit-to-app me-1"></i>Leave</a>
+													<a href="javascript:void(0);" class="dropdown-item"><i class="bx bx-user-plus me-1"></i>Adicionar pessoa</a>
 												</div>
 											</div>
-
-											<p class="mb-0">
-												<img src="assets/images/users/avatar-6.jpg" alt="user-img" class="avatar-xs rounded-circle me-1">
-												<span class="align-middle">Louis Allen</span>
-											</p>
 										</div> <!-- end card-body -->
 									</div>
 									<!-- Task Item End -->
@@ -269,185 +243,157 @@
 
 
 							<div class="tasks">
-								<h5 class="mt-0 task-header text-uppercase">Review (4)</h5>
+								<h5 class="mt-0 task-header text-uppercase">REVISÃO (4)</h5>
 								<div id="task-list-three" class="task-list-items">
 
 									<!-- Task Item -->
-									<div class="card mb-0">
+									<div class="card mb-0 kanban-card">
 										<div class="card-body p-3">
-											<small class="float-end text-muted">2 May 2018</small>
-											<span class="badge bg-danger">High</span>
+											<small class="float-end text-muted">2 Mai 2018</small>
+											<span class="badge bg-danger">Alta</span>
 
 											<h5 class="mt-2 mb-2">
-												<a href="#" data-bs-toggle="modal" data-bs-target="#task-detail-modal" class="text-body">Kanban board design</a>
+												<a href="#" data-bs-toggle="modal" data-bs-target="#task-detail-modal" class="text-body">
+													Kanban board design
+												</a>
 											</h5>
 
-											<p class="mb-0">
-                                                        <span class="pe-2 text-nowrap mb-2 d-inline-block">
-                                                            <i class="mdi mdi-briefcase-outline text-muted"></i>
-                                                            CRM
-                                                        </span>
-												<span class="text-nowrap mb-2 d-inline-block">
-                                                            <i class="mdi mdi-comment-multiple-outline text-muted"></i>
-                                                            <b>65</b> Comments
-                                                        </span>
-											</p>
+											<div class="subtitle-card d-flex justify-content-start">
+												<div class="project"><i class='bx bx-briefcase'></i> CRM</div>
+												<div class="comments mx-3"><i class='bx bx-chat' ></i> <b>65</b> Comentários</div>
+											</div>
+											<div class="avatar-box">
+												<img th:src="@{/images/avatar.jpg}" alt="user-img" class="avatar-xs rounded-circle me-1">
+												<span class="align-middle avatar-name">Coder Themes</span>
+											</div>
 
-											<div class="dropdown float-end">
+											<div class="dropdown dropdown-box">
 												<a href="#" class="dropdown-toggle text-muted arrow-none" data-bs-toggle="dropdown" aria-expanded="false">
-													<i class="mdi mdi-dots-vertical font-18"></i>
+													<i class="bx bx-dots-vertical-rounded font-18"></i>
 												</a>
 												<div class="dropdown-menu dropdown-menu-end">
 													<!-- item-->
-													<a href="javascript:void(0);" class="dropdown-item"><i class="mdi mdi-pencil me-1"></i>Edit</a>
+													<a href="javascript:void(0);" class="dropdown-item"><i class="bx bx-pencil me-1"></i>Editar</a>
 													<!-- item-->
-													<a href="javascript:void(0);" class="dropdown-item"><i class="mdi mdi-delete me-1"></i>Delete</a>
+													<a href="javascript:void(0);" class="dropdown-item"><i class="bx bx-trash-alt me-1"></i>Deletar</a>
 													<!-- item-->
-													<a href="javascript:void(0);" class="dropdown-item"><i class="mdi mdi-plus-circle-outline me-1"></i>Add People</a>
-													<!-- item-->
-													<a href="javascript:void(0);" class="dropdown-item"><i class="mdi mdi-exit-to-app me-1"></i>Leave</a>
+													<a href="javascript:void(0);" class="dropdown-item"><i class="bx bx-user-plus me-1"></i>Adicionar pessoa</a>
 												</div>
 											</div>
-
-											<p class="mb-0">
-												<img src="assets/images/users/avatar-1.jpg" alt="user-img" class="avatar-xs rounded-circle me-1">
-												<span class="align-middle">Coder Themes</span>
-											</p>
 										</div> <!-- end card-body -->
 									</div>
 									<!-- Task Item End -->
 
 									<!-- Task Item -->
-									<div class="card mb-0">
+									<div class="card mb-0 kanban-card">
 										<div class="card-body p-3">
-											<small class="float-end text-muted">7 May 2018</small>
-											<span class="badge bg-secondary text-light">Medium</span>
+											<small class="float-end text-muted">7 Mai 2018</small>
+											<span class="badge bg-secondary text-light">Média</span>
 
 											<h5 class="mt-2 mb-2">
-												<a href="#" data-bs-toggle="modal" data-bs-target="#task-detail-modal" class="text-body">Code HTML email template</a>
+												<a href="#" data-bs-toggle="modal" data-bs-target="#task-detail-modal" class="text-body">
+													Code HTML email template
+												</a>
 											</h5>
 
-											<p class="mb-0">
-                                                        <span class="pe-2 text-nowrap mb-2 d-inline-block">
-                                                            <i class="mdi mdi-briefcase-outline text-muted"></i>
-                                                            CRM
-                                                        </span>
-												<span class="text-nowrap mb-2 d-inline-block">
-                                                            <i class="mdi mdi-comment-multiple-outline text-muted"></i>
-                                                            <b>106</b> Comments
-                                                        </span>
-											</p>
+											<div class="subtitle-card d-flex justify-content-start">
+												<div class="project"><i class='bx bx-briefcase'></i> CRM</div>
+												<div class="comments mx-3"><i class='bx bx-chat' ></i> <b>106</b> Comentários</div>
+											</div>
+											<div class="avatar-box">
+												<img th:src="@{/images/avatar.jpg}" alt="user-img" class="avatar-xs rounded-circle me-1">
+												<span class="align-middle avatar-name">Zak Turnbull</span>
+											</div>
 
-											<div class="dropdown float-end">
+											<div class="dropdown dropdown-box">
 												<a href="#" class="dropdown-toggle text-muted arrow-none" data-bs-toggle="dropdown" aria-expanded="false">
-													<i class="mdi mdi-dots-vertical font-18"></i>
+													<i class="bx bx-dots-vertical-rounded font-18"></i>
 												</a>
 												<div class="dropdown-menu dropdown-menu-end">
 													<!-- item-->
-													<a href="javascript:void(0);" class="dropdown-item"><i class="mdi mdi-pencil me-1"></i>Edit</a>
+													<a href="javascript:void(0);" class="dropdown-item"><i class="bx bx-pencil me-1"></i>Editar</a>
 													<!-- item-->
-													<a href="javascript:void(0);" class="dropdown-item"><i class="mdi mdi-delete me-1"></i>Delete</a>
+													<a href="javascript:void(0);" class="dropdown-item"><i class="bx bx-trash-alt me-1"></i>Deletar</a>
 													<!-- item-->
-													<a href="javascript:void(0);" class="dropdown-item"><i class="mdi mdi-plus-circle-outline me-1"></i>Add People</a>
-													<!-- item-->
-													<a href="javascript:void(0);" class="dropdown-item"><i class="mdi mdi-exit-to-app me-1"></i>Leave</a>
+													<a href="javascript:void(0);" class="dropdown-item"><i class="bx bx-user-plus me-1"></i>Adicionar pessoa</a>
 												</div>
 											</div>
-
-											<p class="mb-0">
-												<img src="assets/images/users/avatar-9.jpg" alt="user-img" class="avatar-xs rounded-circle me-1">
-												<span class="align-middle">Zak Turnbull</span>
-											</p>
 										</div> <!-- end card-body -->
 									</div>
 									<!-- Task Item End -->
 
 									<!-- Task Item -->
-									<div class="card mb-0">
+									<div class="card mb-0 kanban-card">
 										<div class="card-body p-3">
 											<small class="float-end text-muted">8 Jul 2018</small>
-											<span class="badge bg-secondary text-light">Medium</span>
+											<span class="badge bg-secondary text-light">Média</span>
 
 											<h5 class="mt-2 mb-2">
-												<a href="#" data-bs-toggle="modal" data-bs-target="#task-detail-modal" class="text-body">Brand logo design</a>
+												<a href="#" data-bs-toggle="modal" data-bs-target="#task-detail-modal" class="text-body">
+													Brand logo design
+												</a>
 											</h5>
 
-											<p class="mb-0">
-                                                        <span class="pe-2 text-nowrap mb-2 d-inline-block">
-                                                            <i class="mdi mdi-briefcase-outline text-muted"></i>
-                                                            Design
-                                                        </span>
-												<span class="text-nowrap mb-2 d-inline-block">
-                                                            <i class="mdi mdi-comment-multiple-outline text-muted"></i>
-                                                            <b>95</b> Comments
-                                                        </span>
-											</p>
+											<div class="subtitle-card d-flex justify-content-start">
+												<div class="project"><i class='bx bx-briefcase'></i> Design</div>
+												<div class="comments mx-3"><i class='bx bx-chat' ></i> <b>95</b> Comentários</div>
+											</div>
+											<div class="avatar-box">
+												<img th:src="@{/images/avatar.jpg}" alt="user-img" class="avatar-xs rounded-circle me-1">
+												<span class="align-middle avatar-name">Lily Parkin</span>
+											</div>
 
-											<div class="dropdown float-end">
+											<div class="dropdown dropdown-box">
 												<a href="#" class="dropdown-toggle text-muted arrow-none" data-bs-toggle="dropdown" aria-expanded="false">
-													<i class="mdi mdi-dots-vertical font-18"></i>
+													<i class="bx bx-dots-vertical-rounded font-18"></i>
 												</a>
 												<div class="dropdown-menu dropdown-menu-end">
 													<!-- item-->
-													<a href="javascript:void(0);" class="dropdown-item"><i class="mdi mdi-pencil me-1"></i>Edit</a>
+													<a href="javascript:void(0);" class="dropdown-item"><i class="bx bx-pencil me-1"></i>Editar</a>
 													<!-- item-->
-													<a href="javascript:void(0);" class="dropdown-item"><i class="mdi mdi-delete me-1"></i>Delete</a>
+													<a href="javascript:void(0);" class="dropdown-item"><i class="bx bx-trash-alt me-1"></i>Deletar</a>
 													<!-- item-->
-													<a href="javascript:void(0);" class="dropdown-item"><i class="mdi mdi-plus-circle-outline me-1"></i>Add People</a>
-													<!-- item-->
-													<a href="javascript:void(0);" class="dropdown-item"><i class="mdi mdi-exit-to-app me-1"></i>Leave</a>
+													<a href="javascript:void(0);" class="dropdown-item"><i class="bx bx-user-plus me-1"></i>Adicionar pessoa</a>
 												</div>
 											</div>
-
-											<p class="mb-0">
-												<img src="assets/images/users/avatar-8.jpg" alt="user-img" class="avatar-xs rounded-circle me-1">
-												<span class="align-middle">Lily Parkin</span>
-											</p>
 										</div> <!-- end card-body -->
 									</div>
 									<!-- Task Item End -->
 
 									<!-- Task Item -->
-									<div class="card mb-0">
+									<div class="card mb-0 kanban-card">
 										<div class="card-body p-3">
 											<small class="float-end text-muted">22 Jul 2018</small>
-											<span class="badge bg-danger">High</span>
+											<span class="badge bg-danger">Alta</span>
 
 											<h5 class="mt-2 mb-2">
-												<a href="#" data-bs-toggle="modal" data-bs-target="#task-detail-modal" class="text-body">Improve animation loader</a>
+												<a href="#" data-bs-toggle="modal" data-bs-target="#task-detail-modal" class="text-body">
+													iOS App home page
+												</a>
 											</h5>
 
-											<p class="mb-0">
-                                                        <span class="pe-2 text-nowrap mb-2 d-inline-block">
-                                                            <i class="mdi mdi-briefcase-outline text-muted"></i>
-                                                            CRM
-                                                        </span>
-												<span class="text-nowrap mb-2 d-inline-block">
-                                                            <i class="mdi mdi-comment-multiple-outline text-muted"></i>
-                                                            <b>39</b> Comments
-                                                        </span>
-											</p>
+											<div class="subtitle-card d-flex justify-content-start">
+												<div class="project"><i class='bx bx-briefcase'></i> CRM</div>
+												<div class="comments mx-3"><i class='bx bx-chat' ></i> <b>36</b> Comentários</div>
+											</div>
+											<div class="avatar-box">
+												<img th:src="@{/images/avatar.jpg}" alt="user-img" class="avatar-xs rounded-circle me-1">
+												<span class="align-middle avatar-name">Riley Steele</span>
+											</div>
 
-											<div class="dropdown float-end">
+											<div class="dropdown dropdown-box">
 												<a href="#" class="dropdown-toggle text-muted arrow-none" data-bs-toggle="dropdown" aria-expanded="false">
-													<i class="mdi mdi-dots-vertical font-18"></i>
+													<i class="bx bx-dots-vertical-rounded font-18"></i>
 												</a>
 												<div class="dropdown-menu dropdown-menu-end">
 													<!-- item-->
-													<a href="javascript:void(0);" class="dropdown-item"><i class="mdi mdi-pencil me-1"></i>Edit</a>
+													<a href="javascript:void(0);" class="dropdown-item"><i class="bx bx-pencil me-1"></i>Editar</a>
 													<!-- item-->
-													<a href="javascript:void(0);" class="dropdown-item"><i class="mdi mdi-delete me-1"></i>Delete</a>
+													<a href="javascript:void(0);" class="dropdown-item"><i class="bx bx-trash-alt me-1"></i>Deletar</a>
 													<!-- item-->
-													<a href="javascript:void(0);" class="dropdown-item"><i class="mdi mdi-plus-circle-outline me-1"></i>Add People</a>
-													<!-- item-->
-													<a href="javascript:void(0);" class="dropdown-item"><i class="mdi mdi-exit-to-app me-1"></i>Leave</a>
+													<a href="javascript:void(0);" class="dropdown-item"><i class="bx bx-user-plus me-1"></i>Adicionar pessoa</a>
 												</div>
 											</div>
-
-											<p class="mb-0">
-												<img src="assets/images/users/avatar-4.jpg" alt="user-img" class="avatar-xs rounded-circle me-1">
-												<span class="align-middle">Riley Steele</span>
-											</p>
 										</div> <!-- end card-body -->
 									</div>
 									<!-- Task Item End -->
@@ -456,50 +402,43 @@
 							</div>
 
 							<div class="tasks">
-								<h5 class="mt-0 task-header text-uppercase">Done (1)</h5>
+								<h5 class="mt-0 task-header text-uppercase">CONCLUÍDO (1)</h5>
 								<div id="task-list-four" class="task-list-items">
 
 									<!-- Task Item -->
-									<div class="card mb-0">
+									<div class="card mb-0 kanban-card">
 										<div class="card-body p-3">
 											<small class="float-end text-muted">16 Jul 2018</small>
-											<span class="badge bg-success">Low</span>
+											<span class="badge bg-success">Baixa</span>
 
 											<h5 class="mt-2 mb-2">
-												<a href="#" data-bs-toggle="modal" data-bs-target="#task-detail-modal" class="text-body">Dashboard design</a>
+												<a href="#" data-bs-toggle="modal" data-bs-target="#task-detail-modal" class="text-body">
+													Dashboard design
+												</a>
 											</h5>
 
-											<p class="mb-0">
-                                                        <span class="pe-2 text-nowrap mb-2 d-inline-block">
-                                                            <i class="mdi mdi-briefcase-outline text-muted"></i>
-                                                            Hyper
-                                                        </span>
-												<span class="text-nowrap mb-2 d-inline-block">
-                                                            <i class="mdi mdi-comment-multiple-outline text-muted"></i>
-                                                            <b>287</b> Comments
-                                                        </span>
-											</p>
+											<div class="subtitle-card d-flex justify-content-start">
+												<div class="project"><i class='bx bx-briefcase'></i> Hyper</div>
+												<div class="comments mx-3"><i class='bx bx-chat' ></i> <b>287</b> Comentários</div>
+											</div>
+											<div class="avatar-box">
+												<img th:src="@{/images/avatar.jpg}" alt="user-img" class="avatar-xs rounded-circle me-1">
+												<span class="align-middle avatar-name">Harvey Dickinson</span>
+											</div>
 
-											<div class="dropdown float-end">
+											<div class="dropdown dropdown-box">
 												<a href="#" class="dropdown-toggle text-muted arrow-none" data-bs-toggle="dropdown" aria-expanded="false">
-													<i class="mdi mdi-dots-vertical font-18"></i>
+													<i class="bx bx-dots-vertical-rounded font-18"></i>
 												</a>
 												<div class="dropdown-menu dropdown-menu-end">
 													<!-- item-->
-													<a href="javascript:void(0);" class="dropdown-item"><i class="mdi mdi-pencil me-1"></i>Edit</a>
+													<a href="javascript:void(0);" class="dropdown-item"><i class="bx bx-pencil me-1"></i>Editar</a>
 													<!-- item-->
-													<a href="javascript:void(0);" class="dropdown-item"><i class="mdi mdi-delete me-1"></i>Delete</a>
+													<a href="javascript:void(0);" class="dropdown-item"><i class="bx bx-trash-alt me-1"></i>Deletar</a>
 													<!-- item-->
-													<a href="javascript:void(0);" class="dropdown-item"><i class="mdi mdi-plus-circle-outline me-1"></i>Add People</a>
-													<!-- item-->
-													<a href="javascript:void(0);" class="dropdown-item"><i class="mdi mdi-exit-to-app me-1"></i>Leave</a>
+													<a href="javascript:void(0);" class="dropdown-item"><i class="bx bx-user-plus me-1"></i>Adicionar pessoa</a>
 												</div>
 											</div>
-
-											<p class="mb-0">
-												<img src="assets/images/users/avatar-10.jpg" alt="user-img" class="avatar-xs rounded-circle me-1">
-												<span class="align-middle">Harvey Dickinson</span>
-											</p>
 										</div> <!-- end card-body -->
 									</div>
 									<!-- Task Item End -->
@@ -608,51 +547,63 @@
 							<div class="p-2">
 								<h5 class="mt-0">Description:</h5>
 
-								<p class="text-muted mb-4">
+								<span class="text-muted mb-4">
 									Voluptates, illo, iste itaque voluptas corrupti ratione reprehenderit magni similique? Tempore, quos delectus asperiores
 									libero voluptas quod perferendis! Voluptate, quod illo rerum? Lorem ipsum dolor sit amet. With supporting text below
 									as a natural lead-in to additional contenposuere erat a ante.
-								</p>
+								</span>
 
 								<div class="row">
 									<div class="col-md-4">
 										<div class="mb-4">
 											<h5>Create Date</h5>
-											<p>17 March 2018 <small class="text-muted">1:00 PM</small></p>
+											<span>17 March 2018 <small class="text-muted">1:00 PM</small></span>
 										</div>
 									</div>
 									<div class="col-md-4">
 										<div class="mb-4">
 											<h5>Due Date</h5>
-											<p>22 December 2018 <small class="text-muted">1:00 PM</small></p>
+											<span>22 December 2018 <small class="text-muted">1:00 PM</small></span>
 										</div>
 									</div>
 									<div class="col-md-4">
 										<div class="mb-4" id="tooltip-container">
 											<h5>Asignee:</h5>
 											<a href="javascript:void(0);" data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top" class="d-inline-block" aria-label="Mat Helme" data-bs-original-title="Mat Helme">
-												<img src="assets/images/users/avatar-6.jpg" class="rounded-circle avatar-xs" alt="friend">
+												<img th:src="@{/images/avatar.jpg}" class="rounded-circle avatar-xs" alt="friend">
 											</a>
 										</div>
 									</div>
 								</div>
 								<!-- end row-->
 
-								<ul class="nav nav-tabs nav-bordered mb-3" role="tablist">
-									<li class="nav-item" role="presentation">
-										<a href="#home-b1" data-bs-toggle="tab" aria-expanded="false" class="nav-link active" aria-selected="true" role="tab">
-											Comments
-										</a>
-									</li>
-									<li class="nav-item" role="presentation">
-										<a href="#profile-b1" data-bs-toggle="tab" aria-expanded="true" class="nav-link" aria-selected="false" tabindex="-1" role="tab">
-											Files
-										</a>
-									</li>
-								</ul>
+								<nav>
+									<div class="nav nav-tabs nav-bordered mb-3" id="nav-tab" role="tablist" style="display: -webkit-box;">
+										<button class="nav-link active"
+												id="nav-overview-tab"
+												data-bs-toggle="tab"
+												data-bs-target="#home-b1"
+												type="button"
+												role="tab"
+												aria-controls="nav-overview"
+												aria-selected="true">
+											Comentários
+										</button>
+										<button class="nav-link"
+												id="nav-user-group-tab"
+												data-bs-toggle="tab"
+												data-bs-target="#profile-b1"
+												type="button"
+												role="tab"
+												aria-controls="nav-user-group"
+												aria-selected="false">
+											Arquivos
+										</button>
+									</div>
+								</nav>
 
-								<div class="tab-content">
-									<div class="tab-pane show active" id="home-b1" role="tabpanel">
+								<div class="tab-content" id="nav-tabContent">
+									<div class="tab-pane show active" id="home-b1" role="tabpanel" style="color: var(--ct-modal-color) !important;">
 										<textarea class="form-control form-control-light mb-2" placeholder="Write message" id="example-textarea" rows="3"></textarea>
 										<div class="text-end">
 											<div class="btn-group mb-2 d-none d-sm-inline-block">
@@ -664,7 +615,7 @@
 										</div>
 
 										<div class="d-flex mt-2">
-											<img class="me-3 avatar-sm rounded-circle" src="assets/images/users/avatar-3.jpg" alt="Generic placeholder image">
+											<img class="me-3 avatar-sm rounded-circle" th:src="@{/images/avatar.jpg}" alt="Generic placeholder image">
 											<div class="w-100">
 												<h5 class="mt-0">Jeremy Tomlinson</h5>
 												Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in
@@ -672,7 +623,7 @@
 
 												<div class="d-flex mt-3">
 													<a class="pe-3" href="#">
-														<img src="assets/images/users/avatar-4.jpg" class="avatar-sm rounded-circle" alt="Generic placeholder image">
+														<img th:src="@{/images/avatar.jpg}" class="avatar-sm rounded-circle" alt="Generic placeholder image">
 													</a>
 													<div class="w-100">
 														<h5 class="mt-0">Kathleen Thomas</h5>
@@ -700,7 +651,7 @@
 													</div>
 													<div class="col ps-0">
 														<a href="javascript:void(0);" class="text-muted fw-bold">Hyper-admin-design.zip</a>
-														<p class="mb-0">2.3 MB</p>
+														<span class="mb-0">2.3 MB</span>
 													</div>
 													<div class="col-auto">
 														<!-- Button -->
@@ -716,11 +667,11 @@
 											<div class="p-2">
 												<div class="row align-items-center">
 													<div class="col-auto">
-														<img src="assets/images/projects/project-1.jpg" class="avatar-sm rounded" alt="file-image">
+														<img th:src="@{/images/avatar.jpg}" class="avatar-sm rounded" alt="file-image">
 													</div>
 													<div class="col ps-0">
 														<a href="javascript:void(0);" class="text-muted fw-bold">Dashboard-design.jpg</a>
-														<p class="mb-0">3.25 MB</p>
+														<span class="mb-0">3.25 MB</span>
 													</div>
 													<div class="col-auto">
 														<!-- Button -->
@@ -744,7 +695,7 @@
 													</div>
 													<div class="col ps-0">
 														<a href="javascript:void(0);" class="text-muted fw-bold">Admin-bug-report.mp4</a>
-														<p class="mb-0">7.05 MB</p>
+														<span class="mb-0">7.05 MB</span>
 													</div>
 													<div class="col-auto">
 														<!-- Button -->
