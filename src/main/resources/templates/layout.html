@@ -11,6 +11,7 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/global/Chart.css}" />
     <link rel="stylesheet" type="text/css" th:href="@{/css/global/font-awesome.min.css}" />
     <link rel="stylesheet" type="text/css" th:href="@{/css/global/app-saas.min.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/global/virtual-select.min.css}" />
 </head>
 
 <body id="body-pd" onload="startTime()">
@@ -115,16 +116,17 @@
         <span id="clock"></span>
     </footer>
 
-    <script type="text/javascript" th:src="@{/js/libs/bootstrap.bundle.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/libs/bootstrap.bundle.min.js}"></script
     <script type="text/javascript" th:src="@{/js/libs/jquery.min.js}"></script>
     <script type="text/javascript" th:src="@{/js/libs/jquery.mask.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/libs/virtual-select.min.js}"></script>
     <script type="text/javascript" th:src="@{/js/libs/howler.min.js}"></script>
     <script type="text/javascript" th:src="@{/js/libs/Chart.min.js}"></script>
     <script type="text/javascript" th:src="@{/js/sidebar.js} "></script>
     <script type="text/javascript" th:src="@{/js/script.js}"></script>
-    <script type="text/javascript" th:src="@{js/vendor.min.js}"></script>
-    <script type="text/javascript" th:src="@{vendor/dragula/dragula.min.js}"></script>
-    <script type="text/javascript" th:src="@{js/ui/component.dragula.js}"></script>
+    <script type="text/javascript" th:src="@{/js/vendor.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/ui/component.dragula.js}"></script>
+    <script type="text/javascript" th:src="@{/vendor/dragula/dragula.min.js}"></script>
 
     <script>
         var el = document.getElementById('element');
@@ -397,6 +399,23 @@
           $('[data-toggle="tooltip"]').tooltip()
         })
     </script>
+    <script>
+        VirtualSelect.init({
+          ele: 'select',
+          placeholder: 'Selecione...',
+          search: true,
+          searchGroup: false,
+          searchByStartsWith: false,
+          noOptionsText: 'Nenhum resultado encontrado',
+          noSearchResultsTex: 'Nenhum resultado encontrado',
+          selectAllText: 'Selecionar tudo',
+          searchPlaceholderText: 'Buscar...',
+          optionsSelectedText: 'opções selectionadas',
+          optionSelectedText: 'opção selectionada',
+          allOptionsSelectedText: 'Todos',
+        });
+    </script>
+
 </body>
 
 </html>
