@@ -110,7 +110,7 @@
         </nav>
     </div>
 
-    <div layout:fragment="content" class="height-100 bg-light element mt-4 pt-4" id="element"></div>
+    <div layout:fragment="content" class="height-auto bg-light element mt-4 pt-4" id="element"></div>
 
     <footer>
         <span id="clock"></span>
@@ -413,6 +413,22 @@
           optionsSelectedText: 'opções selectionadas',
           optionSelectedText: 'opção selectionada',
           allOptionsSelectedText: 'Todos',
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+          // Abrir o menu dropdown quando o botão for clicado
+          $('.dropdown-toggle').click(function() {
+            $(this).next('.dropdown-menu').slideToggle();
+          });
+
+          // Minimizar o menu dropdown quando o usuário clicar fora dele
+          $(document).click(function(event) {
+            var target = event.target;
+            if (!$(target).is('.dropdown-toggle') && !$(target).parents().is('.dropdown')) {
+              $('.dropdown-menu').slideUp();
+            }
+          });
         });
     </script>
 
