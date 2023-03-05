@@ -14,6 +14,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
 import java.util.List;
@@ -35,26 +36,35 @@ public class Task extends PersistentObject {
     @Column(nullable = false)
     private String description;
 
+    @NotNull
     private TaskType taskType;
 
+    @NotNull
     private Priority priority;
 
+    @NotNull
     private LocalDate deadline;
 
+    @NotNull
     @OneToOne
     private User responsible;
 
+    @NotNull
     @OneToOne
     private User reporter;
 
+    @NotNull
     @OneToOne
     private Project project;
 
+    @NotNull
     @OneToOne
     private Customer customer;
 
+    @NotNull
     private TaskStatus status;
 
+    @NotNull
     @OneToMany
     private List<Category> categories;
 

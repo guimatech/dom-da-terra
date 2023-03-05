@@ -53,7 +53,7 @@
           <label class="form-label" for="priority">Prioridade: </label><br />
           <select name="priority" id="priority" th:field="*{priority}"
                   th:classappend="${#fields.hasErrors('priority')} ? 'is-invalid' : ''">
-            <option th:each="priority : ${taskPriorityLevels}" th:value="${priority}" th:text="${priority.description}"></option>
+            <option th:each="priority : ${priorities}" th:value="${priority}" th:text="${priority.description}"></option>
           </select><br />
           <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('priority')}">
             <span th:errors="*{priority}"></span>
@@ -72,20 +72,31 @@
         </div>
 
         <div class="col-6">
-          <label class="form-label" for="resume">Título: </label><br />
+          <label class="form-label" for="title">Título: </label><br />
           <input class="form-control"
                  type="text"
-                 id="resume"
-                 name="resume"
+                 id="title"
+                 name="title"
                  placeholder="Resumo..."
-                 th:field="*{resume}"
-                 th:classappend="${#fields.hasErrors('resume')} ? 'is-invalid' : ''" /><br />
-          <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('resume')}">
-            <span th:errors="*{resume}"></span>
+                 th:field="*{title}"
+                 th:classappend="${#fields.hasErrors('title')} ? 'is-invalid' : ''" /><br />
+          <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('title')}">
+            <span th:errors="*{title}"></span>
           </div>
         </div>
 
-        <div class="col-3">
+        <div class="col-2">
+          <label class="form-label" for="taskType">Tipo: </label><br />
+          <select name="taskType" id="taskType" th:field="*{taskType}"
+                  th:classappend="${#fields.hasErrors('taskType')} ? 'is-invalid' : ''">
+            <option th:each="taskType : ${taskTypes}" th:value="${taskType}" th:text="${taskType.description}"></option>
+          </select><br />
+          <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('taskType')}">
+            <span th:errors="*{taskType}"></span>
+          </div>
+        </div>
+
+        <div class="col-2">
           <label class="form-label" for="creationDate">Cadastro: </label><br />
           <input class="form-control"
                  type="date"
@@ -99,7 +110,7 @@
           </div>
         </div>
 
-        <div class="col-3">
+        <div class="col-2">
           <label class="form-label" for="deadline">Prazo: </label><br />
           <input class="form-control"
                  type="date"
@@ -133,7 +144,7 @@
             <div class="row">
               <label class="form-label" for="reporter">Relator: </label><br />
               <select name="reporter" id="reporter" th:field="*{reporter}"
-                      th:classappend="${#fields.hasErrors('reporter')} ? 'is-invalid' : ''">
+                      th:classappend="${#fields.hasErrors('reporter')} ? 'is-invalid' : ''" disabled>
                 <option th:each="reporter : ${reporters}" th:value="${reporter.id}" th:text="${reporter.name}"></option>
               </select><br />
               <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('reporter')}">

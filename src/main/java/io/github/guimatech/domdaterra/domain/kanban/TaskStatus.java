@@ -8,8 +8,8 @@ import lombok.Getter;
 public enum TaskStatus {
     TO_DO("A fazer"),
     DOING("Em progresso"),
-    DONE("Concluído"),
-    FILED("Arquivado");
+    REVIEW("Em revisão"),
+    DONE("Concluído");
 
     private final String description;
 }
