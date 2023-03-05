@@ -26,7 +26,7 @@
       <fieldset class="row g-3">
         <input type="hidden" th:field="*{id}" />
 
-        <div class="col-md-6">
+        <div class="col-3">
           <label class="form-label" for="project">Projeto: </label><br />
           <select name="project" id="project" th:field="*{project}"
                   th:classappend="${#fields.hasErrors('project')} ? 'is-invalid' : ''">
@@ -37,7 +37,7 @@
           </div>
         </div>
 
-        <div class="col-md-6">
+        <div class="col-3">
           <label class="form-label" for="category">Bloco: </label><br />
           <select name="category" id="category"
                   th:field="*{categories}"
@@ -49,7 +49,29 @@
           </div>
         </div>
 
-        <div class="col-md-6">
+        <div class="col-3">
+          <label class="form-label" for="priority">Prioridade: </label><br />
+          <select name="priority" id="priority" th:field="*{priority}"
+                  th:classappend="${#fields.hasErrors('priority')} ? 'is-invalid' : ''">
+            <option th:each="priority : ${taskPriorityLevels}" th:value="${priority}" th:text="${priority.description}"></option>
+          </select><br />
+          <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('priority')}">
+            <span th:errors="*{priority}"></span>
+          </div>
+        </div>
+
+        <div class="col-3">
+          <label class="form-label" for="status-field">Status: </label><br />
+          <select name="status" id="status-field" th:field="*{status}"
+                  th:classappend="${#fields.hasErrors('status')} ? 'is-invalid' : ''">
+            <option th:each="status : ${taskStatus}" th:value="${status}" th:text="${status.description}"></option>
+          </select><br />
+          <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('status')}">
+            <span th:errors="*{status}"></span>
+          </div>
+        </div>
+
+        <div class="col-6">
           <label class="form-label" for="resume">Título: </label><br />
           <input class="form-control"
                  type="text"
@@ -63,37 +85,43 @@
           </div>
         </div>
 
-        <div class="col-md-3">
-          <label class="form-label" for="priority">Prioridade: </label><br />
-          <select name="priority" id="priority" th:field="*{priority}"
-                  th:classappend="${#fields.hasErrors('priority')} ? 'is-invalid' : ''">
-            <option th:each="priority : ${taskPriorityLevels}" th:value="${priority}" th:text="${priority.description}"></option>
-          </select><br />
-          <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('priority')}">
-            <span th:errors="*{priority}"></span>
+        <div class="col-3">
+          <label class="form-label" for="creationDate">Cadastro: </label><br />
+          <input class="form-control"
+                 type="date"
+                 id="creationDate"
+                 name="creationDate"
+                 placeholder="Data de cadastro..."
+                 th:field="*{creationDate}"
+                 th:classappend="${#fields.hasErrors('creationDate')} ? 'is-invalid' : ''" /><br />
+          <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('creationDate')}">
+            <span th:errors="*{creationDate}"></span>
           </div>
         </div>
 
-        <div class="col-md-3">
-          <label class="form-label" for="status-field">Status: </label><br />
-          <select name="status" id="status-field" th:field="*{status}"
-                  th:classappend="${#fields.hasErrors('status')} ? 'is-invalid' : ''">
-            <option th:each="status : ${taskStatus}" th:value="${status}" th:text="${status.description}"></option>
-          </select><br />
-          <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('status')}">
-            <span th:errors="*{status}"></span>
+        <div class="col-3">
+          <label class="form-label" for="deadline">Prazo: </label><br />
+          <input class="form-control"
+                 type="date"
+                 id="deadline"
+                 name="deadline"
+                 placeholder="Data de término do prazo..."
+                 th:field="*{deadline}"
+                 th:classappend="${#fields.hasErrors('deadline')} ? 'is-invalid' : ''" /><br />
+          <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('deadline')}">
+            <span th:errors="*{deadline}"></span>
           </div>
         </div>
 
         <div class="row">
-          <div class="col-md-8">
+          <div class="col-9">
             <label class="form-label" for="description">Descrição: </label><br />
             <textarea class="form-control"
                       rows="5"
                       id="description"
                       name="description"
                       placeholder="Descrição..."
-                      style="height: 24rem"
+                      style="height: 14.5rem"
                       th:field="*{description}"
                       th:classappend="${#fields.hasErrors('description')} ? 'is-invalid' : ''"></textarea><br />
             <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('description')}">
@@ -101,37 +129,7 @@
             </div>
           </div>
 
-          <div class="col-4">
-            <div class="row">
-              <div class="col-md-6">
-                <label class="form-label" for="creationDate">Cadastro: </label><br />
-                <input class="form-control"
-                       type="date"
-                       id="creationDate"
-                       name="creationDate"
-                       placeholder="Data de cadastro..."
-                       th:field="*{creationDate}"
-                       th:classappend="${#fields.hasErrors('creationDate')} ? 'is-invalid' : ''" /><br />
-                <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('creationDate')}">
-                  <span th:errors="*{creationDate}"></span>
-                </div>
-              </div>
-
-              <div class="col-md-6">
-                <label class="form-label" for="deadline">Prazo: </label><br />
-                <input class="form-control"
-                       type="date"
-                       id="deadline"
-                       name="deadline"
-                       placeholder="Data de término do prazo..."
-                       th:field="*{deadline}"
-                       th:classappend="${#fields.hasErrors('deadline')} ? 'is-invalid' : ''" /><br />
-                <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('deadline')}">
-                  <span th:errors="*{deadline}"></span>
-                </div>
-              </div>
-            </div>
-
+          <div class="col-3">
             <div class="row">
               <label class="form-label" for="reporter">Relator: </label><br />
               <select name="reporter" id="reporter" th:field="*{reporter}"

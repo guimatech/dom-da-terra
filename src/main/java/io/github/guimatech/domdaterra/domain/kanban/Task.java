@@ -25,10 +25,10 @@ import java.util.List;
 @Entity
 public class Task extends PersistentObject {
 
-    @NotBlank(message = "O resumo da atividade não pode ser vázio")
-    @Size(max = 60, message = "O resumo da atividade está muito grande")
+    @NotBlank(message = "O título da atividade não pode ser vázio")
+    @Size(max = 60, message = "O título da atividade está muito grande")
     @Column(nullable = false)
-    private String resume;
+    private String title;
 
     @NotBlank(message = "O descrição da atividade não pode ser vázio")
     @Size(max = 280, message = "O descrição da atividade está muito grande")
