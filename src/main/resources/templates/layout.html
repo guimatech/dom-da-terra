@@ -4,6 +4,7 @@
 <head>
     <title>Dom da terra</title>
     <meta charset="UTF-8" />
+    <link rel="icon" th:href="@{/images/favicon.png}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/global/bootstrap.min.css}" />
     <link rel="stylesheet" type="text/css" th:href="@{/css/global/boxicons-2.1.4/css/boxicons.min.css}" />
     <link rel="stylesheet" type="text/css" th:href="@{/css/sidebar.css}" />
@@ -95,6 +96,18 @@
                         <a th:href="@{/tasks}" alt="Atividades" class=" nav_link sub_nav_link "> <i class='bx bx-table nav_icon ms-2'></i>
                             <span class="nav_name ">Atividades</span>
                         </a>
+                        <a th:href="@{/projects}" alt="Projetos" class=" nav_link sub_nav_link "> <i class='bx bx-line-chart nav_icon ms-2'></i>
+                            <span class="nav_name ">Projetos</span>
+                        </a>
+                        <a th:href="@{/categories}" alt="Blocos" class=" nav_link sub_nav_link "> <i class='bx bx-category-alt nav_icon ms-2'></i>
+                            <span class="nav_name ">Blocos</span>
+                        </a>
+                        <a th:href="@{/users}" alt="Colaboradores" class=" nav_link sub_nav_link "> <i class='bx bxs-user-badge nav_icon ms-2'></i>
+                            <span class="nav_name ">Colaboradores</span>
+                        </a>
+                        <a th:href="@{/customers}" alt="Clientes" class=" nav_link sub_nav_link "> <i class='bx bx-group nav_icon ms-2'></i>
+                            <span class="nav_name ">Clientes</span>
+                        </a>
                     </div>
                 </div>
                 <a th:href="@{/report}" class="nav_link "> <i class='bx bx-bar-chart-alt-2 nav_icon'></i>
@@ -110,7 +123,7 @@
         </nav>
     </div>
 
-    <div layout:fragment="content" class="height-auto bg-light element mt-4 pt-4" id="element"></div>
+    <div layout:fragment="content" class="height-100 bg-light element mt-4 pt-4 px-3" id="element"></div>
 
     <footer>
         <span id="clock"></span>
