@@ -121,7 +121,7 @@ public class TaskController {
         if (!errors.hasErrors()) {
             try {
                 taskService.save(task);
-                model.addAttribute(MESSAGE, "Cobrança gravada com sucesso!");
+                model.addAttribute(MESSAGE, "Atividade gravada com sucesso!");
             } catch (ValidationException e) {
                 errors.rejectValue("email", "001", e.getMessage());
             }

@@ -1,7 +1,7 @@
 package io.github.guimatech.domdaterra.infra.in.web;
 
-import io.github.guimatech.domdaterra.application.service.UserService;
-import io.github.guimatech.domdaterra.domain.User;
+import io.github.guimatech.domdaterra.application.service.kanban.ProjectService;
+import io.github.guimatech.domdaterra.domain.kanban.Project;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -22,75 +22,70 @@ import java.util.Optional;
 import java.util.stream.IntStream;
 
 @Controller
-@RequestMapping(path = "/users")
-public class UserController {
+@RequestMapping(path = "/projects")
+public class ProjectController {
 
     private static final String MESSAGE = "message";
-    private static final String USERS = "users";
+    private static final String PROJECTS = "projects";
     private static final int DEFAULT_PAGE_SIZE = 6;
-    public static final String USER_DETAIL = "user-detail";
+    public static final String PROJECT_DETAIL = "project-detail";
 
     @Autowired
-    private UserService userService;
-
-    @GetMapping("/profile")
-    public String profile(Model model) {
-        return "profile";
-    }
+    private ProjectService projectService;
 
     @GetMapping
-    public String findAllUsers(@RequestParam(required = false) Optional<Integer> page,
+    public String findAllProjects(@RequestParam(required = false) Optional<Integer> page,
                                    @RequestParam(required = false) Optional<Integer> size,
                                    Model model) {
         int currentPage = page.orElse(1);
         int pageSize = size.orElse(DEFAULT_PAGE_SIZE);
 
-        Page<User> userPage = userService.findAll(PageRequest.of(currentPage - 1, pageSize));
+        Page<Project> projectPage = projectService.findAll(PageRequest.of(currentPage - 1, pageSize));
 
-        model.addAttribute("userPage", userPage);
+        model.addAttribute("projectPage", projectPage);
 
-        int totalPages = userPage.getTotalPages();
+        int totalPages = projectPage.getTotalPages();
         if (totalPages > 0) {
             List<Integer> pageNumbers = IntStream.rangeClosed(1, totalPages).boxed().toList();
             model.addAttribute("pageNumbers", pageNumbers);
         }
 
-        return USERS;
+        return PROJECTS;
     }
 
     @GetMapping("/new")
-    public String newUser(Model model) {
-        model.addAttribute("user", new User());
+    public String newProject(Model model) {
+        model.addAttribute("project", new Project());
         ControllerHelper.setEditMode(model, true);
 
-        return USER_DETAIL;
+        return PROJECT_DETAIL;
     }
 
     @GetMapping("/edit/{id}")
-    public String editUser(Model model, @PathVariable Long id) {
-        User user = userService.findById(id);
-        model.addAttribute("user", user);
+    public String editProject(Model model, @PathVariable Long id) {
+        Project project = projectService.findById(id);
+        model.addAttribute("project", project);
         ControllerHelper.setEditMode(model, true);
 
-        return USER_DETAIL;
+        return PROJECT_DETAIL;
     }
 
     @GetMapping("/delete/{id}")
-    public String deleteUser(@PathVariable Long id) {
-        userService.deleteById(id);
+    public String deleteProject(@PathVariable Long id) {
+        projectService.deleteById(id);
 
-        return "redirect:/users";
+        return "redirect:/projects";
     }
 
     @PostMapping("/save")
-    public String saveUser(@ModelAttribute("user") @Valid User user,
+    public String saveProject(@ModelAttribute("project") @Valid Project project,
                                Errors errors,
                                Model model) {
 
         if (!errors.hasErrors()) {
             try {
-                userService.save(user);
-                model.addAttribute(MESSAGE, "Colaborador gravado com sucesso!");
+                projectService.save(project);
+                model.addAttribute(MESSAGE, "Projeto gravado com sucesso!");
             } catch (ValidationException e) {
                 errors.rejectValue("email", "001", e.getMessage());
             }
@@ -98,6 +93,6 @@ public class UserController {
 
         ControllerHelper.setEditMode(model, true);
 
-        return USER_DETAIL;
+        return PROJECT_DETAIL;
     }
 }

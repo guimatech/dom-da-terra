@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br"
+	  xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layout}" xmlns:layout="http://www.w3.org/1999/xhtml">
+
+	<body>
+		<div layout:fragment="content">
+			<div class="row">
+				<div class="col-12">
+					<div class="page-title-box">
+						<h4 class="page-title">Clientes</h4>
+					</div>
+				</div>
+			</div>
+
+			<table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+				<thead>
+				<tr>
+					<th class="col">Id</th>
+					<th class="col">Cliente</th>
+					<th class="col">Parcela</th>
+					<th class="col">Operação</th>
+					<th class="col">Vencimento</th>
+					<th class="col">Email</th>
+					<th class="col">Telefone</th>
+					<th class="col">Ações</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr th:if="${customerPage.content.empty}">
+					<td colspan="2"> Sem clientes disponíveis </td>
+				</tr>
+				<tr th:each="customer, iStat : ${customerPage.content}" th:classappend="${customer.active} ? '' : 'table-danger'">
+					<td th:text="${customer.id}" />
+					<td th:text="${customer.customer}" />
+					<td th:text="${customer.installment}" />
+					<td th:text="${customer.operation}" />
+					<td th:text="${customer.expiration}" />
+					<td th:text="${customer.email}" />
+					<td th:text="${customer.phone}" />
+					<td class="d-flex justify-content-around" style="cursor: pointer;">
+						<a class="edit text-warning" title="Edit" data-toggle="tooltip" th:href="@{/customers/edit/{id}(id=${customer.id})}">
+							<i class="bx bxs-pencil"></i>
+						</a>
+						<a class="delete text-danger" title="Delete" data-toggle="tooltip" th:href="@{/customers/delete/{id}(id=${customer.id})}">
+							<i class="bx bxs-trash-alt"></i>
+						</a>
+					</td>
+				</tr>
+				</tbody>
+			</table>
+			<nav aria-label="Page navigation" class="paging">
+				<ul class="pagination justify-content-end" th:if="${customerPage.totalPages > 0}">
+					<li class="page-item" th:classappend="${!customerPage.hasPrevious() ? 'disabled' : ''}">
+						<a class="page-link" th:href="@{/customers(size=${customerPage.size}, page=${customerPage.number})}"
+						   tabindex="-1">Anterior</a>
+					</li>
+					<li class="page-item"
+						th:if="${customerPage.totalPages > 0}"
+						th:each="pageNumber : ${pageNumbers}"
+						th:classappend="${pageNumber==customerPage.number + 1} ? active">
+						<a class="page-link"
+						   th:href="@{/customers(size=${customerPage.size}, page=${pageNumber})}"
+						   th:text=${pageNumber}></a>
+					</li>
+					<li class="page-item" th:classappend="${!customerPage.hasNext() ? 'disabled' : ''}">
+						<a class="page-link"
+						   th:href="@{/customers(size=${customerPage.size}, page=${customerPage.number + 2})}">Próximo</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</body>
+</html>

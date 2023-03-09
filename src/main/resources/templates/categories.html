@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br"
+	  xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layout}" xmlns:layout="http://www.w3.org/1999/xhtml">
+
+	<body>
+		<div layout:fragment="content">
+			<div class="row">
+				<div class="col-12">
+					<div class="page-title-box">
+						<h4 class="page-title">Blocos</h4>
+					</div>
+				</div>
+			</div>
+
+			<table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+				<thead>
+				<tr>
+					<th class="col">Id</th>
+					<th class="col">Cliente</th>
+					<th class="col">Parcela</th>
+					<th class="col">Operação</th>
+					<th class="col">Vencimento</th>
+					<th class="col">Email</th>
+					<th class="col">Telefone</th>
+					<th class="col">Ações</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr th:if="${categoryPage.content.empty}">
+					<td colspan="2"> Sem blocos disponíveis </td>
+				</tr>
+				<tr th:each="category, iStat : ${categoryPage.content}" th:classappend="${category.active} ? '' : 'table-danger'">
+					<td th:text="${category.id}" />
+					<td th:text="${category.customer}" />
+					<td th:text="${category.installment}" />
+					<td th:text="${category.operation}" />
+					<td th:text="${category.expiration}" />
+					<td th:text="${category.email}" />
+					<td th:text="${category.phone}" />
+					<td class="d-flex justify-content-around" style="cursor: pointer;">
+						<a class="edit text-warning" title="Edit" data-toggle="tooltip" th:href="@{/categories/edit/{id}(id=${category.id})}">
+							<i class="bx bxs-pencil"></i>
+						</a>
+						<a class="delete text-danger" title="Delete" data-toggle="tooltip" th:href="@{/categories/delete/{id}(id=${category.id})}">
+							<i class="bx bxs-trash-alt"></i>
+						</a>
+					</td>
+				</tr>
+				</tbody>
+			</table>
+			<nav aria-label="Page navigation" class="paging">
+				<ul class="pagination justify-content-end" th:if="${categoryPage.totalPages > 0}">
+					<li class="page-item" th:classappend="${!categoryPage.hasPrevious() ? 'disabled' : ''}">
+						<a class="page-link" th:href="@{/categories(size=${categoryPage.size}, page=${categoryPage.number})}"
+						   tabindex="-1">Anterior</a>
+					</li>
+					<li class="page-item"
+						th:if="${categoryPage.totalPages > 0}"
+						th:each="pageNumber : ${pageNumbers}"
+						th:classappend="${pageNumber==categoryPage.number + 1} ? active">
+						<a class="page-link"
+						   th:href="@{/categories(size=${categoryPage.size}, page=${pageNumber})}"
+						   th:text=${pageNumber}></a>
+					</li>
+					<li class="page-item" th:classappend="${!categoryPage.hasNext() ? 'disabled' : ''}">
+						<a class="page-link"
+						   th:href="@{/categories(size=${categoryPage.size}, page=${categoryPage.number + 2})}">Próximo</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br"
+	  xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layout}" xmlns:layout="http://www.w3.org/1999/xhtml">
+
+	<body>
+		<div layout:fragment="content">
+			<div class="row">
+				<div class="col-12">
+					<div class="page-title-box">
+						<h4 class="page-title">Projetos</h4>
+					</div>
+				</div>
+			</div>
+
+			<table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+				<thead>
+				<tr>
+					<th class="col">Id</th>
+					<th class="col">Cliente</th>
+					<th class="col">Parcela</th>
+					<th class="col">Operação</th>
+					<th class="col">Vencimento</th>
+					<th class="col">Email</th>
+					<th class="col">Telefone</th>
+					<th class="col">Ações</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr th:if="${projectPage.content.empty}">
+					<td colspan="2"> Sem projetos disponíveis </td>
+				</tr>
+				<tr th:each="project, iStat : ${projectPage.content}" th:classappend="${project.active} ? '' : 'table-danger'">
+					<td th:text="${project.id}" />
+					<td th:text="${project.customer}" />
+					<td th:text="${project.installment}" />
+					<td th:text="${project.operation}" />
+					<td th:text="${project.expiration}" />
+					<td th:text="${project.email}" />
+					<td th:text="${project.phone}" />
+					<td class="d-flex justify-content-around" style="cursor: pointer;">
+						<a class="edit text-warning" title="Edit" data-toggle="tooltip" th:href="@{/projects/edit/{id}(id=${project.id})}">
+							<i class="bx bxs-pencil"></i>
+						</a>
+						<a class="delete text-danger" title="Delete" data-toggle="tooltip" th:href="@{/projects/delete/{id}(id=${project.id})}">
+							<i class="bx bxs-trash-alt"></i>
+						</a>
+					</td>
+				</tr>
+				</tbody>
+			</table>
+			<nav aria-label="Page navigation" class="paging">
+				<ul class="pagination justify-content-end" th:if="${projectPage.totalPages > 0}">
+					<li class="page-item" th:classappend="${!projectPage.hasPrevious() ? 'disabled' : ''}">
+						<a class="page-link" th:href="@{/projects(size=${projectPage.size}, page=${projectPage.number})}"
+						   tabindex="-1">Anterior</a>
+					</li>
+					<li class="page-item"
+						th:if="${projectPage.totalPages > 0}"
+						th:each="pageNumber : ${pageNumbers}"
+						th:classappend="${pageNumber==projectPage.number + 1} ? active">
+						<a class="page-link"
+						   th:href="@{/projects(size=${projectPage.size}, page=${pageNumber})}"
+						   th:text=${pageNumber}></a>
+					</li>
+					<li class="page-item" th:classappend="${!projectPage.hasNext() ? 'disabled' : ''}">
+						<a class="page-link"
+						   th:href="@{/projects(size=${projectPage.size}, page=${projectPage.number + 2})}">Próximo</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</body>
+</html>

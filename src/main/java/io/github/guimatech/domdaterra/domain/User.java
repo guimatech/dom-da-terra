@@ -5,14 +5,17 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import org.hibernate.Hibernate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Data
 @Table
@@ -41,6 +44,11 @@ public class User extends PersistentObject {
     @Column
     private String photo;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     private List<UserGroup> userGroups;
+
+    public String userGroupNames() {
+        return userGroups.stream().map(UserGroup::getName)
+                .collect(Collectors.joining(", "));
+    }
 }

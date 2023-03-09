@@ -1,7 +1,7 @@
 package io.github.guimatech.domdaterra.infra.in.web;
 
-import io.github.guimatech.domdaterra.application.service.UserService;
-import io.github.guimatech.domdaterra.domain.User;
+import io.github.guimatech.domdaterra.application.service.kanban.CategoryService;
+import io.github.guimatech.domdaterra.domain.kanban.Category;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -22,75 +22,70 @@ import java.util.Optional;
 import java.util.stream.IntStream;
 
 @Controller
-@RequestMapping(path = "/users")
-public class UserController {
+@RequestMapping(path = "/categories")
+public class CategoryController {
 
     private static final String MESSAGE = "message";
-    private static final String USERS = "users";
+    private static final String CATEGORIES = "categories";
     private static final int DEFAULT_PAGE_SIZE = 6;
-    public static final String USER_DETAIL = "user-detail";
+    public static final String CATEGORY_DETAIL = "category-detail";
 
     @Autowired
-    private UserService userService;
-
-    @GetMapping("/profile")
-    public String profile(Model model) {
-        return "profile";
-    }
+    private CategoryService categoryService;
 
     @GetMapping
-    public String findAllUsers(@RequestParam(required = false) Optional<Integer> page,
-                                   @RequestParam(required = false) Optional<Integer> size,
-                                   Model model) {
+    public String findAllCategorys(@RequestParam(required = false) Optional<Integer> page,
+                               @RequestParam(required = false) Optional<Integer> size,
+                               Model model) {
         int currentPage = page.orElse(1);
         int pageSize = size.orElse(DEFAULT_PAGE_SIZE);
 
-        Page<User> userPage = userService.findAll(PageRequest.of(currentPage - 1, pageSize));
+        Page<Category> categoryPage = categoryService.findAll(PageRequest.of(currentPage - 1, pageSize));
 
-        model.addAttribute("userPage", userPage);
+        model.addAttribute("categoryPage", categoryPage);
 
-        int totalPages = userPage.getTotalPages();
+        int totalPages = categoryPage.getTotalPages();
         if (totalPages > 0) {
             List<Integer> pageNumbers = IntStream.rangeClosed(1, totalPages).boxed().toList();
             model.addAttribute("pageNumbers", pageNumbers);
         }
 
-        return USERS;
+        return CATEGORIES;
     }
 
     @GetMapping("/new")
-    public String newUser(Model model) {
-        model.addAttribute("user", new User());
+    public String newCategory(Model model) {
+        model.addAttribute("category", new Category());
         ControllerHelper.setEditMode(model, true);
 
-        return USER_DETAIL;
+        return CATEGORY_DETAIL;
     }
 
     @GetMapping("/edit/{id}")
-    public String editUser(Model model, @PathVariable Long id) {
-        User user = userService.findById(id);
-        model.addAttribute("user", user);
+    public String editCategory(Model model, @PathVariable Long id) {
+        Category category = categoryService.findById(id);
+        model.addAttribute("category", category);
         ControllerHelper.setEditMode(model, true);
 
-        return USER_DETAIL;
+        return CATEGORY_DETAIL;
     }
 
     @GetMapping("/delete/{id}")
-    public String deleteUser(@PathVariable Long id) {
-        userService.deleteById(id);
+    public String deleteCategory(@PathVariable Long id) {
+        categoryService.deleteById(id);
 
-        return "redirect:/users";
+        return "redirect:/categories";
     }
 
     @PostMapping("/save")
-    public String saveUser(@ModelAttribute("user") @Valid User user,
-                               Errors errors,
-                               Model model) {
+    public String saveCategory(@ModelAttribute("category") @Valid Category category,
+                              Errors errors,
+                              Model model) {
 
         if (!errors.hasErrors()) {
             try {
-                userService.save(user);
-                model.addAttribute(MESSAGE, "Colaborador gravado com sucesso!");
+                categoryService.save(category);
+                model.addAttribute(MESSAGE, "Bloco gravado com sucesso!");
             } catch (ValidationException e) {
                 errors.rejectValue("email", "001", e.getMessage());
             }
@@ -98,6 +93,6 @@ public class UserController {
 
         ControllerHelper.setEditMode(model, true);
 
-        return USER_DETAIL;
+        return CATEGORY_DETAIL;
     }
 }

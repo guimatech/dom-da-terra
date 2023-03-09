@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br"
+	  xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layout}" xmlns:layout="http://www.w3.org/1999/xhtml">
+
+	<body>
+		<div layout:fragment="content">
+			<div class="row">
+				<div class="col-12">
+					<div class="page-title-box">
+						<h4 class="page-title">Usuários</h4>
+					</div>
+				</div>
+			</div>
+
+			<table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+				<thead>
+				<tr>
+					<th class="col">Id</th>
+					<th class="col">Nome</th>
+					<th class="col">Usuário</th>
+					<th class="col">Senha</th>
+					<th class="col">Foto</th>
+					<th class="col">Eixo(s)</th>
+					<th class="col">Ações</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr th:if="${userPage.content.empty}">
+					<td colspan="2"> Sem usuarios disponíveis </td>
+				</tr>
+				<tr th:each="user, iStat : ${userPage.content}" th:classappend="${user.active} ? '' : 'table-danger'">
+					<td th:text="${user.id}" />
+					<td th:text="${user.name}" />
+					<td th:text="${user.username}" />
+					<td>••••••••••••</td>
+					<td th:text="${user.photo}" />
+					<td th:text="${user.userGroupNames()}" />
+					<td class="d-flex justify-content-around" style="cursor: pointer;">
+						<a class="edit text-warning" title="Edit" data-toggle="tooltip" th:href="@{/users/edit/{id}(id=${user.id})}">
+							<i class="bx bxs-pencil"></i>
+						</a>
+						<a class="delete text-danger" title="Delete" data-toggle="tooltip" th:href="@{/users/delete/{id}(id=${user.id})}">
+							<i class="bx bxs-trash-alt"></i>
+						</a>
+					</td>
+				</tr>
+				</tbody>
+			</table>
+			<nav aria-label="Page navigation" class="paging">
+				<ul class="pagination justify-content-end" th:if="${userPage.totalPages > 0}">
+					<li class="page-item" th:classappend="${!userPage.hasPrevious() ? 'disabled' : ''}">
+						<a class="page-link" th:href="@{/users(size=${userPage.size}, page=${userPage.number})}"
+						   tabindex="-1">Anterior</a>
+					</li>
+					<li class="page-item"
+						th:if="${userPage.totalPages > 0}"
+						th:each="pageNumber : ${pageNumbers}"
+						th:classappend="${pageNumber==userPage.number + 1} ? active">
+						<a class="page-link"
+						   th:href="@{/users(size=${userPage.size}, page=${pageNumber})}"
+						   th:text=${pageNumber}></a>
+					</li>
+					<li class="page-item" th:classappend="${!userPage.hasNext() ? 'disabled' : ''}">
+						<a class="page-link"
+						   th:href="@{/users(size=${userPage.size}, page=${userPage.number + 2})}">Próximo</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</body>
+</html>
