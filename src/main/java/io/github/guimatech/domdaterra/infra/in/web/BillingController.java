@@ -1,12 +1,9 @@
 package io.github.guimatech.domdaterra.infra.in.web;
 
-import com.opencsv.bean.CsvToBean;
-import com.opencsv.bean.CsvToBeanBuilder;
 import io.github.guimatech.domdaterra.application.service.billing.BillingService;
 import io.github.guimatech.domdaterra.domain.billing.Billing;
 import io.github.guimatech.domdaterra.infra.in.web.dto.BillingRequest;
 import io.github.guimatech.domdaterra.infra.in.web.mapper.BillingMapper;
-import org.apache.commons.io.input.BOMInputStream;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -19,16 +16,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 
-import javax.validation.ConstraintViolation;
-import javax.validation.ConstraintViolationException;
 import javax.validation.Valid;
 import javax.validation.ValidationException;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.Reader;
-import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.IntStream;
@@ -44,31 +34,6 @@ public class BillingController {
 
     @Autowired
     private BillingService service;
-
-    @PostMapping
-    public String saveAll(@RequestParam("file") MultipartFile file, Model model) {
-        if (file.isEmpty()) {
-            model.addAttribute(MESSAGE, "Por favor, Selecione um arquivo CSV para o upload.");
-            return BILLINGS;
-        }
-
-        try (Reader reader = new BufferedReader(new InputStreamReader(new BOMInputStream(file.getInputStream()), StandardCharsets.UTF_8))) {
-            CsvToBean<Billing> csvToBean = new CsvToBeanBuilder<Billing>(reader)
-                    .withType(Billing.class)
-                    .withIgnoreLeadingWhiteSpace(true)
-                    .build();
-
-            List<Billing> billings = csvToBean.parse();
-
-            service.saveAll(billings);
-        } catch (ConstraintViolationException e) {
-            model.addAttribute(MESSAGE, "Verifique seu arquivo, pois foram encontrados os seguintes erros:\n"
-                    + e.getConstraintViolations().stream().map(ConstraintViolation::getMessage).toList().toString().substring(0, 100) + "...");
-        } catch (Exception e) {
-            model.addAttribute(MESSAGE, "Ocorreu um erro enquanto processava o CSV.");
-        }
-        return findAll(Optional.of(1), Optional.of(DEFAULT_PAGE_SIZE), model);
-    }
 
     @GetMapping
     public String findAll(@RequestParam(required = false) Optional<Integer> page,
