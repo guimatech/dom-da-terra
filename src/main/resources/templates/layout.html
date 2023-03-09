@@ -82,14 +82,16 @@
                 <div id="accordionRegister">
                     <div id="headingRegister">
                         <button id="btnRegister" class="nav_link accordion-menu " type="button"
-                                data-bs-toggle="collapse" data-bs-target="#collapseRegisterMenus"
+                                data-toggle="collapse" data-target="#collapseRegisterMenus"
                                 aria-expanded="true" aria-controls="collapseRegisterMenus">
                             <i class='bx bxs-edit nav_icon'></i>
                             <span class="nav_name ">Cadastros</span>
                             <i class='bx bx-chevron-down nav_icon accordion-arrow'></i>
                         </button>
                     </div>
-                    <div id="collapseRegisterMenus" class="collapse-menu accordion-collapse collapse show" aria-labelledby="headingRegister" data-bs-parent="#accordionRegister">
+                    <div id="collapseRegisterMenus" class="collapse-menu accordion-collapse collapse show"
+                         aria-labelledby="headingRegister"
+                         data-parent="#accordionRegister">
                         <a th:href="@{/notice-logs}" alt="Cadastros" class=" nav_link sub_nav_link "> <i class='bx bx-message-square-detail nav_icon ms-2'></i>
                             <span class="nav_name ">Quadro de avisos</span>
                         </a>
@@ -430,17 +432,31 @@
     </script>
     <script>
         $(document).ready(function() {
-          // Abrir o menu dropdown quando o botão for clicado
           $('.dropdown-toggle').click(function() {
             $(this).next('.dropdown-menu').slideToggle();
           });
 
-          // Minimizar o menu dropdown quando o usuário clicar fora dele
           $(document).click(function(event) {
             var target = event.target;
             if (!$(target).is('.dropdown-toggle') && !$(target).parents().is('.dropdown')) {
               $('.dropdown-menu').slideUp();
             }
+          });
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+          if (!$('.sub_nav_link').hasClass('active')) {
+            $('.collapse-menu').hide();
+          }
+
+          $('#btnRegister').click(function() {
+            $('#collapseRegisterMenus').slideToggle('slow');
+          });
+
+          $('.sub_nav_link').click(function() {
+            $('.collapse-menu').hide();
+            $(this).addClass('active');
           });
         });
     </script>

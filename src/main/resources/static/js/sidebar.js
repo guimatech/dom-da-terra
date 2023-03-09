@@ -58,7 +58,7 @@ $(function() {
 
     $('.sub_nav_link').each(function(){
         if ($(this).hasClass("active"))
-            $(this).parent().parent().children().children().addClass("active");
+            $(this).parent().parent().find('#btnRegister').addClass("active");
     })
 
     $('.accordion-menu').click( function(){
