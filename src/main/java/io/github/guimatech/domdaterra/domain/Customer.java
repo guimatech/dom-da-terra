@@ -14,6 +14,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Getter
 @Setter
@@ -33,4 +34,8 @@ public class Customer extends PersistentObject {
 
     @OneToMany
     private List<Project> projects;
+
+    public String getProjectNames() {
+        return projects.stream().map(Project::getName).collect(Collectors.joining(", "));
+    }
 }

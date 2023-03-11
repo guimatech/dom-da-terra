@@ -17,12 +17,9 @@
 				<thead>
 				<tr>
 					<th class="col">Id</th>
-					<th class="col">Cliente</th>
-					<th class="col">Parcela</th>
-					<th class="col">Operação</th>
-					<th class="col">Vencimento</th>
-					<th class="col">Email</th>
-					<th class="col">Telefone</th>
+					<th class="col">Nome</th>
+					<th class="col">Responsável</th>
+					<th class="col">Projetos</th>
 					<th class="col">Ações</th>
 				</tr>
 				</thead>
@@ -32,12 +29,9 @@
 				</tr>
 				<tr th:each="customer, iStat : ${customerPage.content}" th:classappend="${customer.active} ? '' : 'table-danger'">
 					<td th:text="${customer.id}" />
-					<td th:text="${customer.customer}" />
-					<td th:text="${customer.installment}" />
-					<td th:text="${customer.operation}" />
-					<td th:text="${customer.expiration}" />
-					<td th:text="${customer.email}" />
-					<td th:text="${customer.phone}" />
+					<td th:text="${customer.name}" />
+					<td th:text="${customer.collaborator.name}" />
+					<td th:text="${customer.getProjectNames()}" />
 					<td class="d-flex justify-content-around" style="cursor: pointer;">
 						<a class="edit text-warning" title="Edit" data-toggle="tooltip" th:href="@{/customers/edit/{id}(id=${customer.id})}">
 							<i class="bx bxs-pencil"></i>

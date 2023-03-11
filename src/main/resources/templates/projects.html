@@ -17,12 +17,8 @@
 				<thead>
 				<tr>
 					<th class="col">Id</th>
+					<th class="col">Nome</th>
 					<th class="col">Cliente</th>
-					<th class="col">Parcela</th>
-					<th class="col">Operação</th>
-					<th class="col">Vencimento</th>
-					<th class="col">Email</th>
-					<th class="col">Telefone</th>
 					<th class="col">Ações</th>
 				</tr>
 				</thead>
@@ -32,12 +28,8 @@
 				</tr>
 				<tr th:each="project, iStat : ${projectPage.content}" th:classappend="${project.active} ? '' : 'table-danger'">
 					<td th:text="${project.id}" />
-					<td th:text="${project.customer}" />
-					<td th:text="${project.installment}" />
-					<td th:text="${project.operation}" />
-					<td th:text="${project.expiration}" />
-					<td th:text="${project.email}" />
-					<td th:text="${project.phone}" />
+					<td th:text="${project.name}" />
+					<td th:text="${project.customer.name}" />
 					<td class="d-flex justify-content-around" style="cursor: pointer;">
 						<a class="edit text-warning" title="Edit" data-toggle="tooltip" th:href="@{/projects/edit/{id}(id=${project.id})}">
 							<i class="bx bxs-pencil"></i>

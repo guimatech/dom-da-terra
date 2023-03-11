@@ -17,12 +17,8 @@
 				<thead>
 				<tr>
 					<th class="col">Id</th>
-					<th class="col">Cliente</th>
-					<th class="col">Parcela</th>
-					<th class="col">Operação</th>
-					<th class="col">Vencimento</th>
-					<th class="col">Email</th>
-					<th class="col">Telefone</th>
+					<th class="col">Nome</th>
+					<th class="col">Descrição</th>
 					<th class="col">Ações</th>
 				</tr>
 				</thead>
@@ -32,12 +28,8 @@
 				</tr>
 				<tr th:each="category, iStat : ${categoryPage.content}" th:classappend="${category.active} ? '' : 'table-danger'">
 					<td th:text="${category.id}" />
-					<td th:text="${category.customer}" />
-					<td th:text="${category.installment}" />
-					<td th:text="${category.operation}" />
-					<td th:text="${category.expiration}" />
-					<td th:text="${category.email}" />
-					<td th:text="${category.phone}" />
+					<td th:text="${category.name}" />
+					<td th:text="${category.description}" />
 					<td class="d-flex justify-content-around" style="cursor: pointer;">
 						<a class="edit text-warning" title="Edit" data-toggle="tooltip" th:href="@{/categories/edit/{id}(id=${category.id})}">
 							<i class="bx bxs-pencil"></i>
