@@ -27,7 +27,7 @@
         <input type="hidden" th:field="*{id}" />
 
         <div class="col-3">
-          <label class="form-label" for="project">Projeto: </label><br />
+          <label class="form-label" for="project">Projeto </label><br />
           <select name="project" id="project" th:field="*{project}"
                   th:classappend="${#fields.hasErrors('project')} ? 'is-invalid' : ''">
             <option th:each="project : ${projects}" th:value="${project.id}" th:text="${project.name}"></option>
@@ -38,7 +38,7 @@
         </div>
 
         <div class="col-3">
-          <label class="form-label" for="category">Bloco: </label><br />
+          <label class="form-label" for="category">Bloco </label><br />
           <select name="category" id="category"
                   th:field="*{categories}"
                   th:classappend="${#fields.hasErrors('categories')} ? 'is-invalid' : ''" multiple>
@@ -50,7 +50,7 @@
         </div>
 
         <div class="col-3">
-          <label class="form-label" for="priority">Prioridade: </label><br />
+          <label class="form-label" for="priority">Prioridade </label><br />
           <select name="priority" id="priority" th:field="*{priority}"
                   th:classappend="${#fields.hasErrors('priority')} ? 'is-invalid' : ''">
             <option th:each="priority : ${priorities}" th:value="${priority}" th:text="${priority.description}"></option>
@@ -61,7 +61,7 @@
         </div>
 
         <div class="col-3">
-          <label class="form-label" for="status-field">Status: </label><br />
+          <label class="form-label" for="status-field">Status </label><br />
           <select name="status" id="status-field" th:field="*{status}"
                   th:classappend="${#fields.hasErrors('status')} ? 'is-invalid' : ''">
             <option th:each="status : ${taskStatus}" th:value="${status}" th:text="${status.description}"></option>
@@ -72,7 +72,7 @@
         </div>
 
         <div class="col-6">
-          <label class="form-label" for="title">Título: </label><br />
+          <label class="form-label" for="title">Título </label><br />
           <input class="form-control"
                  type="text"
                  id="title"
@@ -86,7 +86,7 @@
         </div>
 
         <div class="col-2">
-          <label class="form-label" for="taskType">Tipo: </label><br />
+          <label class="form-label" for="taskType">Tipo </label><br />
           <select name="taskType" id="taskType" th:field="*{taskType}"
                   th:classappend="${#fields.hasErrors('taskType')} ? 'is-invalid' : ''">
             <option th:each="taskType : ${taskTypes}" th:value="${taskType}" th:text="${taskType.description}"></option>
@@ -97,7 +97,7 @@
         </div>
 
         <div class="col-2">
-          <label class="form-label" for="creationDate">Cadastro: </label><br />
+          <label class="form-label" for="creationDate">Cadastro </label><br />
           <input class="form-control"
                  type="date"
                  id="creationDate"
@@ -111,7 +111,7 @@
         </div>
 
         <div class="col-2">
-          <label class="form-label" for="deadline">Prazo: </label><br />
+          <label class="form-label" for="deadline">Prazo </label><br />
           <input class="form-control"
                  type="date"
                  id="deadline"
@@ -126,7 +126,7 @@
 
         <div class="row">
           <div class="col-9">
-            <label class="form-label" for="description">Descrição: </label><br />
+            <label class="form-label" for="description">Descrição </label><br />
             <textarea class="form-control"
                       rows="5"
                       id="description"
@@ -142,7 +142,7 @@
 
           <div class="col-3">
             <div class="row">
-              <label class="form-label" for="reporter">Relator: </label><br />
+              <label class="form-label" for="reporter">Relator </label><br />
               <select name="reporter" id="reporter" th:field="*{reporter}"
                       th:classappend="${#fields.hasErrors('reporter')} ? 'is-invalid' : ''" disabled>
                 <option th:each="reporter : ${reporters}" th:value="${reporter.id}" th:text="${reporter.name}"></option>
@@ -153,7 +153,7 @@
             </div>
 
             <div class="row">
-              <label class="form-label" for="responsible">Responsável: </label><br />
+              <label class="form-label" for="responsible">Responsável </label><br />
               <select name="responsible" id="responsible" th:field="*{responsible}"
                       th:classappend="${#fields.hasErrors('responsible')} ? 'is-invalid' : ''">
                 <option th:each="responsible : ${responsibles}" th:value="${responsible.id}" th:text="${responsible.name}"></option>
@@ -164,7 +164,7 @@
             </div>
 
             <div class="row">
-              <label class="form-label" for="customer">Cliente: </label><br />
+              <label class="form-label" for="customer">Cliente </label><br />
               <select name="customer" id="customer" th:field="*{customer}"
                       th:classappend="${#fields.hasErrors('customer')} ? 'is-invalid' : ''">
                 <option th:each="customer : ${customers}" th:value="${customer.id}" th:text="${customer.name}"></option>
@@ -175,7 +175,7 @@
             </div>
 
             <div class="row">
-              <label class="form-label" for="observers">Observadores: </label><br />
+              <label class="form-label" for="observers">Observadores </label><br />
               <select name="observers" id="observers" th:field="*{observers}"
                       th:classappend="${#fields.hasErrors('observers')} ? 'is-invalid' : ''" multiple>
                 <option th:each="observers : ${observers}" th:value="${observers.id}" th:text="${observers.name}"></option>

@@ -2,6 +2,8 @@ package io.github.guimatech.domdaterra.infra.in.web;
 
 import io.github.guimatech.domdaterra.application.service.kanban.CategoryService;
 import io.github.guimatech.domdaterra.domain.kanban.Category;
+import io.github.guimatech.domdaterra.infra.in.web.dto.CategoryRequest;
+import io.github.guimatech.domdaterra.infra.in.web.dto.ProjectRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -49,6 +51,8 @@ public class CategoryController {
             List<Integer> pageNumbers = IntStream.rangeClosed(1, totalPages).boxed().toList();
             model.addAttribute("pageNumbers", pageNumbers);
         }
+
+        model.addAttribute("categoryRequest", new CategoryRequest());
 
         return CATEGORIES;
     }

@@ -1,7 +1,12 @@
 package io.github.guimatech.domdaterra.infra.in.web;
 
+import io.github.guimatech.domdaterra.application.service.UserGroupService;
 import io.github.guimatech.domdaterra.application.service.UserService;
+import io.github.guimatech.domdaterra.domain.Customer;
 import io.github.guimatech.domdaterra.domain.User;
+import io.github.guimatech.domdaterra.domain.UserGroup;
+import io.github.guimatech.domdaterra.infra.in.web.dto.CategoryRequest;
+import io.github.guimatech.domdaterra.infra.in.web.dto.UserRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -33,6 +38,9 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private UserGroupService userGroupService;
+
     @GetMapping("/profile")
     public String profile(Model model) {
         return "profile";
@@ -48,12 +56,16 @@ public class UserController {
         Page<User> userPage = userService.findAll(PageRequest.of(currentPage - 1, pageSize));
 
         model.addAttribute("userPage", userPage);
+        List<UserGroup> userGroups = userGroupService.findAllByActiveTrue();
 
         int totalPages = userPage.getTotalPages();
         if (totalPages > 0) {
             List<Integer> pageNumbers = IntStream.rangeClosed(1, totalPages).boxed().toList();
             model.addAttribute("pageNumbers", pageNumbers);
         }
+
+        model.addAttribute("userRequest", new UserRequest());
+        model.addAttribute("userGroups", userGroups);
 
         return USERS;
     }

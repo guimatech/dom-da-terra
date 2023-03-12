@@ -8,7 +8,45 @@
 			<div class="row">
 				<div class="col-12">
 					<div class="page-title-box">
-						<h4 class="page-title">Clientes</h4>
+						<h4 class="page-title">Clientes
+							<a href="#" class="btn btn-success btn-sm ms-3"
+							   data-bs-toggle="modal" data-bs-target="#newCustomerModal"><i class="bx bx-plus"></i> Adicionar cliente</a>
+						</h4>
+					</div>
+				</div>
+			</div>
+
+			<!-- Modal New -->
+			<div class="modal fade" id="newCustomerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="newCustomerModalLabel">Cadastro de Clientes</h5>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						</div>
+						<form method="post" th:object="${customerRequest}" th:action="@{/customers/save/new}"
+							  class="needs-validation" novalidate>
+							<fieldset>
+								<input type="hidden" th:field="*{id}" />
+								<div class="modal-body">
+									<div class="mb-2">
+										<label class="form-label" for="name">Nome</label>
+										<input type="text" class="form-control" id="name" name="name"
+											   th:field="*{name}" required />
+										<div class="invalid-feedback">
+											Por favor, preencha o nome do cliente.
+										</div>
+										<div class="valid-feedback">
+											Correto!
+										</div>
+									</div>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+									<button type="submit" class="btn btn-primary">Salvar</button>
+								</div>
+							</fieldset>
+						</form>
 					</div>
 				</div>
 			</div>
@@ -18,7 +56,6 @@
 				<tr>
 					<th class="col">Id</th>
 					<th class="col">Nome</th>
-					<th class="col">Responsável</th>
 					<th class="col">Projetos</th>
 					<th class="col">Ações</th>
 				</tr>
@@ -30,7 +67,6 @@
 				<tr th:each="customer, iStat : ${customerPage.content}" th:classappend="${customer.active} ? '' : 'table-danger'">
 					<td th:text="${customer.id}" />
 					<td th:text="${customer.name}" />
-					<td th:text="${customer.collaborator.name}" />
 					<td th:text="${customer.getProjectNames()}" />
 					<td class="d-flex justify-content-around" style="cursor: pointer;">
 						<a class="edit text-warning" title="Editar" data-toggle="tooltip" th:href="@{/customers/edit/{id}(id=${customer.id})}">

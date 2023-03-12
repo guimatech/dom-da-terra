@@ -8,7 +8,58 @@
 			<div class="row">
 				<div class="col-12">
 					<div class="page-title-box">
-						<h4 class="page-title">Projetos</h4>
+						<h4 class="page-title">Projetos
+							<a href="#" class="btn btn-success btn-sm ms-3"
+							   data-bs-toggle="modal" data-bs-target="#newProjectModal"><i class="bx bx-plus"></i> Adicionar projeto</a>
+						</h4>
+					</div>
+				</div>
+			</div>
+
+			<!-- Modal New -->
+			<div class="modal fade" id="newProjectModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="newProjectModalLabel">Cadastro de Projetos</h5>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						</div>
+						<form method="post" th:object="${projectRequest}" th:action="@{/projects/save/new}"
+							  class="needs-validation" novalidate>
+							<fieldset>
+								<input type="hidden" th:field="*{id}" />
+								<div class="modal-body">
+									<div class="mb-2">
+										<label class="form-label" for="name">Nome</label>
+										<input type="text" class="form-control" id="name" name="name"
+											   th:field="*{name}" required />
+										<div class="invalid-feedback">
+											Por favor, preencha o nome do projeto.
+										</div>
+										<div class="valid-feedback">
+											Correto!
+										</div>
+									</div>
+									<div class="mb-2">
+										<label class="form-label" for="customer">Cliente </label><br />
+										<select name="customer" id="customer" th:field="*{customer}"
+												required>
+											<option th:each="customer : ${customers}" th:value="${customer.id}" th:text="${customer.name}"></option>
+										</select><br />
+										<div class="invalid-feedback">
+											Por favor, preencha o cliente.
+										</div>
+										<div class="valid-feedback">
+											Correto!
+										</div>
+									</div>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+									<button type="submit" class="btn btn-primary">Salvar</button>
+								</div>
+							</fieldset>
+						</form>
 					</div>
 				</div>
 			</div>

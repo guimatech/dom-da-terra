@@ -1,7 +1,11 @@
 package io.github.guimatech.domdaterra.infra.in.web;
 
+import io.github.guimatech.domdaterra.application.service.CustomerService;
 import io.github.guimatech.domdaterra.application.service.kanban.ProjectService;
+import io.github.guimatech.domdaterra.domain.Customer;
 import io.github.guimatech.domdaterra.domain.kanban.Project;
+import io.github.guimatech.domdaterra.infra.in.web.dto.NoticeLogRequest;
+import io.github.guimatech.domdaterra.infra.in.web.dto.ProjectRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -33,6 +37,9 @@ public class ProjectController {
     @Autowired
     private ProjectService projectService;
 
+    @Autowired
+    private CustomerService customerService;
+
     @GetMapping
     public String findAllProjects(@RequestParam(required = false) Optional<Integer> page,
                                    @RequestParam(required = false) Optional<Integer> size,
@@ -41,6 +48,7 @@ public class ProjectController {
         int pageSize = size.orElse(DEFAULT_PAGE_SIZE);
 
         Page<Project> projectPage = projectService.findAll(PageRequest.of(currentPage - 1, pageSize));
+        List<Customer> customers = customerService.findAllByActiveTrue();
 
         model.addAttribute("projectPage", projectPage);
 
@@ -49,6 +57,9 @@ public class ProjectController {
             List<Integer> pageNumbers = IntStream.rangeClosed(1, totalPages).boxed().toList();
             model.addAttribute("pageNumbers", pageNumbers);
         }
+
+        model.addAttribute("projectRequest", new ProjectRequest());
+        model.addAttribute("customers", customers);
 
         return PROJECTS;
     }

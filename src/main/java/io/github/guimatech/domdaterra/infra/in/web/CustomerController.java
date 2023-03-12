@@ -2,6 +2,8 @@ package io.github.guimatech.domdaterra.infra.in.web;
 
 import io.github.guimatech.domdaterra.application.service.CustomerService;
 import io.github.guimatech.domdaterra.domain.Customer;
+import io.github.guimatech.domdaterra.infra.in.web.dto.CategoryRequest;
+import io.github.guimatech.domdaterra.infra.in.web.dto.CustomerRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -49,6 +51,8 @@ public class CustomerController {
             List<Integer> pageNumbers = IntStream.rangeClosed(1, totalPages).boxed().toList();
             model.addAttribute("pageNumbers", pageNumbers);
         }
+
+        model.addAttribute("customerRequest", new CustomerRequest());
 
         return CUSTOMERS;
     }

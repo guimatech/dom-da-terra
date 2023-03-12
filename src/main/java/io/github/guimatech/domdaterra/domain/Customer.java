@@ -28,10 +28,6 @@ public class Customer extends PersistentObject {
     @Column(nullable = false)
     private String name;
 
-    @OneToOne
-    @NotNull(message = "O Colaborador reponsável não pode ser nulo")
-    private User collaborator;
-
     @OneToMany
     private List<Project> projects;
 
