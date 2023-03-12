@@ -28,4 +28,22 @@ public class NoticeLog extends PersistentObject {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         return String.format("De %s até %s", formatter.format(this.startDatePeriod), formatter.format(this.endDatePeriod));
     }
+
+    @JsonIgnore
+    public String getStartDate() {
+        if (Objects.isNull(this.startDatePeriod))
+            return "";
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        return formatter.format(this.startDatePeriod);
+    }
+
+    @JsonIgnore
+    public String getEndDate() {
+        if (Objects.isNull(this.endDatePeriod))
+            return "";
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        return formatter.format(this.endDatePeriod);
+    }
 }

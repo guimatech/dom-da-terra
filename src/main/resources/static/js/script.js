@@ -1,9 +1,7 @@
-function isNumberKey(evt) {
-	var charCode = (evt.which) ? evt.which : evt.keyCode;
+var el = document.getElementById('element');
 
-	if ((charCode >= 48 && charCode <= 57) || charCode <= 31) {
-		return true;
-	}
+el.webkitRequestFullscreen();
+el.mozRequestFullScreen();
+el.msRequestFullscreen();
+el.requestFullscreen();
 
-	return false;
-}

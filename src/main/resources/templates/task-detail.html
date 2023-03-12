@@ -104,7 +104,7 @@
                  name="creationDate"
                  placeholder="Data de cadastro..."
                  th:field="*{creationDate}"
-                 th:classappend="${#fields.hasErrors('creationDate')} ? 'is-invalid' : ''" /><br />
+                 th:classappend="${#fields.hasErrors('creationDate')} ? 'is-invalid' : ''" disabled /><br />
           <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('creationDate')}">
             <span th:errors="*{creationDate}"></span>
           </div>

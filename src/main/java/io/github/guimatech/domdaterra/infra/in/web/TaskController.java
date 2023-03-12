@@ -29,9 +29,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
 import javax.validation.ValidationException;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.IntStream;
+
+import static io.github.guimatech.domdaterra.infra.security.SecurityUtils.loggedUser;
 
 @Controller
 @RequestMapping(path = "/tasks")
@@ -89,7 +92,10 @@ public class TaskController {
 
     @GetMapping("/new")
     public String newTask(Model model) {
-        model.addAttribute("task", new Task());
+        Task task = new Task();
+        task.setCreationDate(LocalDate.now());
+        task.setReporter(loggedUser().getUser());
+        model.addAttribute("task", task);
         setOptionsOnFields(model);
         ControllerHelper.setEditMode(model, true);
 

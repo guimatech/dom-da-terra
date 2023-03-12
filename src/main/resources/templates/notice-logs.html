@@ -28,11 +28,11 @@
 							  class="needs-validation" novalidate>
 							<fieldset>
 								<input type="hidden" th:field="*{id}" />
-								<div class="modal-body pt-0">
-									<div class="form-floating mb-3">
-										<input type="text" class="form-control" id="description" name="description"
-											   th:field="*{description}" required>
+								<div class="modal-body">
+									<div class="mb-2">
 										<label for="description">Descrição</label>
+										<input type="text" class="form-control" id="description" name="description"
+											   th:field="*{description}" required />
 										<div class="invalid-feedback">
 											Por favor, preencha a descrição do aviso.
 										</div>
@@ -41,10 +41,10 @@
 										</div>
 									</div>
 									<div class="row">
-										<div class="form-floating col">
-											<input type="date" class="form-control" id="startDate" placeholder="dd/mm/aaaa"
-												   th:field="*{startDatePeriod}" required>
+										<div class="col">
 											<label for="startDate">Data de início</label>
+											<input type="date" class="form-control startDate" id="startDate" placeholder="dd/mm/aaaa"
+												   th:field="*{startDatePeriod}" required />
 											<div class="invalid-feedback">
 												Por favor, preencha a data de início do aviso.
 											</div>
@@ -52,10 +52,10 @@
 												Correto!
 											</div>
 										</div>
-										<div class="form-floating col">
-											<input type="date" class="form-control" id="endDate" placeholder="dd/mm/aaaa"
-												   th:field="*{endDatePeriod}" required>
+										<div class="col">
 											<label for="endDate">Data de fim</label>
+											<input type="date" class="form-control endDate" id="endDate" placeholder="dd/mm/aaaa"
+												   th:field="*{endDatePeriod}" required />
 											<div class="invalid-feedback">
 												Por favor, preencha a data de fim do aviso.
 											</div>
@@ -81,6 +81,7 @@
 					<th class="col">Id</th>
 					<th class="col">Descrição</th>
 					<th class="col">Período de notificação</th>
+					<th class="col">Ações</th>
 				</tr>
 				</thead>
 				<tbody>
@@ -93,31 +94,36 @@
 					<td th:text="${noticeLog.getPeriod()}" />
 					<td class="d-flex justify-content-around" style="cursor: pointer;">
 						<a class="edit text-warning" title="Edit" data-toggle="tooltip"
-						   data-bs-toggle="modal" data-bs-target="#editNoticeLogModal">
+						   data-bs-toggle="modal" th:data-bs-target="'#editNoticeLogModal-' + ${noticeLog.id}" data-id="${noticeLog.id}">
 							<i class="bx bxs-pencil"></i>
 						</a>
 						<a class="delete text-danger" title="Delete" data-toggle="tooltip" th:href="@{/notice-logs/delete/{id}(id=${noticeLog.id})}">
 							<i class="bx bxs-trash-alt"></i>
 						</a>
 					</td>
-					<!-- Modal New -->
-					<div class="modal fade" id="editNoticeLogModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+					<!-- Modal Edit -->
+					<div class="modal fade"
+						 th:id="'editNoticeLogModal-' + ${noticeLog.id}"
+						 tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 						<div class="modal-dialog">
 							<div class="modal-content">
 								<div class="modal-header">
-									<h5 class="modal-title" id="editNoticeLogModalLabel">Edição de Avisos</h5>
+									<h5 class="modal-title" th:id="'editNoticeLogModalLabel-' + ${noticeLog.id}">Edição de Avisos</h5>
 									<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 								</div>
-								<form method="post" th:object="${noticeLogRequest}" th:action="@{/notice-logs/save/edit/{id}(id=${noticeLog.id})}"
+								<form method="post"
+									  th:object="${noticeLogRequest}"
+									  th:action="@{/notice-logs/save/edit/{id}(id=${noticeLog.id})}"
 									  class="needs-validation" novalidate>
 									<fieldset>
-										<input type="hidden" th:field="*{id}" />
+										<input type="hidden" th:field="*{id}" th:value="${noticeLogRequest.id = noticeLog.id}" />
 										<div class="modal-body">
-											<div class="form-floating mb-3">
-												<input type="text" class="form-control" id="description" name="description"
-													   th:field="*{description}" required>
-												</input>
-												<label for="description">Descrição</label>
+											<div class="mb-2">
+												<label th:for="'descriptionEdit-' + ${noticeLog.id}">Descrição</label>
+												<input type="text" class="form-control"
+													   th:id="'descriptionEdit-' + ${noticeLog.id}"
+													   name="description"
+													   th:field="*{description}" th:value="${noticeLogRequest.description = noticeLog.description}" required />
 												<div class="invalid-feedback">
 													Por favor, preencha a descrição do aviso.
 												</div>
@@ -126,10 +132,10 @@
 												</div>
 											</div>
 											<div class="row">
-												<div class="form-floating col">
-													<input type="date" class="form-control" id="startDateEdit" placeholder="dd/mm/aaaa"
-														   th:field="*{startDatePeriod}" required>
-													<label for="startDateEdit">Data de início</label>
+												<div class="col">
+													<label th:for="'startDateEdit-' + ${noticeLog.id}">Data de início</label>
+													<input type="date" class="form-control startDate" th:id="'startDateEdit-' + ${noticeLog.id}"
+														   th:field="*{startDatePeriod}" th:value="${noticeLogRequest.startDatePeriod = noticeLog.getStartDate()}" required>
 													<div class="invalid-feedback">
 														Por favor, preencha a data de início do aviso.
 													</div>
@@ -137,10 +143,10 @@
 														Correto!
 													</div>
 												</div>
-												<div class="form-floating col">
-													<input type="date" class="form-control" id="endDateEdit" placeholder="dd/mm/aaaa"
-														   th:field="*{endDatePeriod}" required>
-													<label for="endDateEdit">Data de fim</label>
+												<div class="col">
+													<label th:for="'endDateEdit-' + ${noticeLog.id}">Data de fim</label>
+													<input type="date" class="form-control endDate" th:id="'endDateEdit-' + ${noticeLog.id}"
+														   th:field="*{endDatePeriod}" th:value="${noticeLogRequest.endDatePeriod = noticeLog.getEndDate()}" required>
 													<div class="invalid-feedback">
 														Por favor, preencha a data de fim do aviso.
 													</div>
