@@ -43,10 +43,10 @@
       <td th:text="${billing.email}" />
       <td th:text="${billing.phone}" />
       <td class="d-flex justify-content-around" style="cursor: pointer;">
-        <a class="edit text-warning" title="Edit" data-toggle="tooltip" th:href="@{/billings/edit/{id}(id=${billing.id})}">
+        <a class="edit text-warning" title="Editar" data-toggle="tooltip" th:href="@{/billings/edit/{id}(id=${billing.id})}">
           <i class="bx bxs-pencil"></i>
         </a>
-        <a class="delete text-danger" title="Delete" data-toggle="tooltip" th:href="@{/billings/delete/{id}(id=${billing.id})}">
+        <a class="delete text-danger" title="Deletar" data-toggle="tooltip" th:href="@{/billings/delete/{id}(id=${billing.id})}">
           <i class="bx bxs-trash-alt"></i>
         </a>
       </td>

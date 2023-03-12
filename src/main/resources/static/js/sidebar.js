@@ -66,3 +66,18 @@ $(function() {
         $(this).addClass("active");
     })
 });
+
+$(document).ready(function() {
+    if (!$('.sub_nav_link').hasClass('active')) {
+        $('.collapse-menu').hide();
+    }
+
+    $('#btnRegister').click(function() {
+        $('#collapseRegisterMenus').slideToggle('slow');
+    });
+
+    $('.sub_nav_link').click(function() {
+        $('.collapse-menu').hide();
+        $(this).addClass('active');
+    });
+});

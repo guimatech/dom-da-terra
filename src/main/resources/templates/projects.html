@@ -31,10 +31,10 @@
 					<td th:text="${project.name}" />
 					<td th:text="${project.customer.name}" />
 					<td class="d-flex justify-content-around" style="cursor: pointer;">
-						<a class="edit text-warning" title="Edit" data-toggle="tooltip" th:href="@{/projects/edit/{id}(id=${project.id})}">
+						<a class="edit text-warning" title="Editar" data-toggle="tooltip" th:href="@{/projects/edit/{id}(id=${project.id})}">
 							<i class="bx bxs-pencil"></i>
 						</a>
-						<a class="delete text-danger" title="Delete" data-toggle="tooltip" th:href="@{/projects/delete/{id}(id=${project.id})}">
+						<a class="delete text-danger" title="Deletar" data-toggle="tooltip" th:href="@{/projects/delete/{id}(id=${project.id})}">
 							<i class="bx bxs-trash-alt"></i>
 						</a>
 					</td>

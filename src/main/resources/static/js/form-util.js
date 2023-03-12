@@ -59,3 +59,18 @@ function isNumberKey(evt) {
         }, false)
     })
 })()
+
+VirtualSelect.init({
+    ele: 'select',
+    placeholder: 'Selecione...',
+    search: true,
+    searchGroup: false,
+    searchByStartsWith: false,
+    noOptionsText: 'Nenhum resultado encontrado',
+    noSearchResultsTex: 'Nenhum resultado encontrado',
+    selectAllText: 'Selecionar tudo',
+    searchPlaceholderText: 'Buscar...',
+    optionsSelectedText: 'opções selectionadas',
+    optionSelectedText: 'opção selectionada',
+    allOptionsSelectedText: 'Todos',
+});

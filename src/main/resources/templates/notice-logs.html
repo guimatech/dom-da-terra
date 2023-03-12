@@ -93,11 +93,11 @@
 					<td th:text="${noticeLog.description}" />
 					<td th:text="${noticeLog.getPeriod()}" />
 					<td class="d-flex justify-content-around" style="cursor: pointer;">
-						<a class="edit text-warning" title="Edit" data-toggle="tooltip"
+						<a class="edit text-warning" title="Editar" data-toggle="tooltip"
 						   data-bs-toggle="modal" th:data-bs-target="'#editNoticeLogModal-' + ${noticeLog.id}" data-id="${noticeLog.id}">
 							<i class="bx bxs-pencil"></i>
 						</a>
-						<a class="delete text-danger" title="Delete" data-toggle="tooltip" th:href="@{/notice-logs/delete/{id}(id=${noticeLog.id})}">
+						<a class="delete text-danger" title="Deletar" data-toggle="tooltip" th:href="@{/notice-logs/delete/{id}(id=${noticeLog.id})}">
 							<i class="bx bxs-trash-alt"></i>
 						</a>
 					</td>

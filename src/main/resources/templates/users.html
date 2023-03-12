@@ -37,10 +37,10 @@
 					<td th:text="${user.photo}" />
 					<td th:text="${user.userGroupNames()}" />
 					<td class="d-flex justify-content-around" style="cursor: pointer;">
-						<a class="edit text-warning" title="Edit" data-toggle="tooltip" th:href="@{/users/edit/{id}(id=${user.id})}">
+						<a class="edit text-warning" title="Editar" data-toggle="tooltip" th:href="@{/users/edit/{id}(id=${user.id})}">
 							<i class="bx bxs-pencil"></i>
 						</a>
-						<a class="delete text-danger" title="Delete" data-toggle="tooltip" th:href="@{/users/delete/{id}(id=${user.id})}">
+						<a class="delete text-danger" title="Deletar" data-toggle="tooltip" th:href="@{/users/delete/{id}(id=${user.id})}">
 							<i class="bx bxs-trash-alt"></i>
 						</a>
 					</td>

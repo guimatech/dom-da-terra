@@ -31,10 +31,10 @@
 					<td th:text="${category.name}" />
 					<td th:text="${category.description}" />
 					<td class="d-flex justify-content-around" style="cursor: pointer;">
-						<a class="edit text-warning" title="Edit" data-toggle="tooltip" th:href="@{/categories/edit/{id}(id=${category.id})}">
+						<a class="edit text-warning" title="Editar" data-toggle="tooltip" th:href="@{/categories/edit/{id}(id=${category.id})}">
 							<i class="bx bxs-pencil"></i>
 						</a>
-						<a class="delete text-danger" title="Delete" data-toggle="tooltip" th:href="@{/categories/delete/{id}(id=${category.id})}">
+						<a class="delete text-danger" title="Deletar" data-toggle="tooltip" th:href="@{/categories/delete/{id}(id=${category.id})}">
 							<i class="bx bxs-trash-alt"></i>
 						</a>
 					</td>

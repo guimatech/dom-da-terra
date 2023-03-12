@@ -33,10 +33,10 @@
 					<td th:text="${customer.collaborator.name}" />
 					<td th:text="${customer.getProjectNames()}" />
 					<td class="d-flex justify-content-around" style="cursor: pointer;">
-						<a class="edit text-warning" title="Edit" data-toggle="tooltip" th:href="@{/customers/edit/{id}(id=${customer.id})}">
+						<a class="edit text-warning" title="Editar" data-toggle="tooltip" th:href="@{/customers/edit/{id}(id=${customer.id})}">
 							<i class="bx bxs-pencil"></i>
 						</a>
-						<a class="delete text-danger" title="Delete" data-toggle="tooltip" th:href="@{/customers/delete/{id}(id=${customer.id})}">
+						<a class="delete text-danger" title="Deletar" data-toggle="tooltip" th:href="@{/customers/delete/{id}(id=${customer.id})}">
 							<i class="bx bxs-trash-alt"></i>
 						</a>
 					</td>

@@ -5,6 +5,25 @@
 
 	<body>
 		<div layout:fragment="content" style="height: auto !important">
+
+			<input type="hidden" id="internalTasksOnTime" th:value="${internalTasksOnTime}">
+			<input type="hidden" id="internalTasksOutOfTime" th:value="${internalTasksOutOfTime}">
+			<input type="hidden" id="stagnantInternalTasks" th:value="${stagnantInternalTasks}">
+
+			<input type="hidden" id="externalTasksOnTime" th:value="${externalTasksOnTime}">
+			<input type="hidden" id="externalTasksOutOfTime" th:value="${externalTasksOutOfTime}">
+			<input type="hidden" id="stagnantExternalTasks" th:value="${stagnantExternalTasks}">
+
+			<input type="hidden" id="tasksDone" th:value="${tasksDone}">
+			<input type="hidden" id="tasksInProgress" th:value="${tasksInProgress}">
+
+			<input type="hidden" id="tasksWithoutDueDate" th:value="${tasksWithoutDueDate}">
+			<input type="hidden" id="tasksWithoutPreviewDate" th:value="${tasksWithoutPreviewDate}">
+			<input type="hidden" id="tasksWithoutResponsible" th:value="${tasksWithoutResponsible}">
+			<input type="hidden" id="tasksWithoutStatus" th:value="${tasksWithoutStatus}">
+			<input type="hidden" id="tasksWithoutDescription" th:value="${tasksWithoutDescription}">
+			<input type="hidden" id="tasksWithoutNID" th:value="${tasksWithoutNID}">
+
 			<div class="row">
 				<div class="col-4 mb-2">
 					<div class="card border-0 shadow-sm rounded">

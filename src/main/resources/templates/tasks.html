@@ -37,14 +37,14 @@
 
 								<div class="btn-group ms-2" role="group" aria-label="Basic radio toggle button group">
 									<input type="radio" class="btn-check d-inline-block" name="btnradio" id="btnBoard"
-										   autocomplete="off" alt="Quadro" tabindex="0" data-toggle="tooltip" title="Quadro"
+										   autocomplete="off" alt="Quadro" tabindex="0"
 										   th:onclick="'location.href=\'' + @{/kanban} + '\';'" />
-									<label class="btn btn-outline-success" for="btnBoard"><i class='bx bxs-objects-vertical-top'></i></label>
+									<label class="btn btn-outline-success" for="btnBoard" data-toggle="tooltip" title="Quadro"><i class='bx bxs-objects-vertical-top'></i></label>
 
 									<input type="radio" class="btn-check d-inline-block" name="btnradio" id="btnTable"
-										   autocomplete="off" alt="Tabela" tabindex="0" data-toggle="tooltip" title="Tabela"
+										   autocomplete="off" alt="Tabela" tabindex="0"
 										   th:onclick="'location.href=\'' + @{/tasks} + '\';'" checked />
-									<label class="btn btn-outline-success" for="btnTable"><i class='bx bx-table'></i></label>
+									<label class="btn btn-outline-success" for="btnTable" data-toggle="tooltip" title="Tabela"><i class='bx bx-table'></i></label>
 								</div>
 							</h4>
 						</div>
@@ -106,10 +106,10 @@
 								<td th:text="${task.responsible}" />
 								<td th:text="${task.observers}" />
 								<td class="d-flex justify-content-around" style="cursor: pointer;">
-									<a class="edit text-warning" title="Edit" data-toggle="tooltip" th:href="@{/tasks/edit/{id}(id=${task.id})}">
+									<a class="edit text-warning" title="Editar" data-toggle="tooltip" th:href="@{/tasks/edit/{id}(id=${task.id})}">
 										<i class="bx bxs-pencil"></i>
 									</a>
-									<a class="delete text-danger" title="Delete" data-toggle="tooltip" th:href="@{/tasks/delete/{id}(id=${task.id})}">
+									<a class="delete text-danger" title="Deletar" data-toggle="tooltip" th:href="@{/tasks/delete/{id}(id=${task.id})}">
 										<i class="bx bxs-trash-alt"></i>
 									</a>
 								</td>
